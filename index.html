@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlueDwarf - AI-Powered Real Estate Valuations | 95% Accuracy</title>
-    <meta name="description" content="Get instant property valuations with 95% AI accuracy. Connect with verified real estate professionals. Superior to Zillow with advanced market analytics.">
+    <meta name="description" content="Get instant property valuations with 95% AI accuracy. Connect with verified real estate professionals using AI facial recognition. Superior to Zillow with advanced market analytics.">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzEzNzNkYiIvPgo8cGF0aCBkPSJNOCAxMkwxNiA2TDI0IDEyVjI0SDE4VjE4SDEwVjI0SDhWMTJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K">
+    <link rel="icon" type="image/png" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTQiIGZpbGw9IiMzYjgyZjYiLz4KPHN0YXIgY3g9IjE2IiBjeT0iMTYiIHI9IjgiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=">
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -27,6 +27,7 @@
             line-height: 1.6;
             color: #1a1a1a;
             background: #ffffff;
+            overflow-x: hidden;
         }
         
         .container {
@@ -38,7 +39,7 @@
         /* Header */
         header {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
             border-bottom: 1px solid #e5e7eb;
             position: fixed;
             top: 0;
@@ -60,13 +61,16 @@
             align-items: center;
             font-size: 1.5rem;
             font-weight: 700;
-            color: #1373db;
+            color: #1a1a1a;
             text-decoration: none;
         }
         
-        .logo i {
-            margin-right: 0.5rem;
-            font-size: 1.8rem;
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            margin-right: 0.75rem;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><defs><radialGradient id="sphere" cx="0.3" cy="0.3"><stop offset="0%" stop-color="%2387CEEB"/><stop offset="100%" stop-color="%233B82F6"/></radialGradient></defs><circle cx="200" cy="200" r="180" fill="url(%23sphere)"/><circle cx="160" cy="160" r="8" fill="%23E0F2FE" opacity="0.8"/><circle cx="220" cy="140" r="12" fill="%23E0F2FE" opacity="0.6"/><circle cx="180" cy="200" r="6" fill="%23E0F2FE" opacity="0.9"/><polygon points="320,120 340,140 320,160 300,140" fill="white"/><polygon points="140,180 150,190 140,200 130,190" fill="%23E0F2FE"/><path d="M120 320 L200 280 L280 320 L280 380 L120 380 Z" fill="%23374151"/><path d="M130 330 L190 300 L270 330 L270 370 L130 370 Z" fill="%23E5E7EB"/><rect x="160" y="340" width="20" height="20" fill="%23374151"/><rect x="220" y="340" width="20" height="20" fill="%23374151"/><rect x="190" y="320" width="20" height="15" fill="%23374151"/></svg>') center/contain no-repeat;
+            border-radius: 50%;
         }
         
         .nav-links {
@@ -81,26 +85,42 @@
             color: #4b5563;
             font-weight: 500;
             transition: color 0.3s ease;
+            position: relative;
         }
         
         .nav-links a:hover {
-            color: #1373db;
+            color: #3b82f6;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
         }
         
         .cta-button {
-            background: linear-gradient(135deg, #1373db, #0f5aa8);
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
             color: white;
             padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(19, 115, 219, 0.3);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
         }
         
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(19, 115, 219, 0.4);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
         }
         
         /* Hero Section */
@@ -112,362 +132,25 @@
             overflow: hidden;
         }
         
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #1a1a1a, #4b5563);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero .subtitle {
-            font-size: 1.25rem;
-            color: #6b7280;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .accuracy-badge {
-            display: inline-flex;
-            align-items: center;
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-        }
-        
-        .accuracy-badge i {
-            margin-right: 0.5rem;
-        }
-        
-        /* Property Search */
-        .property-search {
-            background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            border: 1px solid #e5e7eb;
-        }
-        
-        .search-form {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .search-input {
-            flex: 1;
-            padding: 1rem;
-            border: 2px solid #e5e7eb;
-            border-radius: 12px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: #f9fafb;
-        }
-        
-        .search-input:focus {
-            outline: none;
-            border-color: #1373db;
-            background: white;
-            box-shadow: 0 0 0 3px rgba(19, 115, 219, 0.1);
-        }
-        
-        .search-button {
-            background: linear-gradient(135deg, #1373db, #0f5aa8);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .search-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(19, 115, 219, 0.4);
-        }
-        
-        /* Results Section */
-        .results {
-            background: #f8fafc;
-            padding: 4rem 0;
-            display: none;
-        }
-        
-        .results.show {
-            display: block;
-        }
-        
-        .property-result {
-            background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-        
-        .property-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 2rem;
-        }
-        
-        .property-info h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .property-details {
-            color: #6b7280;
-            margin-bottom: 1rem;
-        }
-        
-        .valuation {
-            text-align: right;
-        }
-        
-        .valuation-amount {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #10b981;
-            margin-bottom: 0.5rem;
-        }
-        
-        .confidence-score {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 600;
-        }
-        
-        .property-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .stat-card {
-            background: #f8fafc;
-            padding: 1rem;
-            border-radius: 12px;
-            text-align: center;
-        }
-        
-        .stat-value {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #1373db;
-            margin-bottom: 0.25rem;
-        }
-        
-        .stat-label {
-            color: #6b7280;
-            font-size: 0.875rem;
-        }
-        
-        /* Features */
-        .features {
-            padding: 4rem 0;
-            background: white;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .feature-card {
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 16px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            background: white;
-        }
-        
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #1373db, #0f5aa8);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            color: white;
-            font-size: 1.5rem;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-        
-        .feature-card p {
-            color: #6b7280;
-            line-height: 1.6;
-        }
-        
-        /* Loading Animation */
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        .loading.show {
-            display: block;
-        }
-        
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid #e5e7eb;
-            border-top: 4px sol<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlueDwarf - AI-Powered Real Estate Valuations | 95% Accuracy</title>
-    <meta name="description" content="Get instant property valuations with 95% AI accuracy. Connect with verified real estate professionals. Superior to Zillow with advanced market analytics.">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzEzNzNkYiIvPgo8cGF0aCBkPSJNOCAxMkwxNiA2TDI0IDEyVjI0SDE4VjE4SDEwVjI0SDhWMTJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-            background: #ffffff;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e5e7eb;
-            position: fixed;
+        .hero::before {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e5e7eb" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
         }
         
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1373db;
-            text-decoration: none;
-        }
-        
-        .logo i {
-            margin-right: 0.5rem;
-            font-size: 1.8rem;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: #4b5563;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            color: #1373db;
-        }
-        
-        .cta-button {
-            background: linear-gradient(135deg, #1373db, #0f5aa8);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(19, 115, 219, 0.3);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(19, 115, 219, 0.4);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            padding: 8rem 0 4rem;
-            text-align: center;
+        .hero-content {
             position: relative;
-            overflow: hidden;
+            z-index: 2;
         }
         
         .hero h1 {
             font-size: 3.5rem;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 1.5rem;
             background: linear-gradient(135deg, #1a1a1a, #4b5563);
             -webkit-background-clip: text;
@@ -489,39 +172,65 @@
             align-items: center;
             background: linear-gradient(135deg, #10b981, #059669);
             color: white;
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.5rem;
             border-radius: 50px;
             font-weight: 600;
             margin-bottom: 2rem;
             box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            animation: pulse 2s infinite;
         }
         
         .accuracy-badge i {
             margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
         
         /* Property Search */
         .property-search {
             background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
             margin: 0 auto 3rem;
             border: 1px solid #e5e7eb;
+            position: relative;
+        }
+        
+        .property-search::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            background: linear-gradient(135deg, #3b82f6, #10b981);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .property-search:hover::before {
+            opacity: 0.1;
         }
         
         .search-form {
             display: flex;
             gap: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
         
         .search-input {
             flex: 1;
-            padding: 1rem;
+            padding: 1.25rem;
             border: 2px solid #e5e7eb;
-            border-radius: 12px;
+            border-radius: 16px;
             font-size: 1rem;
             transition: all 0.3s ease;
             background: #f9fafb;
@@ -529,28 +238,109 @@
         
         .search-input:focus {
             outline: none;
-            border-color: #1373db;
+            border-color: #3b82f6;
             background: white;
-            box-shadow: 0 0 0 3px rgba(19, 115, 219, 0.1);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
         
         .search-button {
-            background: linear-gradient(135deg, #1373db, #0f5aa8);
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
             color: white;
             border: none;
-            padding: 1rem 2rem;
-            border-radius: 12px;
+            padding: 1.25rem 2rem;
+            border-radius: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-size: 1rem;
         }
         
         .search-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(19, 115, 219, 0.4);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+        }
+        
+        .voice-search {
+            background: #f3f4f6;
+            border: 2px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 1.25rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .voice-search:hover {
+            background: #e5e7eb;
+            border-color: #3b82f6;
+        }
+        
+        .voice-search.active {
+            background: #ef4444;
+            border-color: #ef4444;
+            color: white;
+            animation: pulse 1s infinite;
+        }
+        
+        .search-features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .search-features span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            margin: 2rem auto;
+            max-width: 500px;
+        }
+        
+        .loading.show {
+            display: block;
+        }
+        
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #e5e7eb;
+            border-top: 4px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            font-size: 1.1rem;
+            color: #4b5563;
+            margin-bottom: 0.5rem;
+        }
+        
+        .loading-subtext {
+            font-size: 0.875rem;
+            color: #6b7280;
         }
         
         /* Results Section */
@@ -566,10 +356,11 @@
         
         .property-result {
             background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
+            border: 1px solid #e5e7eb;
         }
         
         .property-header {
@@ -577,17 +368,36 @@
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
         
         .property-info h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.75rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
+            color: #1a1a1a;
         }
         
         .property-details {
             color: #6b7280;
             margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .property-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .property-tag {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
         }
         
         .valuation {
@@ -595,140 +405,1100 @@
         }
         
         .valuation-amount {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 3rem;
+            font-weight: 800;
             color: #10b981;
             margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #10b981, #059669);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .confidence-score {
             background: linear-gradient(135deg, #10b981, #059669);
             color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
             font-size: 0.875rem;
             font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         
         .property-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+            gap: 1.5rem;
             margin: 2rem 0;
         }
         
         .stat-card {
-            background: #f8fafc;
-            padding: 1rem;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 1.5rem;
+            border-radius: 16px;
             text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
         }
         
         .stat-value {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #1373db;
-            margin-bottom: 0.25rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
         }
         
         .stat-label {
             color: #6b7280;
             font-size: 0.875rem;
+            font-weight: 500;
         }
         
-        /* Features */
-        .features {
-            padding: 4rem 0;
+        .stat-icon {
+            font-size: 1.5rem;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* AI Analysis Section */
+        .ai-analysis {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+        }
+        
+        .ai-analysis h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .ai-insights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .insight-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .insight-item h5 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .insight-item p {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+        
+        /* Agent Connection */
+        .agent-connection {
             background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .agent-connection h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+        
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .agent-card {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .agent-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .agent-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .agent-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .agent-rating {
+            color: #f59e0b;
+            margin-bottom: 0.5rem;
+        }
+        
+        .agent-contact {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .agent-contact:hover {
+            background: #1d4ed8;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
         
         .feature-card {
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 16px;
+            background: linear-gradient(135deg, #f8fafc, #ffffff);
+            padding: 2.5rem;
+            border-radius: 20px;
             text-align: center;
             transition: all 0.3s ease;
             border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #3b82f6, #10b981);
         }
         
         .feature-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            background: white;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
         
         .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #1373db, #0f5aa8);
-            border-radius: 16px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
+            margin: 0 auto 1.5rem;
             color: white;
-            font-size: 1.5rem;
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        .feature-icon::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #3b82f6, #10b981);
+            border-radius: 22px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon::after {
+            opacity: 1;
         }
         
         .feature-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
+            font-size: 1.5rem;
+            font-weight: 700;
             margin-bottom: 1rem;
             color: #1a1a1a;
         }
         
         .feature-card p {
             color: #6b7280;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 1rem;
         }
         
-        /* Loading Animation */
-        .loading {
-            display: none;
+        /* Subscription Plans */
+        .subscription-plans {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 6rem 0;
+        }
+        
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .plan-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
             text-align: center;
-            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 2px solid #e5e7eb;
+            position: relative;
         }
         
-        .loading.show {
-            display: block;
+        .plan-card.featured {
+            border-color: #3b82f6;
+            transform: scale(1.05);
         }
         
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid #e5e7eb;
-            border-top: 4px sol<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlueDwarf - AI-Powered Real Estate Valuations | 95% Accuracy</title>
-    <meta name="description" content="Get instant property valuations with 95% AI accuracy. Connect with verified real estate professionals. Superior to Zillow with advanced market analytics.">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzEzNzNkYiIvPgo8cGF0aCBkPSJNOCAxMkwxNiA2TDI0IDEyVjI0SDE4VjE4SDEwVjI0SDhWMTJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        .plan-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #3b82f6;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
         }
         
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            c
+        .plan-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .plan-card.featured:hover {
+            transform: translateY(-8px) scale(1.05);
+        }
+        
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+        
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .plan-period {
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+        
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .plan-features li {
+            padding: 0.5rem 0;
+            color: #4b5563;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .plan-features li i {
+            color: #10b981;
+        }
+        
+        .plan-button {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1rem;
+        }
+        
+        .plan-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .search-form {
+                flex-direction: column;
+            }
+            
+            .property-header {
+                flex-direction: column;
+                text-align: left;
+            }
+            
+            .valuation {
+                text-align: left;
+            }
+            
+            .valuation-amount {
+                font-size: 2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .plan-card.featured {
+                transform: none;
+            }
+            
+            .plan-card.featured:hover {
+                transform: translateY(-8px);
+            }
+        }
+        
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #0f172a;
+                color: #e2e8f0;
+            }
+            
+            header {
+                background: rgba(15, 23, 42, 0.95);
+                border-bottom-color: #334155;
+            }
+            
+            .hero {
+                background: linear-gradient(135deg, #1e293b, #334155);
+            }
+            
+            .property-search {
+                background: #1e293b;
+                border-color: #334155;
+            }
+            
+            .search-input {
+                background: #334155;
+                border-color: #475569;
+                color: #e2e8f0;
+            }
+            
+            .search-input:focus {
+                background: #475569;
+            }
+        }
+        
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            .feature-card,
+            .property-result,
+            .property-search {
+                border: 2px solid #000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">
+                <div class="logo-image"></div>
+                BLUEDWARF
+            </a>
+            <ul class="nav-links">
+                <li><a href="#valuations">Valuations</a></li>
+                <li><a href="#agents">Agents</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#" class="cta-button">Join as Agent</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="accuracy-badge">
+                    <i class="fas fa-check-circle"></i>
+                    95% AI Accuracy - Superior to Zillow's 67%
+                </div>
+                <h1>AI-Powered Real Estate Revolution</h1>
+                <p class="subtitle">Get instant, accurate property valuations with our advanced AI technology. Connect with verified real estate professionals using AI facial recognition and make informed decisions with confidence.</p>
+                
+                <!-- Property Search -->
+                <div class="property-search">
+                    <div class="search-form">
+                        <input type="text" class="search-input" placeholder="Enter property address (e.g., 123 Main St, Austin, TX 78701)" id="addressInput">
+                        <button class="search-button" onclick="searchProperty()">
+                            <i class="fas fa-search"></i>
+                            Get Instant Value
+                        </button>
+                        <button class="voice-search" onclick="toggleVoiceSearch()" id="voiceButton">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                    </div>
+                    <div class="search-features">
+                        <span><i class="fas fa-shield-alt"></i> No Personal Info Required</span>
+                        <span><i class="fas fa-bolt"></i> Instant Results</span>
+                        <span><i class="fas fa-brain"></i> AI-Powered</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Section -->
+    <section class="loading" id="loadingSection">
+        <div class="container">
+            <div class="spinner"></div>
+            <div class="loading-text">Analyzing property with 95% AI accuracy...</div>
+            <div class="loading-subtext">Processing market data, comparable sales, and neighborhood insights</div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results" id="resultsSection">
+        <div class="container">
+            <div class="property-result">
+                <div class="property-header">
+                    <div class="property-info">
+                        <h3 id="propertyAddress">123 Main Street, Austin, TX 78701</h3>
+                        <div class="property-details" id="propertyDetails">
+                            3 bed • 2.5 bath • 2,100 sq ft • Built 2015
+                        </div>
+                        <div class="property-tags">
+                            <span class="property-tag">Single Family</span>
+                            <span class="property-tag">Recently Updated</span>
+                            <span class="property-tag">Prime Location</span>
+                        </div>
+                    </div>
+                    <div class="valuation">
+                        <div class="valuation-amount" id="valuationAmount">$485,000</div>
+                        <div class="confidence-score">
+                            <i class="fas fa-check-circle"></i>
+                            95% Confidence
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="stat-value" id="pricePerSqFt">$231</div>
+                        <div class="stat-label">Price per sq ft</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-home"></i></div>
+                        <div class="stat-value" id="estimatedRent">$3,200</div>
+                        <div class="stat-label">Estimated rent</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="stat-value" id="marketTrend">+5.2%</div>
+                        <div class="stat-label">Market trend</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-calendar"></i></div>
+                        <div class="stat-value" id="daysOnMarket">28</div>
+                        <div class="stat-label">Avg days on market</div>
+                    </div>
+                </div>
+                
+                <!-- AI Analysis -->
+                <div class="ai-analysis">
+                    <h4><i class="fas fa-brain"></i> AI Market Analysis</h4>
+                    <div class="ai-insights">
+                        <div class="insight-item">
+                            <h5>Market Position</h5>
+                            <p>Property is priced 3% above neighborhood average, indicating strong value proposition in desirable area.</p>
+                        </div>
+                        <div class="insight-item">
+                            <h5>Investment Potential</h5>
+                            <p>Strong rental yield of 7.9% with projected 4-6% annual appreciation based on local market trends.</p>
+                        </div>
+                        <div class="insight-item">
+                            <h5>Risk Assessment</h5>
+                            <p>Low risk investment with stable neighborhood demographics and strong school district ratings.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Agent Connection -->
+                <div class="agent-connection">
+                    <h4><i class="fas fa-user-tie"></i> Connect with Verified Agents</h4>
+                    <div class="agents-grid">
+                        <div class="agent-card">
+                            <div class="agent-avatar">SM</div>
+                            <div class="agent-name">Sarah Martinez</div>
+                            <div class="agent-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                4.9
+                            </div>
+                            <button class="agent-contact">Contact Agent</button>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-avatar">DJ</div>
+                            <div class="agent-name">David Johnson</div>
+                            <div class="agent-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                4.8
+                            </div>
+                            <button class="agent-contact">Contact Agent</button>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-avatar">LW</div>
+                            <div class="agent-name">Lisa Wang</div>
+                            <div class="agent-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                4.9
+                            </div>
+                            <button class="agent-contact">Contact Agent</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Revolutionary Real Estate Technology</h2>
+                <p>Experience the future of real estate with our cutting-edge AI technology, verified professional network, and advanced market analytics.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>95% AI Accuracy</h3>
+                    <p>Our advanced machine learning algorithms analyze millions of data points to provide superior accuracy compared to traditional valuation methods, giving you confidence in every estimate.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>AI Facial Recognition</h3>
+                    <p>Revolutionary agent verification using AI facial recognition technology. Multi-layer identity verification ensures you connect only with licensed, verified real estate professionals.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Instant Results</h3>
+                    <p>Get property valuations in seconds without providing personal information. Our AI processes market data in real-time for immediate insights and comprehensive analysis.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Advanced Market Analytics</h3>
+                    <p>Access comprehensive market trends, comparable sales, neighborhood insights, and investment potential analysis to make informed real estate decisions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Voice Search & Mobile</h3>
+                    <p>Use BlueDwarf anywhere with voice search capabilities and responsive design that works perfectly on all devices, from desktop to mobile with touch support.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Professional Network</h3>
+                    <p>Connect with our verified network of real estate professionals. Intelligent lead distribution ensures you're matched with the right agent for your specific needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscription Plans -->
+    <section class="subscription-plans" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Professional Subscription Plans</h2>
+                <p>Choose the perfect plan for your real estate business with advanced features and lead generation capabilities.</p>
+            </div>
+            
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <div class="plan-name">Starter</div>
+                    <div class="plan-price">$99</div>
+                    <div class="plan-period">per month</div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Up to 50 property valuations</li>
+                        <li><i class="fas fa-check"></i> Basic market analytics</li>
+                        <li><i class="fas fa-check"></i> Lead notifications</li>
+                        <li><i class="fas fa-check"></i> Mobile app access</li>
+                        <li><i class="fas fa-check"></i> Email support</li>
+                    </ul>
+                    <button class="plan-button">Get Started</button>
+                </div>
+                
+                <div class="plan-card featured">
+                    <div class="plan-name">Professional</div>
+                    <div class="plan-price">$199</div>
+                    <div class="plan-period">per month</div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Unlimited property valuations</li>
+                        <li><i class="fas fa-check"></i> Advanced AI analytics</li>
+                        <li><i class="fas fa-check"></i> Priority lead distribution</li>
+                        <li><i class="fas fa-check"></i> Facial recognition verification</li>
+                        <li><i class="fas fa-check"></i> Performance dashboard</li>
+                        <li><i class="fas fa-check"></i> Phone & email support</li>
+                    </ul>
+                    <button class="plan-button">Most Popular</button>
+                </div>
+                
+                <div class="plan-card">
+                    <div class="plan-name">Enterprise</div>
+                    <div class="plan-price">$399</div>
+                    <div class="plan-period">per month</div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Everything in Professional</li>
+                        <li><i class="fas fa-check"></i> White-label solutions</li>
+                        <li><i class="fas fa-check"></i> API access</li>
+                        <li><i class="fas fa-check"></i> Custom integrations</li>
+                        <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                        <li><i class="fas fa-check"></i> 24/7 priority support</li>
+                    </ul>
+                    <button class="plan-button">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BLUEDWARF</h4>
+                    <p>Revolutionizing real estate with AI-powered valuations and verified professional networks.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="#">Property Valuations</a></li>
+                        <li><a href="#">Agent Network</a></li>
+                        <li><a href="#">Market Analytics</a></li>
+                        <li><a href="#">Mobile App</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BLUEDWARF. All rights reserved. Powered by advanced AI technology.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Voice Search Functionality
+        let isListening = false;
+        let recognition;
+
+        if ('webkitSpeechRecognition' in window) {
+            recognition = new webkitSpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+
+            recognition.onstart = function() {
+                isListening = true;
+                document.getElementById('voiceButton').classList.add('active');
+            };
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                document.getElementById('addressInput').value = transcript;
+                isListening = false;
+                document.getElementById('voiceButton').classList.remove('active');
+            };
+
+            recognition.onerror = function(event) {
+                isListening = false;
+                document.getElementById('voiceButton').classList.remove('active');
+                console.error('Speech recognition error:', event.error);
+            };
+
+            recognition.onend = function() {
+                isListening = false;
+                document.getElementById('voiceButton').classList.remove('active');
+            };
+        }
+
+        function toggleVoiceSearch() {
+            if (!recognition) {
+                alert('Voice search is not supported in your browser. Please use Chrome or Safari.');
+                return;
+            }
+
+            if (isListening) {
+                recognition.stop();
+            } else {
+                recognition.start();
+            }
+        }
+
+        // Property Search Functionality
+        function searchProperty() {
+            const address = document.getElementById('addressInput').value;
+            if (!address.trim()) {
+                alert('Please enter a property address or use voice search');
+                return;
+            }
+            
+            // Show loading
+            document.getElementById('loadingSection').classList.add('show');
+            document.getElementById('resultsSection').classList.remove('show');
+            
+            // Simulate AI processing with realistic timing
+            setTimeout(() => {
+                // Hide loading
+                document.getElementById('loadingSection').classList.remove('show');
+                
+                // Generate realistic valuation based on address
+                const valuation = generateValuation(address);
+                
+                // Update results with enhanced data
+                document.getElementById('propertyAddress').textContent = address;
+                document.getElementById('propertyDetails').textContent = valuation.details;
+                document.getElementById('valuationAmount').textContent = valuation.price;
+                document.getElementById('pricePerSqFt').textContent = valuation.pricePerSqFt;
+                document.getElementById('estimatedRent').textContent = valuation.rent;
+                document.getElementById('marketTrend').textContent = valuation.trend;
+                document.getElementById('daysOnMarket').textContent = valuation.daysOnMarket;
+                
+                // Show results
+                document.getElementById('resultsSection').classList.add('show');
+                
+                // Scroll to results smoothly
+                document.getElementById('resultsSection').scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 3500); // Realistic AI processing time
+        }
+        
+        function generateValuation(address) {
+            // Enhanced AI-powered valuation simulation
+            const basePrice = 250000 + Math.floor(Math.random() * 500000);
+            const sqft = 1200 + Math.floor(Math.random() * 2000);
+            const beds = 2 + Math.floor(Math.random() * 4);
+            const baths = 1 + Math.floor(Math.random() * 3) + (Math.random() > 0.5 ? 0.5 : 0);
+            const year = 1980 + Math.floor(Math.random() * 40);
+            
+            // More realistic pricing based on location hints
+            let locationMultiplier = 1;
+            const addressLower = address.toLowerCase();
+            
+            if (addressLower.includes('austin') || addressLower.includes('tx')) locationMultiplier = 1.2;
+            if (addressLower.includes('california') || addressLower.includes('ca')) locationMultiplier = 1.8;
+            if (addressLower.includes('new york') || addressLower.includes('ny')) locationMultiplier = 2.1;
+            if (addressLower.includes('florida') || addressLower.includes('fl')) locationMultiplier = 1.1;
+            
+            const finalPrice = Math.floor(basePrice * locationMultiplier);
+            
+            return {
+                price: '$' + finalPrice.toLocaleString(),
+                details: `${beds} bed • ${baths} bath • ${sqft.toLocaleString()} sq ft • Built ${year}`,
+                pricePerSqFt: '$' + Math.floor(finalPrice / sqft),
+                rent: '$' + Math.floor(finalPrice * 0.006 + Math.random() * finalPrice * 0.004).toLocaleString(),
+                trend: (Math.random() > 0.3 ? '+' : '-') + (Math.random() * 8 + 1).toFixed(1) + '%',
+                daysOnMarket: Math.floor(Math.random() * 45) + 15
+            };
+        }
+        
+        // Enhanced keyboard support
+        document.getElementById('addressInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchProperty();
+            }
+        });
+        
+        // Sample addresses for better UX
+        const sampleAddresses = [
+            '123 Main Street, Austin, TX 78701',
+            '456 Oak Avenue, Dallas, TX 75201',
+            '789 Pine Road, Houston, TX 77001',
+            '321 Elm Street, San Antonio, TX 78201',
+            '555 Sunset Blvd, Los Angeles, CA 90028',
+            '777 Broadway, New York, NY 10003'
+        ];
+        
+        // Enhanced auto-suggest functionality
+        document.getElementById('addressInput').addEventListener('focus', function() {
+            if (!this.value) {
+                this.placeholder = sampleAddresses[Math.floor(Math.random() * sampleAddresses.length)];
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+        
+        // Agent contact functionality
+        document.querySelectorAll('.agent-contact').forEach(button => {
+            button.addEventListener('click', function() {
+                const agentName = this.parentElement.querySelector('.agent-name').textContent;
+                alert(`Connecting you with ${agentName}. In a real application, this would open a contact form or initiate a call.`);
+            });
+        });
+        
+        // Plan selection functionality
+        document.querySelectorAll('.plan-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const planName = this.parentElement.querySelector('.plan-name').textContent;
+                if (planName === 'Enterprise') {
+                    alert('Thank you for your interest in our Enterprise plan. Our sales team will contact you shortly.');
+                } else {
+                    alert(`Redirecting to checkout for ${planName} plan. In a real application, this would integrate with Stripe payments.`);
+                }
+            });
+        });
+        
+        // Accessibility improvements
+        document.addEventListener('keydown', function(e) {
+            // ESC key to close any active elements
+            if (e.key === 'Escape') {
+                if (isListening) {
+                    recognition.stop();
+                }
+            }
+        });
+        
+        // Performance optimization - lazy load images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        
+        // Analytics tracking (placeholder)
+        function trackEvent(eventName, properties) {
+            console.log('Analytics Event:', eventName, properties);
+            // In a real application, this would send data to analytics service
+        }
+        
+        // Track property searches
+        const originalSearchProperty = searchProperty;
+        searchProperty = function() {
+            const address = document.getElementById('addressInput').value;
+            trackEvent('property_search', { address: address });
+            originalSearchProperty();
+        };
+        
+        // Initialize application
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('BLUEDWARF Enhanced Platform Loaded');
+            trackEvent('page_load', { page: 'home' });
+        });
+    </script>
+</body>
+</html>
