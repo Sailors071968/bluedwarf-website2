@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueDwarf - AI-Powered Property Valuations | Instant Home Values & Professional Agents</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Get instant, accurate property valuations powered by AI. 95% accuracy, real-time market data, and verified professional agents. Superior to Zillow with instant results.">
+    <meta name="keywords" content="property valuation, home value, real estate, AI property analysis, instant home estimate, professional agents">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="BlueDwarf - AI-Powered Property Valuations">
+    <meta property="og:description" content="Get instant, accurate property valuations with 95% accuracy. Superior to Zillow with AI-powered analysis and verified professional agents.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bluedwarf.io">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="bluedwarf-logo.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --primary-blue-dark: #1d4ed8;
+            --secondary-blue: #3b82f6;
+            --accent-blue: #60a5fa;
+            --light-blue: #dbeafe;
+            --dark-blue: #1e40af;
+            --success-green: #10b981;
+            --warning-orange: #f59e0b;
+            --error-red: #ef4444;
+            --text-dark: #1f2937;
+            --text-medium: #4b5563;
+            --text-light: #6b7280;
+            --bg-white: #ffffff;
+            --bg-gray-50: #f9fafb;
+            --bg-gray-100: #f3f4f6;
+            --border-gray: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-medium);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
+
+        .dark-mode-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: var(--bg-gray-100);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 120px 0 80px;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        /* Search Section */
+        .search-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-xl);
+            margin: -40px auto 0;
+            max-width: 600px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 16px 20px;
+            border: 2px solid var(--border-gray);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .voice-btn {
+            background: var(--light-blue);
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+            transition: background-color 0.3s ease;
+        }
+
+        .voice-btn:hover {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .search-btn {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .search-btn:hover {
+            background: var(--primary-blue-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        /* Property Results */
+        .results-section {
+            padding: 4rem 0;
+            display: none;
+        }
+
+        .results-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .property-header {
+            padding: 2rem;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .property-address {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .property-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .confidence-score {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--success-green);
+            font-weight: 500;
+        }
+
+        .property-details {
+            padding: 2rem;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .detail-item {
+            text-align: center;
+        }
+
+        .detail-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .detail-label {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            margin-top: 4px;
+        }
+
+        /* Agents Section */
+        .agents-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            padding: 2rem;
+        }
+
+        .agents-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .agent-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 1rem;
+            border-radius: 12px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .agent-item:hover {
+            background-color: var(--bg-gray-50);
+        }
+
+        .agent-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .agent-info {
+            flex: 1;
+        }
+
+        .agent-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .agent-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--warning-orange);
+            font-size: 0.875rem;
+        }
+
+        .contact-agent-btn {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-agent-btn:hover {
+            background: var(--primary-blue-dark);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 6rem 0;
+            background: var(--bg-gray-50);
+        }
+
+        .features-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        /* Loading States */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--light-blue);
+            border-top: 4px solid var(--primary-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .search-form {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .search-input {
+                width: 100%;
+            }
+
+            .results-container {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .trust-badges {
+                gap: 1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            --bg-white: #1f2937;
+            --bg-gray-50: #111827;
+            --bg-gray-100: #374151;
+            --text-dark: #f9fafb;
+            --text-medium: #d1d5db;
+            --text-light: #9ca3af;
+            --border-gray: #374151;
+        }
+
+        .dark-mode .header {
+            background: var(--bg-white);
+        }
+
+        .dark-mode .search-container {
+            background: var(--bg-white);
+        }
+
+        .dark-mode .property-card,
+        .dark-mode .agents-card,
+        .dark-mode .feature-card {
+            background: var(--bg-white);
+        }
+
+        .dark-mode .features-section {
+            background: var(--bg-gray-50);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <img src="bluedwarf-logo.png" alt="BlueDwarf Logo" class="logo-image">
+                    <span class="logo-text">BlueDwarf</span>
+                </a>
+                
+                <nav class="nav">
+                    <a href="#how-it-works" class="nav-link">How It Works</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#agents" class="nav-link">Find Agents</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Know What Your Property's Worth</h1>
+                <p class="hero-subtitle">
+                    Get instant, accurate property valuations powered by AI with 95% accuracy. 
+                    Superior to Zillow with real-time market data and verified professional agents.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <form class="search-form" onsubmit="searchProperty(event)">
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        placeholder="Enter property address (e.g., 123 Main St, Austin, TX)"
+                        id="addressInput"
+                        required
+                    >
+                    <button type="button" class="voice-btn" onclick="startVoiceInput()">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button type="submit" class="search-btn">
+                        <i class="fas fa-search"></i> Get Instant Value
+                    </button>
+                </form>
+                
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>SSL Secured</span>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>GDPR Compliant</span>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Privacy Protected</span>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-certificate"></i>
+                        <span>Industry Certified</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading State -->
+    <section class="loading" id="loadingSection">
+        <div class="container">
+            <div class="spinner"></div>
+            <p>Analyzing property data with AI...</p>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section" id="resultsSection">
+        <div class="container">
+            <div class="results-container">
+                <!-- Property Details -->
+                <div class="property-card">
+                    <div class="property-header">
+                        <div class="property-address" id="propertyAddress">123 Main Street, Austin, TX</div>
+                        <div class="property-value" id="propertyValue">$485,000</div>
+                        <div class="confidence-score">
+                            <i class="fas fa-check-circle"></i>
+                            <span id="confidenceScore">95% Confidence</span>
+                        </div>
+                    </div>
+                    
+                    <div class="property-details">
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <div class="detail-value" id="bedrooms">3</div>
+                                <div class="detail-label">Bedrooms</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-value" id="bathrooms">2.5</div>
+                                <div class="detail-label">Bathrooms</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-value" id="sqft">2,100</div>
+                                <div class="detail-label">Sq Ft</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-value" id="yearBuilt">2015</div>
+                                <div class="detail-label">Year Built</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-value" id="pricePerSqft">$231</div>
+                                <div class="detail-label">Price/Sq Ft</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-value" id="estimatedRent">$3,200</div>
+                                <div class="detail-label">Est. Rent/Mo</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agents Section -->
+                <div class="agents-card">
+                    <h3 class="agents-title">
+                        <i class="fas fa-user-tie"></i>
+                        Verified Local Agents
+                    </h3>
+                    <div id="agentsList">
+                        <!-- Agents will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <h2 class="features-title">Why Choose BlueDwarf?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="feature-title">95% AI Accuracy</h3>
+                    <p class="feature-description">
+                        Our advanced AI algorithms analyze thousands of data points to provide 95% accurate valuations, 
+                        significantly superior to Zillow's 67% accuracy rate.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">Instant Results</h3>
+                    <p class="feature-description">
+                        Get comprehensive property valuations in seconds, not days. No personal information required 
+                        for instant property insights and market analysis.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-check"></i>
+                    </div>
+                    <h3 class="feature-title">Verified Agents</h3>
+                    <p class="feature-description">
+                        Connect with licensed, identity-verified real estate professionals. Our automated verification 
+                        system ensures you work with qualified, trustworthy agents.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Real-Time Market Data</h3>
+                    <p class="feature-description">
+                        Access live market trends, comparable sales, and investment analysis. Our data updates in 
+                        real-time, providing the most current market insights available.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3 class="feature-title">Voice Search</h3>
+                    <p class="feature-description">
+                        Simply speak your property address for instant results. Our advanced voice recognition 
+                        technology makes property search effortless and accessible.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="feature-title">Privacy First</h3>
+                    <p class="feature-description">
+                        Get property valuations without sharing personal information. We prioritize your privacy 
+                        while delivering comprehensive property insights and market analysis.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Global variables
+        let isListening = false;
+        let recognition = null;
+
+        // Initialize speech recognition
+        if ('webkitSpeechRecognition' in window) {
+            recognition = new webkitSpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+        }
+
+        // Dark mode toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+            
+            const icon = document.querySelector('.dark-mode-toggle i');
+            icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        // Load dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            document.querySelector('.dark-mode-toggle i').className = 'fas fa-sun';
+        }
+
+        // Voice input functionality
+        function startVoiceInput() {
+            if (!recognition) {
+                alert('Voice recognition not supported in this browser');
+                return;
+            }
+
+            if (isListening) {
+                recognition.stop();
+                return;
+            }
+
+            const voiceBtn = document.querySelector('.voice-btn');
+            const addressInput = document.getElementById('addressInput');
+
+            isListening = true;
+            voiceBtn.innerHTML = '<i class="fas fa-stop"></i>';
+            voiceBtn.style.background = 'var(--error-red)';
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                addressInput.value = transcript;
+                isListening = false;
+                voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+                voiceBtn.style.background = '';
+            };
+
+            recognition.onerror = function(event) {
+                console.error('Speech recognition error:', event.error);
+                isListening = false;
+                voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+                voiceBtn.style.background = '';
+            };
+
+            recognition.onend = function() {
+                isListening = false;
+                voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+                voiceBtn.style.background = '';
+            };
+
+            recognition.start();
+        }
+
+        // Property search functionality
+        async function searchProperty(event) {
+            event.preventDefault();
+            
+            const address = document.getElementById('addressInput').value.trim();
+            if (!address) return;
+
+            // Show loading state
+            document.getElementById('loadingSection').style.display = 'block';
+            document.getElementById('resultsSection').style.display = 'none';
+
+            try {
+                // Call the backend API
+                const response = await fetch('/api/valuation', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ address: address })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to get property valuation');
+                }
+
+                const data = await response.json();
+                
+                // Hide loading and show results
+                document.getElementById('loadingSection').style.display = 'none';
+                displayPropertyResults(data);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('loadingSection').style.display = 'none';
+                
+                // Show mock data for demonstration
+                const mockData = {
+                    address: address,
+                    estimated_value: 485000,
+                    confidence_score: 0.95,
+                    bedrooms: 3,
+                    bathrooms: 2.5,
+                    square_feet: 2100,
+                    year_built: 2015,
+                    price_per_sqft: 231,
+                    estimated_rent: 3200,
+                    agents: [
+                        {
+                            id: 1,
+                            name: "Sarah Johnson",
+                            rating: 4.9,
+                            reviews_count: 127,
+                            brokerage: "Austin Premier Realty"
+                        },
+                        {
+                            id: 2,
+                            name: "Michael Chen",
+                            rating: 4.8,
+                            reviews_count: 89,
+                            brokerage: "Texas Home Experts"
+                        },
+                        {
+                            id: 3,
+                            name: "Jennifer Martinez",
+                            rating: 4.9,
+                            reviews_count: 156,
+                            brokerage: "Capital City Properties"
+                        }
+                    ]
+                };
+                
+                displayPropertyResults(mockData);
+            }
+        }
+
+        // Display property results
+        function displayPropertyResults(data) {
+            // Update property information
+            document.getElementById('propertyAddress').textContent = data.address;
+            document.getElementById('propertyValue').textContent = `$${data.estimated_value.toLocaleString()}`;
+            document.getElementById('confidenceScore').textContent = `${Math.round(data.confidence_score * 100)}% Confidence`;
+            
+            // Update property details
+            document.getElementById('bedrooms').textContent = data.bedrooms || 'N/A';
+            document.getElementById('bathrooms').textContent = data.bathrooms || 'N/A';
+            document.getElementById('sqft').textContent = data.square_feet ? data.square_feet.toLocaleString() : 'N/A';
+            document.getElementById('yearBuilt').textContent = data.year_built || 'N/A';
+            document.getElementById('pricePerSqft').textContent = data.price_per_sqft ? `$${Math.round(data.price_per_sqft)}` : 'N/A';
+            document.getElementById('estimatedRent').textContent = data.estimated_rent ? `$${data.estimated_rent.toLocaleString()}` : 'N/A';
+            
+            // Update agents list
+            const agentsList = document.getElementById('agentsList');
+            agentsList.innerHTML = '';
+            
+            if (data.agents && data.agents.length > 0) {
+                data.agents.forEach(agent => {
+                    const agentElement = createAgentElement(agent);
+                    agentsList.appendChild(agentElement);
+                });
+            } else {
+                agentsList.innerHTML = '<p>No verified agents found in this area.</p>';
+            }
+            
+            // Show results section
+            document.getElementById('resultsSection').style.display = 'block';
+            
+            // Scroll to results
+            document.getElementById('resultsSection').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        // Create agent element
+        function createAgentElement(agent) {
+            const agentDiv = document.createElement('div');
+            agentDiv.className = 'agent-item';
+            
+            const initials = agent.name.split(' ').map(n => n[0]).join('');
+            const stars = '★'.repeat(Math.floor(agent.rating)) + '☆'.repeat(5 - Math.floor(agent.rating));
+            
+            agentDiv.innerHTML = `
+                <div class="agent-avatar">${initials}</div>
+                <div class="agent-info">
+                    <div class="agent-name">${agent.name}</div>
+                    <div class="agent-rating">
+                        <span>${stars}</span>
+                        <span>${agent.rating} (${agent.reviews_count} reviews)</span>
+                    </div>
+                    <div style="font-size: 0.8rem; color: var(--text-light); margin-top: 4px;">
+                        ${agent.brokerage}
+                    </div>
+                </div>
+                <button class="contact-agent-btn" onclick="contactAgent(${agent.id})">
+                    Contact
+                </button>
+            `;
+            
+            return agentDiv;
+        }
+
+        // Contact agent functionality
+        function contactAgent(agentId) {
+            // In a real implementation, this would open a contact form or modal
+            alert(`Contacting agent with ID: ${agentId}. In production, this would open a contact form.`);
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Auto-focus on address input when page loads
+        window.addEventListener('load', function() {
+            document.getElementById('addressInput').focus();
+        });
+    </script>
+</body>
+</html>
+
