@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlueDwarf - Transform Your Real Estate Business</title>
-    <meta name="description" content="Join BlueDwarf and increase your revenue by 40%. Get qualified leads, eliminate cold calling, and build a predictable income stream.">
+    <title>Professional Subscriptions - BlueDwarf.io</title>
+    <meta name="description" content="Join BlueDwarf.io as a real estate professional. Get qualified leads and grow your business with our AI-powered property valuation platform.">
+    <meta name="keywords" content="real estate professionals, property valuation, lead generation, real estate agents, mortgage lenders, title companies, real estate attorneys">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTQiIGZpbGw9IiMzYjgyZjYiLz4KPHN0YXIgY3g9IjE2IiBjeT0iMTYiIHI9IjgiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Professional Subscriptions - BlueDwarf.io">
+    <meta property="og:description" content="Join BlueDwarf.io as a real estate professional. Get qualified leads and grow your business with our AI-powered property valuation platform.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bluedwarf.io/pros.html">
+    <meta property="og:image" content="https://bluedwarf.io/images/professionals-og.jpg">
     
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Professional Subscriptions - BlueDwarf.io">
+    <meta name="twitter:description" content="Join BlueDwarf.io as a real estate professional. Get qualified leads and grow your business.">
+    <meta name="twitter:image" content="https://bluedwarf.io/images/professionals-twitter.jpg">
     
     <style>
         * {
@@ -23,1999 +28,757 @@
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #1a1a1a;
-            background: #ffffff;
-            overflow-x: hidden;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
         
-        /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid #e5e7eb;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            text-decoration: none;
-        }
-        
-        .logo-image {
-            width: 50px;
-            height: 50px;
-            margin-right: 0.75rem;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><defs><radialGradient id="sphere" cx="0.3" cy="0.3"><stop offset="0%" stop-color="%2387CEEB"/><stop offset="100%" stop-color="%233B82F6"/></radialGradient></defs><circle cx="200" cy="200" r="180" fill="url(%23sphere)"/><circle cx="160" cy="160" r="8" fill="%23E0F2FE" opacity="0.8"/><circle cx="220" cy="140" r="12" fill="%23E0F2FE" opacity="0.6"/><circle cx="180" cy="200" r="6" fill="%23E0F2FE" opacity="0.9"/><polygon points="320,120 340,140 320,160 300,140" fill="white"/><polygon points="140,180 150,190 140,200 130,190" fill="%23E0F2FE"/><path d="M120 320 L200 280 L280 320 L280 380 L120 380 Z" fill="%23374151"/><path d="M130 330 L190 300 L270 330 L270 370 L130 370 Z" fill="%23E5E7EB"/><rect x="160" y="340" width="20" height="20" fill="%23374151"/><rect x="220" y="340" width="20" height="20" fill="%23374151"/><rect x="190" y="320" width="20" height="15" fill="%23374151"/></svg>') center/contain no-repeat;
-            border-radius: 50%;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: #4b5563;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            color: #3b82f6;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-            padding: 8rem 0 4rem;
+        .header {
             text-align: center;
             color: white;
-            position: relative;
-            overflow: hidden;
+            padding: 40px 0;
         }
         
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23475569" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
-        .hero-content {
-            position: relative;
-            z-index: 2;
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
         }
         
-        .hero-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #10b981, #059669);
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            font-size: 0.9rem;
+        .pricing-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
         
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #ffffff, #e2e8f0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .section-title {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 20px;
         }
         
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: #cbd5e1;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            line-height: 1.7;
+        .section-subtitle {
+            text-align: center;
+            color: #6c757d;
+            font-size: 1.2em;
+            margin-bottom: 40px;
         }
         
-        .value-props {
+        .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-            max-width: 900px;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .pricing-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 3px solid transparent;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .pricing-card.featured {
+            border-color: #28a745;
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .pricing-card.featured::before {
+            content: "MOST POPULAR";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #28a745;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+        }
+        
+        .plan-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .plan-price {
+            font-size: 3em;
+            font-weight: bold;
+            color: #27ae60;
+            margin-bottom: 5px;
+        }
+        
+        .plan-period {
+            color: #6c757d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .plan-features {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .plan-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid #e9ecef;
+            color: #495057;
+            font-size: 1em;
+        }
+        
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .plan-features li::before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.2em;
+        }
+        
+        .subscribe-btn {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .subscribe-btn:hover {
+            background: linear-gradient(135deg, #20c997, #28a745);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
+        }
+        
+        .subscribe-btn:active {
+            transform: translateY(0);
+        }
+        
+        .benefits-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .benefit-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .benefit-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .benefit-description {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+        
+        .stats-section {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .stat-item {
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .testimonials-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .testimonial-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #495057;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .testimonial-role {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        
+        .cta-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .cta-title {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .cta-description {
+            font-size: 1.2em;
+            color: #6c757d;
+            margin-bottom: 30px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
         
-        .value-prop {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .value-icon {
-            font-size: 2rem;
-            min-width: 60px;
-        }
-        
-        .value-prop h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        
-        .value-prop p {
-            font-size: 0.9rem;
-            color: #cbd5e1;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 3rem;
-        }
-        
-        .cta-primary {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        .cta-btn {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
             color: white;
-            padding: 1.25rem 2.5rem;
-            border-radius: 16px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-        }
-        
-        .cta-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
-        }
-        
-        .cta-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 1.25rem 2.5rem;
-            border-radius: 16px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            font-size: 1.1rem;
-        }
-        
-        .cta-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-        
-        /* Pain Points Section */
-        .pain-points {
-            padding: 6rem 0;
-            background: #f8fafc;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-        
-        .section-header p {
-            font-size: 1.1rem;
-            color: #6b7280;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .problems-solutions {
-            display: grid;
-            gap: 3rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .problem-solution {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 2rem;
-            align-items: center;
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-        
-        .problem, .solution {
-            text-align: center;
-        }
-        
-        .problem h3 {
-            color: #ef4444;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .solution h3 {
-            color: #10b981;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .arrow {
-            font-size: 2rem;
-            color: #3b82f6;
-            font-weight: bold;
-        }
-        
-        /* ROI Section */
-        .roi-section {
-            padding: 6rem 0;
-            background: white;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, #f8fafc, #ffffff);
-            border-radius: 20px;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #3b82f6;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-label {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-description {
-            font-size: 0.9rem;
-            color: #6b7280;
-        }
-        
-        /* Subscription Plans */
-        .subscription-plans {
-            padding: 6rem 0;
-            background: #f8fafc;
-        }
-        
-        .plans-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .plan-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            position: relative;
-            border: 2px solid #e5e7eb;
-            transition: all 0.3s ease;
-        }
-        
-        .plan-card.featured {
-            border-color: #3b82f6;
-            transform: scale(1.05);
-        }
-        
-        .plan-card.featured::before {
-            content: 'Most Popular';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .plan-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        
-        .plan-price {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #3b82f6;
-            margin-bottom: 0.5rem;
-        }
-        
-        .plan-period {
-            color: #6b7280;
-            margin-bottom: 2rem;
-        }
-        
-        .plan-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-        
-        .plan-features li {
-            padding: 0.5rem 0;
-            color: #4b5563;
-        }
-        
-        .plan-features li::before {
-            content: '✓';
-            color: #10b981;
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-        
-        .plan-button {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-block;
-            width: 100%;
-        }
-        
-        .plan-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
-        }
-        
-        /* Sign Up Form */
-        .signup-section {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #1e293b, #334155);
-            color: white;
-        }
-        
-        .signup-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 3rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1rem;
-        }
-        
-        .form-group input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .submit-button {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            padding: 1.25rem 2rem;
             border: none;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1.1rem;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
-            width: 100%;
-        }
-        
-        .submit-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
-        }
-        
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: #e5e7eb;
-            padding: 3rem 0 1rem;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .footer-section ul li a {
-            color: #9ca3af;
             text-decoration: none;
-            transition: color 0.3s ease;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
-        .footer-section ul li a:hover {
-            color: #3b82f6;
+        .cta-btn:hover {
+            background: linear-gradient(135deg, #c0392b, #e74c3c);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.4);
+            color: white;
+            text-decoration: none;
         }
         
-        .footer-bottom {
-            border-top: 1px solid #374151;
-            padding-top: 2rem;
+        .footer {
+            background: rgba(0,0,0,0.1);
+            color: white;
             text-align: center;
-            color: #9ca3af;
+            padding: 30px 0;
+            margin-top: 40px;
+            border-radius: 20px;
         }
         
-        /* Mobile Responsive */
+        .footer p {
+            margin-bottom: 10px;
+        }
+        
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .container {
+                padding: 10px;
             }
             
-            .hero h1 {
-                font-size: 2.5rem;
+            .header h1 {
+                font-size: 2em;
             }
             
-            .value-props {
+            .header p {
+                font-size: 1.1em;
+            }
+            
+            .pricing-grid {
                 grid-template-columns: 1fr;
             }
             
-            .problem-solution {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .arrow {
-                transform: rotate(90deg);
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .plans-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .plan-card.featured {
+            .pricing-card.featured {
                 transform: none;
-                
             }
+            
+            .plan-price {
+                font-size: 2.5em;
+            }
+            
+            .cta-title {
+                font-size: 2em;
+            }
+            
+            .section-title {
+                font-size: 2em;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="container">
-            <a href="index.html" class="logo">
-                <div class="logo-image"></div>
-                BLUEDWARF
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#plans">Pricing</a></li>
-  
-        
-        .value-prop p {
-            font-size: 0.9rem;
-            color: #cbd5e1;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 3rem;
-        }
-        
-        .cta-primary {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            padding: 1.25rem 2.5rem;
-            border-radius: 16px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-        }
-        
-        .cta-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
-        }
-        
-        .cta-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 1.25rem 2.5rem;
-            border-radius: 16px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            font-size: 1.1rem;
-        }
-        
-        .cta-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-        
-        /* Pain Points Section */
-        .pain-points {
-            padding: 6rem 0;
-            background: #f8fafc;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-        
-        .section-header p {
-            font-size: 1.1rem;
-            color: #6b7280;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .problems-solutions {
-            display: grid;
-            gap: 3rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .problem-solution {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 2rem;
-            align-items: center;
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-        
-        .problem, .solution {
-            text-align: center;
-        }
-        
-        .problem h3 {
-            color: #ef4444;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .solution h3 {
-            color: #10b981;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .arrow {
-            font-size: 2rem;
-            color: #3b82f6;
-            font-weight: bold;
-        }
-        
-        /* ROI Section */
-        .roi-section {
-            padding: 6rem 0;
-            background: white;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, #f8fafc, #ffffff);
-            border-radius: 20px;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #3b82f6;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-label {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-description {
-            font-size: 0.9rem;
-            color: #6b7280;
-        }
-        
-        /* Subscription Plans */
-        .subscription-plans {
-            padding: 6rem 0;
-            background: #f8fafc;
-        }
-        
-        .plans-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .plan-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            position: relative;
-            border: 2px solid #e5e7eb;
-            transition: all 0.3s ease;
-        }
-        
-        .plan-card.featured {
-            border-color: #3b82f6;
-            transform: scale(1.05);
-        }
-        
-        .plan-card.featured::before {
-            content: 'Most Popular';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .plan-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        
-        .plan-price {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #3b82f6;
-            margin-bottom: 0.5rem;
-        }
-        
-        .plan-period {
-            color: #6b7280;
-            margin-bottom: 2rem;
-        }
-        
-        .plan-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-        
-        .plan-features li {
-            padding: 0.5rem 0;
-            color: #4b5563;
-        }
-        
-        .plan-features li::before {
-            content: '✓';
-            color: #10b981;
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-        
-        .plan-button {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-block;
-            width: 100%;
-        }
-        
-        .plan-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
-        }
-        
-        /* Sign Up Form */
-        .signup-section {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #1e293b, #334155);
-            color: white;
-        }
-        
-        .signup-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 3rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1rem;
-        }
-        
-        .form-group input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .submit-button {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            padding: 1.25rem 2rem;
-            border: none;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-        
-        .submit-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
-        }
-        
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: #e5e7eb;
-            padding: 3rem 0 1rem;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .footer-section ul li a {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-section ul li a:hover {
-            color: #3b82f6;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #374151;
-            padding-top: 2rem;
-            text-align: center;
-            color: #9ca3af;
-        }
-        
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .value-props {
-                grid-template-columns: 1fr;
-            }
-            
-            .problem-solution {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .arrow {
-                transform: rotate(90deg);
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .plans-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .plan-card.featured {
-                transform: none;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <nav class="container">
-            <a href="index.html" class="logo">
-                <div class="logo-image"></div>
-                BLUEDWARF
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#plans">Pricing</a></li>
-  
-        
-        .value-prop p {
-            font-size: 0.9rem;
-            color: #cbd5e1;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 3rem;
-        }
-        
-        .cta-primary {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            padding: 1.25rem 2.5rem;
-            border-radius: 16px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-        }
-        
-        .cta-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
-        }
-        
-        .cta-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 1.25rem 2.5rem;
-            border-radius: 16px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            font-size: 1.1rem;
-        }
-        
-        .cta-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-        
-        /* Pain Points Section */
-        .pain-points {
-            padding: 6rem 0;
-            background: #f8fafc;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-        
-        .section-header p {
-            font-size: 1.1rem;
-            color: #6b7280;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .problems-solutions {
-            display: grid;
-            gap: 3rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .problem-solution {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 2rem;
-            align-items: center;
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-        
-        .problem, .solution {
-            text-align: center;
-        }
-        
-        .problem h3 {
-            color: #ef4444;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .solution h3 {
-            color: #10b981;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .arrow {
-            font-size: 2rem;
-            color: #3b82f6;
-            font-weight: bold;
-        }
-        
-        /* ROI Section */
-        .roi-section {
-            padding: 6rem 0;
-            background: white;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, #f8fafc, #ffffff);
-            border-radius: 20px;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #3b82f6;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-label {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-description {
-            font-size: 0.9rem;
-            color: #6b7280;
-        }
-        
-        /* Subscription Plans */
-        .subscription-plans {
-            padding: 6rem 0;
-            background: #f8fafc;
-        }
-        
-        .plans-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .plan-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            position: relative;
-            border: 2px solid #e5e7eb;
-            transition: all 0.3s ease;
-        }
-        
-        .plan-card.featured {
-            border-color: #3b82f6;
-            transform: scale(1.05);
-        }
-        
-        .plan-card.featured::before {
-            content: 'Most Popular';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .plan-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        
-        .plan-price {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #3b82f6;
-            margin-bottom: 0.5rem;
-        }
-        
-        .plan-period {
-            color: #6b7280;
-            margin-bottom: 2rem;
-        }
-        
-        .plan-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-        
-        .plan-features li {
-            padding: 0.5rem 0;
-            color: #4b5563;
-        }
-        
-        .plan-features li::before {
-            content: '✓';
-            color: #10b981;
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-        
-        .plan-button {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-block;
-            width: 100%;
-        }
-        
-        .plan-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
-        }
-        
-        /* Sign Up Form */
-        .signup-section {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #1e293b, #334155);
-            color: white;
-        }
-        
-        .signup-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 3rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1rem;
-        }
-        
-        .form-group input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .submit-button {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            padding: 1.25rem 2rem;
-            border: none;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-        
-        .submit-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
-        }
-        
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: #e5e7eb;
-            padding: 3rem 0 1rem;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .footer-section ul li a {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-section ul li a:hover {
-            color: #3b82f6;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #374151;
-            padding-top: 2rem;
-            text-align: center;
-            color: #9ca3af;
-        }
-        
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .value-props {
-                grid-template-columns: 1fr;
-            }
-            
-            .problem-solution {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .arrow {
-                transform: rotate(90deg);
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .plans-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .plan-card.featured {
-                transform: none;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <nav class="container">
-            <a href="index.html" class="logo">
-                <div class="logo-image"></div>
-                BLUEDWARF
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#plans">Pricing</a></li>
-                <li><a href="#signup">Join Now</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span>🚀 95% AI Accuracy - Superior to Zillow's 67%</span>
-                </div>
-                <h1>Transform Your Real Estate Business</h1>
-                <p class="hero-subtitle">Join the platform that's revolutionizing how real estate professionals generate leads, close deals, and grow their business. Our AI-powered technology delivers qualified leads directly to verified professionals like you.</p>
-                
-                <div class="value-props">
-                    <div class="value-prop">
-                        <div class="value-icon">💰</div>
-                        <div>
-                            <h3>Increase Revenue by 40%</h3>
-                            <p>Our partners see average revenue increases of 40% within 90 days</p>
-                        </div>
-                    </div>
-                    <div class="value-prop">
-                        <div class="value-icon">⚡</div>
-                        <div>
-                            <h3>Instant Qualified Leads</h3>
-                            <p>Receive pre-qualified leads the moment customers request valuations</p>
-                        </div>
-                    </div>
-                    <div class="value-prop">
-                        <div class="value-icon">🎯</div>
-                        <div>
-                            <h3>Zero Cold Calling</h3>
-                            <p>Every lead comes to you warm and ready to engage</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="cta-buttons">
-                    <a href="#signup" class="cta-primary">Start Growing Today</a>
-                    <a href="#plans" class="cta-secondary">View Pricing</a>
-                </div>
-            </div>
+    <div class="container">
+        <div class="header">
+            <h1>🏠 Join BlueDwarf Professionals</h1>
+            <p>Get qualified leads and grow your real estate business with our AI-powered platform that delivers 95% accurate property valuations</p>
         </div>
-    </section>
-
-    <!-- Pain Points Section -->
-    <section class="pain-points">
-        <div class="container">
-            <div class="section-header">
-                <h2>Stop Struggling with These Common Challenges</h2>
-                <p>We understand the pain points that keep real estate professionals up at night. BlueDwarf solves them all.</p>
-            </div>
+        
+        <div class="pricing-section fade-in">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <p class="section-subtitle">Select the perfect plan to grow your real estate business</p>
             
-            <div class="problems-solutions">
-                <div class="problem-solution">
-                    <div class="problem">
-                        <h3>❌ Expensive Lead Generation</h3>
-                        <p>Spending thousands on ads with poor conversion rates</p>
-                    </div>
-                    <div class="arrow">→</div>
-                    <div class="solution">
-                        <h3>✅ Cost-Effective Qualified Leads</h3>
-                        <p>Pay only for verified, interested prospects ready to buy or sell</p>
-                    </div>
-                </div>
-                
-                <div class="problem-solution">
-                    <div class="problem">
-                        <h3>❌ Time-Consuming Prospecting</h3>
-                        <p>Hours spent cold calling and chasing unqualified leads</p>
-                    </div>
-                    <div class="arrow">→</div>
-                    <div class="solution">
-                        <h3>✅ Automated Lead Delivery</h3>
-                        <p>Qualified leads delivered directly to your inbox automatically</p>
-                    </div>
-                </div>
-                
-                <div class="problem-solution">
-                    <div class="problem">
-                        <h3>❌ Inconsistent Income</h3>
-                        <p>Unpredictable monthly revenue and feast-or-famine cycles</p>
-                    </div>
-                    <div class="arrow">→</div>
-                    <div class="solution">
-                        <h3>✅ Predictable Revenue Stream</h3>
-                        <p>Consistent flow of qualified leads for stable monthly income</p>
-                    </div>
-                </div>
-                
-                <div class="problem-solution">
-                    <div class="problem">
-                        <h3>❌ Competition Overload</h3>
-                        <p>Fior: #3b82f6;
-            transform: scale(1.05);
-        }
-        
-        .plan-card.featured::before {
-            content: 'Most Popular';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .plan-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        
-        .plan-price {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #3b82f6;
-            margin-bottom: 0.5rem;
-        }
-        
-        .plan-period {
-            color: #6b7280;
-            margin-bottom: 2rem;
-        }
-        
-        .plan-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-        
-        .plan-features li {
-            padding: 0.5rem 0;
-            color: #4b5563;
-        }
-        
-        .plan-features li::before {
-            content: '✓';
-            color: #10b981;
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-        
-        .plan-button {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-block;
-            width: 100%;
-        }
-        
-        .plan-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
-        }
-        
-        /* Sign Up Form */
-        .signup-section {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #1e293b, #334155);
-            color: white;
-        }
-        
-        .signup-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 3rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1rem;
-        }
-        
-        .form-group input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .submit-button {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            padding: 1.25rem 2rem;
-            border: none;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-        
-        .submit-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
-        }
-        
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: #e5e7eb;
-            padding: 3rem 0 1rem;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .footer-section ul li a {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-section ul li a:hover {
-            color: #3b82f6;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #374151;
-            padding-top: 2rem;
-            text-align: center;
-            color: #9ca3af;
-        }
-        
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .value-props {
-                grid-template-columns: 1fr;
-            }
-            
-            .problem-solution {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .arrow {
-                transform: rotate(90deg);
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .plans-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .plan-card.featured {
-                transform: none;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <nav class="container">
-            <a href="index.html" class="logo">
-                <div class="logo-image"></div>
-                BLUEDWARF
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#plans">Pricing</a></li>
-                <li><a href="#signup">Join Now</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span>🚀 95% AI Accuracy - Superior to Zillow's 67%</span>
-                </div>
-                <h1>Transform Your Real Estate Business</h1>
-                <p class="hero-subtitle">Join the platform that's revolutionizing how real estate professionals generate leads, close deals, and grow their business. Our AI-powered technology delivers qualified leads directly to verified professionals like you.</p>
-                
-                <div class="value-props">
-                    <div class="value-prop">
-                        <div class="value-icon">💰</div>
-                        <div>
-                            <h3>Increase Revenue by 40%</h3>
-                            <p>Our partners see average revenue increases of 40% within 90 days</p>
-                        </div>
-                    </div>
-                    <div class="value-prop">
-                        <div class="value-icon">⚡</div>
-                        <div>
-                            <h3>Instant Qualified Leads</h3>
-                            <p>Receive pre-qualified leads the moment customers request valuations</p>
-                        </div>
-                    </div>
-                    <div class="value-prop">
-                        <div class="value-icon">🎯</div>
-                        <div>
-                            <h3>Zero Cold Calling</h3>
-                            <p>Every lead comes to you warm and ready to engage</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="cta-buttons">
-                    <a href="#signup" class="cta-primary">Start Growing Today</a>
-                    <a href="#plans" class="cta-secondary">View Pricing</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pain Points Section -->
-    <section class="pain-points">
-        <div class="container">
-            <div class="section-header">
-                <h2>Stop Struggling with These Common Challenges</h2>
-                <p>We understand the pain points that keep real estate professionals up at night. BlueDwarf solves them all.</p>
-            </div>
-            
-            <div class="problems-solutions">
-                <div class="problem-solution">
-                    <div class="problem">
-                        <h3>❌ Expensive Lead Generation</h3>
-                        <p>Spending thousands on ads with poor conversion rates</p>
-                    </div>
-                    <div class="arrow">→</div>
-                    <div class="solution">
-                        <h3>✅ Cost-Effective Qualified Leads</h3>
-                        <p>Pay only for verified, interested prospects ready to buy or sell</p>
-                    </div>
-                </div>
-                
-                <div class="problem-solution">
-                    <div class="problem">
-                        <h3>❌ Time-Consuming Prospecting</h3>
-                        <p>Hours spent cold calling and chasing unqualified leads</p>
-                    </div>
-                    <div class="arrow">→</div>
-                    <div class="solution">
-                        <h3>✅ Automated Lead Delivery</h3>
-                        <p>Qualified leads delivered directly to your inbox automatically</p>
-                    </div>
-                </div>
-                
-                <div class="problem-solution">
-                    <div class="problem">
-                        <h3>❌ Inconsistent Income</h3>
-                        <p>Unpredictable monthly revenue and feast-or-famine cycles</p>
-                    </div>
-                    <div class="arrow">→</div>
-                    <div class="solution">
-                        <h3>✅ Predictable Revenue Stream</h3>
-                        <p>Consistent flow of qualified leads for stable monthly income</p>
-                    </div>
-                </div>
-                
-                <div class="problem-solution">
-                    <div class="problem">
-                        <h3>❌ Competition Overload</h3>
-                        <p>Fighting for visibility in oversaturated markets</p>
-                    </div>
-                    <div class="arrow">→</div>
-                    <div class="solution">
-                        <h3>✅ Exclusive Territory Rights</h3>
-                        <p>Protected territories ensure you're not competing with other partners</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ROI Section -->
-    <section class="roi-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>The Numbers Don't Lie</h2>
-                <p>See the real impact BlueDwarf has on our partners' businesses</p>
-            </div>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">40%</div>
-                    <div class="stat-label">Average Revenue Increase</div>
-                    <div class="stat-description">Within first 90 days of partnership</div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-number">3.2x</div>
-                    <div class="stat-label">ROI on Subscription</div>
-                    <div class="stat-description">Average return on investment</div>
-                </div>
-                
-
-                <div class="stat-card">
-                    <div class="stat-number">85%</div>
-                    <div class="stat-label">Lead Conversion Rate</div>
-                    <div class="stat-description">Qualified leads that become clients</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Professional Subscription Plans -->
-    <section id="plans" class="subscription-plans">
-        <div class="container">
-            <div class="section-header">
-                <h2>Choose Your Growth Plan</h2>
-                <p>Select the plan that matches your business goals and start generating qualified leads today.</p>
-            </div>
-            
-            <div class="plans-grid">
-                <div class="plan-card">
-                    <h3 class="plan-name">Starter</h3>
-                    <div class="plan-price">$99</div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-name">Starter</div>
+                    <div class="plan-price">$19</div>
                     <div class="plan-period">per month</div>
                     <ul class="plan-features">
                         <li>Up to 50 property valuations</li>
                         <li>Basic lead notifications</li>
-                        <li>Standard analytics dashboard</li>
                         <li>Email support</li>
-                        <li>Mobile app access</li>
+                        <li>Standard listing placement</li>
+                        <li>Basic analytics dashboard</li>
+                        <li>Professional profile page</li>
+                        <li>Contact form integration</li>
                     </ul>
-                    <a href="#signup" class="plan-button">Start with Starter</a>
+                    <button class="subscribe-btn" onclick="subscribeToPlan('starter')">Start Free Trial</button>
                 </div>
                 
-                <div class="plan-card featured">
-                    <h3 class="plan-name">Professional</h3>
-                    <div class="plan-price">$199</div>
+                <div class="pricing-card featured">
+                    <div class="plan-name">Professional</div>
+                    <div class="plan-price">$47</div>
                     <div class="plan-period">per month</div>
                     <ul class="plan-features">
                         <li>Unlimited property valuations</li>
-                        <li>Priority lead distribution</li>
-                        <li>Advanced analytics & insights</li>
-                        <li>Professional verification badge</li>
-                        <li>Email support</li>
-                        <li>Custom lead preferences</li>
-                        <li>Territory protection</li>
+                        <li>Priority lead notifications</li>
+                        <li>Priority email support</li>
+                        <li>Enhanced listing placement</li>
+                        <li>Advanced analytics dashboard</li>
+                        <li>Lead management tools</li>
+                        <li>Custom profile features</li>
+                        <li>Review management system</li>
+                        <li>Mobile app access</li>
                     </ul>
-                    <a href="#signup" class="plan-button">Go Professional</a>
+                    <button class="subscribe-btn" onclick="subscribeToPlan('professional')">Start Free Trial</button>
                 </div>
                 
-                <div class="plan-card">
-                    <h3 class="plan-name">Enterprise</h3>
-                    <div class="plan-price">$399</div>
+                <div class="pricing-card">
+                    <div class="plan-name">Enterprise</div>
+                    <div class="plan-price">$97</div>
                     <div class="plan-period">per month</div>
                     <ul class="plan-features">
                         <li>Everything in Professional</li>
-                        <li>White-label platform access</li>
+                        <li>White-label access</li>
                         <li>API integration</li>
-                        <li>Dedicated account manager</li>
+                        <li>Priority phone support</li>
+                        <li>Featured listing placement</li>
                         <li>Custom branding options</li>
-                        <li>Advanced lead scoring</li>
-                        <li>Priority customer support</li>
-                        <li>Exclusive market insights</li>
+                        <li>Dedicated account manager</li>
+                        <li>Advanced reporting suite</li>
+                        <li>Team collaboration tools</li>
+                        <li>Custom integrations</li>
                     </ul>
-                    <a href="#signup" class="plan-button">Scale with Enterprise</a>
+                    <button class="subscribe-btn" onclick="subscribeToPlan('enterprise')">Contact Sales</button>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Sign Up Section -->
-    <section id="signup" class="signup-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Ready to Transform Your Business?</h2>
-                <p>Join thousands of successful real estate professionals who've already made the switch to BlueDwarf.</p>
-            </div>
+        
+        <div class="benefits-section fade-in">
+            <h2 class="section-title">Why Choose BlueDwarf?</h2>
             
-            <form class="signup-form">
-                <div class="form-group">
-                    <label for="fullName">Full Name *</label>
-                    <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <div class="benefit-title">Qualified Leads</div>
+                    <div class="benefit-description">Receive high-quality leads from users actively seeking real estate services in your area</div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                <div class="benefit-item">
+                    <div class="benefit-icon">📊</div>
+                    <div class="benefit-title">95% Accuracy</div>
+                    <div class="benefit-description">Our AI delivers more accurate property valuations than Zillow, building trust with your clients</div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="profession">Profession *</label>
-                    <select id="profession" name="profession" required>
-                        <option value="">Select your profession</option>
-                        <option value="agent">Real Estate Agent/Broker</option>
-                        <option value="lender">Lender/Mortgage Professional</option>
-                        <option value="title">Title Company</option>
-                        <option value="attorney">Real Estate Attorney</option>
-                    </select>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🚀</div>
+                    <div class="benefit-title">Instant Notifications</div>
+                    <div class="benefit-description">Get notified immediately when potential clients request services in your area</div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="licenseNumber">License Number (Optional)</label>
-                    <input type="text" id="licenseNumber" name="licenseNumber" placeholder="Enter your license number">
+                <div class="benefit-item">
+                    <div class="benefit-icon">💼</div>
+                    <div class="benefit-title">Professional Profile</div>
+                    <div class="benefit-description">Showcase your expertise with a comprehensive professional profile and client reviews</div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="phone">Phone Number *</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+                <div class="benefit-item">
+                    <div class="benefit-icon">📱</div>
+                    <div class="benefit-title">Mobile Optimized</div>
+                    <div class="benefit-description">Access your leads and manage your business from anywhere with our mobile-optimized platform</div>
                 </div>
                 
-                <button type="submit" class="submit-button">Start My Free Trial</button>
-                
-                <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: rgba(255,255,255,0.8);">
-                    No credit card required. 14-day free trial included.
-                </p>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>BLUEDWARF</h4>
-                    <p>Revolutionizing real estate with AI-powered valuations and verified professional networks.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Platform</h4>
-                    <ul>
-                        <li><a href="index.html">Property Valuations</a></li>
-                        <li><a href="pros.html">Lead Generation</a></li>
-                        <li><a href="index.html">Market Analytics</a></li>
-                        <li><a href="contact.html">Mobile App</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Professionals</h4>
-                    <ul>
-                        <li><a href="pros.html">Real Estate Agents</a></li>
-                        <li><a href="pros.html">Lenders</a></li>
-                        <li><a href="pros.html">Title Companies</a></li>
-                        <li><a href="pros.html">Real Estate Attorneys</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="contact.html">Help Center</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms of Service</a></li>
-                    </ul>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔒</div>
+                    <div class="benefit-title">Secure & Compliant</div>
+                    <div class="benefit-description">Your data and client information are protected with enterprise-grade security measures</div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 BLUEDWARF. All rights reserved. Transform your real estate business today.</p>
+        </div>
+        
+        <div class="stats-section fade-in">
+            <h2 style="font-size: 2.5em; margin-bottom: 20px;">The Numbers Don't Lie</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">40%</div>
+                    <div class="stat-label">Average Revenue Increase</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">3.2x</div>
+                    <div class="stat-label">More Qualified Leads</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">85%</div>
+                    <div class="stat-label">Lead Conversion Rate</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Valuation Accuracy</div>
+                </div>
             </div>
         </div>
-    </footer>
-
+        
+        <div class="testimonials-section fade-in">
+            <h2 class="section-title">What Our Professionals Say</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-item">
+                    <div class="testimonial-text">"BlueDwarf has transformed my business. I'm getting 3x more qualified leads and my clients trust the accurate valuations. Best investment I've made!"</div>
+                    <div class="testimonial-author">Sarah Johnson</div>
+                    <div class="testimonial-role">Real Estate Agent, Dallas TX</div>
+                </div>
+                
+                <div class="testimonial-item">
+                    <div class="testimonial-text">"The lead quality is outstanding. Every lead I receive is genuinely interested and ready to move forward. My conversion rate has never been higher."</div>
+                    <div class="testimonial-author">Michael Chen</div>
+                    <div class="testimonial-role">Mortgage Lender, Los Angeles CA</div>
+                </div>
+                
+                <div class="testimonial-item">
+                    <div class="testimonial-text">"As a real estate attorney, I appreciate the professional quality of the platform. Clients come to me already informed and ready to proceed."</div>
+                    <div class="testimonial-author">Jennifer Martinez</div>
+                    <div class="testimonial-role">Real Estate Attorney, Miami FL</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cta-section fade-in">
+            <h2 class="cta-title">Ready to Grow Your Business?</h2>
+            <p class="cta-description">Join thousands of real estate professionals who are already growing their business with BlueDwarf.io</p>
+            <a href="#" class="cta-btn" onclick="subscribeToPlan('professional')">Start Your Free Trial Today</a>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2024 BlueDwarf.io - All Rights Reserved</p>
+            <p>
+                <a href="/">Home</a> | 
+                <a href="/privacy">Privacy Policy</a> | 
+                <a href="/terms">Terms of Service</a> | 
+                <a href="/contact">Contact Us</a>
+            </p>
+            <p>Questions? Email us at <a href="mailto:info@bluedwarf.io">info@bluedwarf.io</a></p>
+        </div>
+    </div>
+    
     <script>
-        // Form submission handling
-        document.querySelector('.signup-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Simple validation
-            if (!data.fullName || !data.email || !data.profession || !data.phone) {
-                alert('Please fill in all required fields.');
-                return;
+        function subscribeToPlan(planType) {
+            // Track subscription attempt
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'subscription_attempt', {
+                    plan_type: planType,
+                    page: 'pros',
+                    value: planType === 'starter' ? 19 : planType === 'professional' ? 47 : 97
+                });
             }
             
-            // Simulate form submission
-            alert('Thank you for your interest! We will contact you within 24 hours to set up your account and start your free trial.');
-            
-            // Reset form
-            this.reset();
-        });
+            // Show subscription modal or redirect
+            showSubscriptionModal(planType);
+        }
         
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        function showSubscriptionModal(planType) {
+            const planDetails = {
+                starter: { name: 'Starter', price: 19, features: 'Basic features for growing professionals' },
+                professional: { name: 'Professional', price: 47, features: 'Advanced features for established professionals' },
+                enterprise: { name: 'Enterprise', price: 97, features: 'Premium features for large teams' }
+            };
+            
+            const plan = planDetails[planType];
+            
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.8);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            `;
+            
+            modal.innerHTML = `
+                <div style="
+                    background: white;
+                    padding: 40px;
+                    border-radius: 20px;
+                    max-width: 500px;
+                    text-align: center;
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+                ">
+                    <h2 style="color: #2c3e50; margin-bottom: 20px;">Subscribe to ${plan.name} Plan</h2>
+                    <p style="color: #6c757d; margin-bottom: 20px; font-size: 1.1em;">$${plan.price}/month</p>
+                    <p style="color: #495057; margin-bottom: 30px;">${plan.features}</p>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <p style="color: #28a745; font-weight: bold; margin-bottom: 15px;">🎉 Special Launch Offer!</p>
+                        <p style="color: #6c757d;">Get your first month FREE when you sign up today.</p>
+                    </div>
+                    
+                    <div style="display: flex; gap: 15px; justify-content: center;">
+                        <button onclick="proceedToCheckout('${planType}')" style="
+                            background: linear-gradient(135deg, #28a745, #20c997);
+                            color: white;
+                            border: none;
+                            padding: 15px 30px;
+                            border-radius: 50px;
+                            font-weight: bold;
+                            cursor: pointer;
+                            font-size: 1em;
+                        ">Start Free Trial</button>
+                        
+                        <button onclick="closeModal()" style="
+                            background: #6c757d;
+                            color: white;
+                            border: none;
+                            padding: 15px 30px;
+                            border-radius: 50px;
+                            font-weight: bold;
+                            cursor: pointer;
+                            font-size: 1em;
+                        ">Maybe Later</button>
+                    </div>
+                    
+                    <p style="color: #6c757d; font-size: 0.9em; margin-top: 20px;">
+                        No commitment. Cancel anytime. Secure payment processing.
+                    </p>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Close modal when clicking outside
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
                 }
             });
+            
+            window.closeModal = function() {
+                document.body.removeChild(modal);
+            };
+            
+            window.proceedToCheckout = function(planType) {
+                // Track checkout initiation
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'begin_checkout', {
+                        plan_type: planType,
+                        value: planDetails[planType].price
+                    });
+                }
+                
+                // For now, show coming soon message
+                alert(`Thank you for your interest in the ${planDetails[planType].name} plan! Our subscription system is launching soon. Please contact us at info@bluedwarf.io to get early access and secure your first month free.`);
+                closeModal();
+                
+                // Future: Redirect to actual Stripe checkout
+                // window.location.href = `/checkout/${planType}`;
+            };
+        }
+        
+        // Add smooth scrolling and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Add staggered animation to pricing cards
+            const pricingCards = document.querySelectorAll('.pricing-card');
+            pricingCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+            });
+            
+            // Add hover effects to benefit items
+            const benefitItems = document.querySelectorAll('.benefit-item');
+            benefitItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.background = 'linear-gradient(135deg, #f8f9fa, #e9ecef)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.background = 'transparent';
+                });
+            });
         });
+        
+        // Track page views
+        if (typeof gtag !== 'undefined') {
+            gtag('config', 'GA_MEASUREMENT_ID', {
+                page_title: 'Professional Subscriptions',
+                page_location: window.location.href
+            });
+        }
     </script>
 </body>
 </html>
-        
