@@ -1116,201 +1116,6 @@
         
         .header h1 {
             color: #333;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .header p {
-            color: #666;
-            font-size: 1.1em;
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #333;
-        }
-        
-        input, select {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e1e5e9;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: white;
-        }
-        
-        input:focus, select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-        
-        .submit-btn {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-        }
-        
-        .submit-btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .loading-spinner {
-            display: none;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #ffffff;
-            border-top: 2px solid transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-right: 10px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .message {
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            display: none;
-        }
-        
-        .message.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .message.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-        
-        .message.info {
-            background: #fff3cd;
-            color: #856404;
-            border: 1px solid #ffeaa7;
-        }
-        
-        .results-container {
-            margin-top: 30px;
-            display: none;
-        }
-        
-        .valuation-result {
-            text-align: center;
-            padding: 30px;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .valuation-amount {
-            font-size: 3em;
-            font-weight: bold;
-            color: #28a745;
-            margin-bottom: 10px;
-        }
-        
-        .valuation-details {
-            color: #666;
-            font-size: 1.1em;
-        }
-        
-        .market-analysis {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-            margin-bottom: 30px;
-        }
-        
-        .professionals-section h3 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 1.5em;
-        }
-        
-        .professional-card {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            position: relative;
-        }
-        
-        .professional-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .slot-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: linear-gradient(135deg, #28a745, #20c997);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: 600;
-        }
-        
-        .slot-badge.warning {
-            background: linear-gradient(135deg, #ffc107, #fd7e14);
-        }
-        
-        .slot-badge.danger {
-            background: linear-gradient(135deg, #dc3545, #e83e8c);
-        }
-        
-        .professional-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .professional-photo {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
-        }
-        
-        .professional-info h4 {
-            color: #333;
             margin-bottom: 5px;
         }
         
@@ -1462,202 +1267,130 @@
         </div>
     </div>
 
-    <sfont-size: 2.5em;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+    <script>
+        // Configuration
+        const API_BASE_URL = 'http://localhost:8000/api';
+        const PRODUCTION_API_URL = 'https://api.bluedwarf.io/api'; // Will be updated for production
+        
+        // Global variables
+        let currentLeadId = null;
+        
+        // Main form submission function
+        async function submitValuation() {
+            console.log('🚀 Starting property valuation submission...');
+            
+            const address = document.getElementById('address').value.trim();
+            const propertyType = document.getElementById('propertyType').value;
+            
+            // Validation
+            if (!address || !propertyType) {
+                showMessage('Please fill in all required fields.', 'error');
+                return;
+            }
+            
+            // Extract zip code from address
+            const zipCode = extractZipCode(address);
+            if (!zipCode) {
+                showMessage('Please include a valid zip code in the address.', 'error');
+                return;
+            }
+            
+            // Update UI for loading state
+            setLoadingState(true);
+            hideMessage();
+            
+            try {
+                // Generate unique lead ID
+                currentLeadId = generateLeadId();
+                console.log('📋 Generated Lead ID:', currentLeadId);
+                
+                // Call property valuation API
+                const valuationData = await getPropertyValuation(address, propertyType, zipCode);
+                
+                // Call professional matching API with slot management
+                const professionalsData = await getProfessionalsWithSlots(zipCode, currentLeadId);
+                
+                // Display results
+                displayResults(valuationData, professionalsData, address);
+                
+                showMessage('✅ Property valuation completed successfully!', 'success');
+                
+            } catch (error) {
+                console.error('❌ Error during valuation:', error);
+                
+                // Show fallback results for demo purposes
+                const fallbackValuation = generateFallbackValuation(address);
+                const fallbackProfessionals = await getFallbackProfessionals(zipCode);
+                
+                displayResults(fallbackValuation, fallbackProfessionals, address);
+                
+                showMessage('⚠️ Using demo results. Connect with our verified professionals below for accurate valuations and expert assistance.', 'info');
+            } finally {
+                setLoadingState(false);
+            }
         }
         
-        .header p {
-            color: #666;
-            font-size: 1.1em;
+        // API Functions
+        async function getPropertyValuation(address, propertyType, zipCode) {
+            console.log('🏠 Calling property valuation API...');
+            
+            const response = await fetch(`${API_BASE_URL}/valuation`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    address: address,
+                    property_type: propertyType,
+                    zip_code: zipCode,
+                    lead_id: currentLeadId
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error(`Valuation API error: ${response.status}`);
+            }
+            
+            return await response.json();
         }
         
-        .form-group {
-            margin-bottom: 25px;
+        async function getProfessionalsWithSlots(zipCode, leadId) {
+            console.log('👥 Calling professional matching API with slot management...');
+            
+            const response = await fetch(`${API_BASE_URL}/professionals/match`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    zip_code: zipCode,
+                    lead_id: leadId,
+                    categories: ['real_estate_agent', 'real_estate_attorney', 'title_officer', 'loan_officer']
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error(`Professional matching API error: ${response.status}`);
+            }
+            
+            return await response.json();
         }
         
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #333;
-        }
-        
-        input, select {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e1e5e9;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: white;
-        }
-        
-        input:focus, select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-        
-        .submit-btn {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-        }
-        
-        .submit-btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .loading-spinner {
-            display: none;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #ffffff;
-            border-top: 2px solid transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-right: 10px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .message {
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            display: none;
-        }
-        
-        .message.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .message.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-        
-        .message.info {
-            background: #fff3cd;
-            color: #856404;
-            border: 1px solid #ffeaa7;
-        }
-        
-        .results-container {
-            margin-top: 30px;
-            display: none;
-        }
-        
-        .valuation-result {
-            text-align: center;
-            padding: 30px;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .valuation-amount {
-            font-size: 3em;
-            font-weight: bold;
-            color: #28a745;
-            margin-bottom: 10px;
-        }
-        
-        .valuation-details {
-            color: #666;
-            font-size: 1.1em;
-        }
-        
-        .market-analysis {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-            margin-bottom: 30px;
-        }
-        
-        .professionals-section h3 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 1.5em;
-        }
-        
-        .professional-card {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            position: relative;
-        }
-        
-        .professional-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .slot-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: linear-gradient(135deg, #28a745, #20c997);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: 600;
-        }
-        
-        .slot-badge.warning {
-            background: linear-gradient(135deg, #ffc107, #fd7e14);
-        }
-        
-        .slot-badge.danger {
-            background: linear-gradient(135deg, #dc3545, #e83e8c);
-        }
-        
-        .professional-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .professional-photo {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
-        }
-        
-        .professional-info h4 {
-            color: #333;
-            margin-bottom: 5px;
+        async function getFallbackProfessionals(zipCode) {
+            console.log('🔄 Generating fallback professionals with slot simulation...');
+            
+            const professionals = [
+                {
+                    id: 'demo-1',
+                    name: 'Sarah Johnson',
+                    title: 'Real Estate Agent',
+                    company: 'Premier Realty',
+                    phone: '(555) 123-4567',
+                    email: 'sarah@premierrealty.com',
+                    rating: 4.9,
+                    specializations: 'Luxury Homes, First-Time Buyers',
+                    photo: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
+                    linkedin: 'https://linkedin.com/in/sarahjohmargin-bottom: 5px;
         }
         
         .professional-info p {
@@ -1808,202 +1541,130 @@
         </div>
     </div>
 
-    <sfont-size: 2.5em;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+    <script>
+        // Configuration
+        const API_BASE_URL = 'http://localhost:8000/api';
+        const PRODUCTION_API_URL = 'https://api.bluedwarf.io/api'; // Will be updated for production
+        
+        // Global variables
+        let currentLeadId = null;
+        
+        // Main form submission function
+        async function submitValuation() {
+            console.log('🚀 Starting property valuation submission...');
+            
+            const address = document.getElementById('address').value.trim();
+            const propertyType = document.getElementById('propertyType').value;
+            
+            // Validation
+            if (!address || !propertyType) {
+                showMessage('Please fill in all required fields.', 'error');
+                return;
+            }
+            
+            // Extract zip code from address
+            const zipCode = extractZipCode(address);
+            if (!zipCode) {
+                showMessage('Please include a valid zip code in the address.', 'error');
+                return;
+            }
+            
+            // Update UI for loading state
+            setLoadingState(true);
+            hideMessage();
+            
+            try {
+                // Generate unique lead ID
+                currentLeadId = generateLeadId();
+                console.log('📋 Generated Lead ID:', currentLeadId);
+                
+                // Call property valuation API
+                const valuationData = await getPropertyValuation(address, propertyType, zipCode);
+                
+                // Call professional matching API with slot management
+                const professionalsData = await getProfessionalsWithSlots(zipCode, currentLeadId);
+                
+                // Display results
+                displayResults(valuationData, professionalsData, address);
+                
+                showMessage('✅ Property valuation completed successfully!', 'success');
+                
+            } catch (error) {
+                console.error('❌ Error during valuation:', error);
+                
+                // Show fallback results for demo purposes
+                const fallbackValuation = generateFallbackValuation(address);
+                const fallbackProfessionals = await getFallbackProfessionals(zipCode);
+                
+                displayResults(fallbackValuation, fallbackProfessionals, address);
+                
+                showMessage('⚠️ Using demo results. Connect with our verified professionals below for accurate valuations and expert assistance.', 'info');
+            } finally {
+                setLoadingState(false);
+            }
         }
         
-        .header p {
-            color: #666;
-            font-size: 1.1em;
+        // API Functions
+        async function getPropertyValuation(address, propertyType, zipCode) {
+            console.log('🏠 Calling property valuation API...');
+            
+            const response = await fetch(`${API_BASE_URL}/valuation`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    address: address,
+                    property_type: propertyType,
+                    zip_code: zipCode,
+                    lead_id: currentLeadId
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error(`Valuation API error: ${response.status}`);
+            }
+            
+            return await response.json();
         }
         
-        .form-group {
-            margin-bottom: 25px;
+        async function getProfessionalsWithSlots(zipCode, leadId) {
+            console.log('👥 Calling professional matching API with slot management...');
+            
+            const response = await fetch(`${API_BASE_URL}/professionals/match`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    zip_code: zipCode,
+                    lead_id: leadId,
+                    categories: ['real_estate_agent', 'real_estate_attorney', 'title_officer', 'loan_officer']
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error(`Professional matching API error: ${response.status}`);
+            }
+            
+            return await response.json();
         }
         
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #333;
-        }
-        
-        input, select {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e1e5e9;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: white;
-        }
-        
-        input:focus, select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-        
-        .submit-btn {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-        }
-        
-        .submit-btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .loading-spinner {
-            display: none;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #ffffff;
-            border-top: 2px solid transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-right: 10px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .message {
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            display: none;
-        }
-        
-        .message.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .message.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-        
-        .message.info {
-            background: #fff3cd;
-            color: #856404;
-            border: 1px solid #ffeaa7;
-        }
-        
-        .results-container {
-            margin-top: 30px;
-            display: none;
-        }
-        
-        .valuation-result {
-            text-align: center;
-            padding: 30px;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .valuation-amount {
-            font-size: 3em;
-            font-weight: bold;
-            color: #28a745;
-            margin-bottom: 10px;
-        }
-        
-        .valuation-details {
-            color: #666;
-            font-size: 1.1em;
-        }
-        
-        .market-analysis {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-            margin-bottom: 30px;
-        }
-        
-        .professionals-section h3 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 1.5em;
-        }
-        
-        .professional-card {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            position: relative;
-        }
-        
-        .professional-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .slot-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: linear-gradient(135deg, #28a745, #20c997);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: 600;
-        }
-        
-        .slot-badge.warning {
-            background: linear-gradient(135deg, #ffc107, #fd7e14);
-        }
-        
-        .slot-badge.danger {
-            background: linear-gradient(135deg, #dc3545, #e83e8c);
-        }
-        
-        .professional-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .professional-photo {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
-        }
-        
-        .professional-info h4 {
-            color: #333;
-            margin-bottom: 5px;
+        async function getFallbackProfessionals(zipCode) {
+            console.log('🔄 Generating fallback professionals with slot simulation...');
+            
+            const professionals = [
+                {
+                    id: 'demo-1',
+                    name: 'Sarah Johnson',
+                    title: 'Real Estate Agent',
+                    company: 'Premier Realty',
+                    phone: '(555) 123-4567',
+                    email: 'sarah@premierrealty.com',
+                    rating: 4.9,
+                    specializations: 'Luxury Homes, First-Time Buyers',
+                    photo: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
+                    linkedin: 'https://linkedin.com/in/sarahjohmargin-bottom: 5px;
         }
         
         .professional-info p {
@@ -2839,4 +2500,4 @@
         console.log('✅ BlueDwarf Slot Management System initialized');
     </script>
 </body>
- 
+
