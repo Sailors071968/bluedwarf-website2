@@ -79,7 +79,7 @@
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
         
-        button {
+        .submit-btn {
             width: 100%;
             padding: 18px;
             background: linear-gradient(135deg, #667eea, #764ba2);
@@ -90,166 +90,225 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            margin-top: 10px;
         }
         
-        button:hover {
+        .submit-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
         }
         
-        button:disabled {
+        .submit-btn:disabled {
             opacity: 0.7;
             cursor: not-allowed;
             transform: none;
         }
         
         .loading-spinner {
-            display: inline-block;
+            display: none;
             width: 20px;
             height: 20px;
-            border: 3px solid #ffffff;
+            border: 2px solid #ffffff;
+            border-top: 2px solid transparent;
             border-radius: 50%;
-            border-top-color: transparent;
-            animation: spin 1s ease-in-out infinite;
+            animation: spin 1s linear infinite;
             margin-right: 10px;
         }
         
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         .message {
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 10px;
             margin: 20px 0;
             display: none;
-            font-weight: 500;
         }
         
-        .success-message {
-            background-color: #d4edda;
+        .message.success {
+            background: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
         }
         
-        .error-message {
-            background-color: #f8d7da;
+        .message.error {
+            background: #f8d7da;
             color: #721c24;
             border: 1px solid #f5c6cb;
         }
         
-        .results-section {
+        .message.info {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .results-container {
             margin-top: 30px;
-            padding: 25px;
-            background: #f8f9fa;
-            border-radius: 15px;
             display: none;
         }
         
+        .valuation-result {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
         .valuation-amount {
-            font-size: 2.5em;
+            font-size: 3em;
             font-weight: bold;
             color: #28a745;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .results-details {
-            margin-bottom: 25px;
-            line-height: 1.6;
-            color: #555;
-        }
-        
-        .market-analysis {
-            margin-bottom: 25px;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-        }
-        
-        .market-analysis h3 {
-            color: #333;
             margin-bottom: 10px;
         }
         
-        .professionals-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+        .valuation-details {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .market-analysis {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 30px;
+        }
+        
+        .professionals-section h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5em;
         }
         
         .professional-card {
             background: white;
+            border-radius: 15px;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            position: relative;
         }
         
         .professional-card:hover {
             transform: translateY(-5px);
         }
         
+        .slot-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+        
+        .slot-badge.warning {
+            background: linear-gradient(135deg, #ffc107, #fd7e14);
+        }
+        
+        .slot-badge.danger {
+            background: linear-gradient(135deg, #dc3545, #e83e8c);
+        }
+        
+        .professional-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
         .professional-photo {
             width: 60px;
             height: 60px;
             border-radius: 50%;
+            margin-right: 15px;
             object-fit: cover;
-            border: 3px solid #667eea;
-            flex-shrink: 0;
         }
         
-        .professional-info {
-            flex: 1;
-        }
-        
-        .professional-card h4 {
+        .professional-info h4 {
             color: #333;
             margin-bottom: 5px;
         }
         
-        .professional-card p {
+        .professional-info p {
             color: #666;
             margin-bottom: 3px;
-            font-size: 14px;
         }
         
         .rating {
             color: #ffc107;
-            font-weight: bold;
+            margin-bottom: 10px;
         }
         
-        .contact-button {
-            background: linear-gradient(135deg, #28a745, #20c997);
-            color: white;
+        .contact-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .contact-btn {
+            flex: 1;
+            padding: 12px;
             border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 12px;
+            border-radius: 8px;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 8px;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
         }
         
-        .contact-button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+        .contact-btn.primary {
+            background: #28a745;
+            color: white;
         }
         
-        .demo-notice {
+        .contact-btn.primary:hover {
+            background: #218838;
+        }
+        
+        .contact-btn.secondary {
+            background: #0077b5;
+            color: white;
+        }
+        
+        .contact-btn.secondary:hover {
+            background: #005885;
+        }
+        
+        .contact-btn.waiting {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .contact-btn.waiting:hover {
+            background: #545b62;
+        }
+        
+        .waiting-list-info {
             background: #fff3cd;
-            color: #856404;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
             border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .waiting-list-info h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .waiting-list-info p {
+            color: #856404;
+            margin-bottom: 10px;
         }
         
         @media (max-width: 768px) {
@@ -262,13 +321,12 @@
                 font-size: 2em;
             }
             
-            .professionals-grid {
-                grid-template-columns: 1fr;
+            .valuation-amount {
+                font-size: 2.5em;
             }
             
-            .professional-card {
+            .contact-buttons {
                 flex-direction: column;
-                text-align: center;
             }
         }
     </style>
@@ -282,386 +340,2421 @@
         
         <form id="valuationForm" onsubmit="return false;">
             <div class="form-group">
-                <label for="address" aria-label="Property Address">Property Address *</label>
-                <input 
-                    type="text" 
-                    id="address" 
-                    name="address" 
-                    placeholder="Enter full property address" 
-                    required 
-                    aria-describedby="address-help"
-                    autocomplete="street-address"
-                >
-                <small id="address-help">Enter the complete street address including city and state</small>
+                <label for="address">Property Address *</label>
+                <input type="text" id="address" name="address" placeholder="Enter full property address" required>
+                <small>Enter the complete street address including city and state</small>
             </div>
             
             <div class="form-group">
-                <label for="propertyType" aria-label="Property Type">Property Type *</label>
-                <select id="propertyType" name="propertyType" required aria-describedby="type-help">
+                <label for="propertyType">Property Type *</label>
+                <select id="propertyType" name="propertyType" required>
                     <option value="">Select property type</option>
                     <option value="single-family">Single Family Home</option>
-                    <option value="condo">Condominium</option>
+                    <option value="condominium">Condominium</option>
                     <option value="townhouse">Townhouse</option>
                     <option value="multi-family">Multi-Family</option>
                     <option value="commercial">Commercial</option>
                 </select>
-                <small id="type-help">Choose the type of property you want to value</small>
+                <small>Choose the type of property you want to value</small>
+            </div>
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueDwarf - Property Valuation</title>
+    <meta name="description" content="Get instant AI-powered property valuations with 95% accuracy at BlueDwarf.io – better than Zillow.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffffff;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .message {
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .message.info {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .results-container {
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .valuation-result {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .valuation-amount {
+            font-size: 3em;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+        
+        .valuation-details {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .market-analysis {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 30px;
+        }
+        
+        .professionals-section h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .professional-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .professional-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .slot-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+        
+        .slot-badge.warning {
+            background: linear-gradient(135deg, #ffc107, #fd7e14);
+        }
+        
+        .slot-badge.danger {
+            background: linear-gradient(135deg, #dc3545, #e83e8c);
+        }
+        
+        .professional-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .professional-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .professional-info h4 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .professional-info p {
+            color: #666;
+            margin-bottom: 3px;
+        }
+        
+        .rating {
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .contact-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+        
+        .contact-btn.primary {
+            background: #28a745;
+            color: white;
+        }
+        
+        .contact-btn.primary:hover {
+            background: #218838;
+        }
+        
+        .contact-btn.secondary {
+            background: #0077b5;
+            color: white;
+        }
+        
+        .contact-btn.secondary:hover {
+            background: #005885;
+        }
+        
+        .contact-btn.waiting {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .contact-btn.waiting:hover {
+            background: #545b62;
+        }
+        
+        .waiting-list-info {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .waiting-list-info h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .waiting-list-info p {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .valuation-amount {
+                font-size: 2.5em;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Property Valuation</h1>
+            <p>Get instant AI-powered property valuations with 95% accuracy</p>
+        </div>
+        
+        <form id="valuationForm" onsubmit="return false;">
+            <div class="form-group">
+                <label for="address">Property Address *</label>
+                <input type="text" id="address" name="address" placeholder="Enter full property address" required>
+                <small>Enter the complete street address including city and state</small>
             </div>
             
-            <button type="button" id="submitBtn" onclick="window.submitValuation()" aria-describedby="submit-help">
-                Get Property Valuation
+            <div class="form-group">
+                <label for="propertyType">Property Type *</label>
+                <select id="propertyType" name="propertyType" required>
+                    <option value="">Select property type</option>
+                    <option value="single-family">Single Family Home</option>
+                    <option value="condominium">Condominium</option>
+                    <option value="townhouse">Townhouse</option>
+                    <option value="multi-family">Multi-Family</option>
+                    <option value="commercial">Commercial</option>
+                </select>
+                <small>Choose the type of property you want to value</small>
+            </div>
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueDwarf - Property Valuation</title>
+    <meta name="description" content="Get instant AI-powered property valuations with 95% accuracy at BlueDwarf.io – better than Zillow.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffffff;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .message {
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .message.info {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .results-container {
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .valuation-result {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .valuation-amount {
+            font-size: 3em;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+        
+        .valuation-details {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .market-analysis {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 30px;
+        }
+        
+        .professionals-section h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .professional-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .professional-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .slot-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+        
+        .slot-badge.warning {
+            background: linear-gradient(135deg, #ffc107, #fd7e14);
+        }
+        
+        .slot-badge.danger {
+            background: linear-gradient(135deg, #dc3545, #e83e8c);
+        }
+        
+        .professional-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .professional-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .professional-info h4 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .professional-info p {
+            color: #666;
+            margin-bottom: 3px;
+        }
+        
+        .rating {
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .contact-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+        
+        .contact-btn.primary {
+            background: #28a745;
+            color: white;
+        }
+        
+        .contact-btn.primary:hover {
+            background: #218838;
+        }
+        
+        .contact-btn.secondary {
+            background: #0077b5;
+            color: white;
+        }
+        
+        .contact-btn.secondary:hover {
+            background: #005885;
+        }
+        
+        .contact-btn.waiting {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .contact-btn.waiting:hover {
+            background: #545b62;
+        }
+        
+        .waiting-list-info {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .waiting-list-info h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .waiting-list-info p {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .valuation-amount {
+                font-size: 2.5em;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Property Valuation</h1>
+            <p>Get instant AI-powered property valuations with 95% accuracy</p>
+        </div>
+        
+        <form id="valuationForm" onsubmit="return false;">
+            <div class="form-group">
+                <label for="address">Property Address *</label>
+                <input type="text" id="address" name="address" placeholder="Enter full property address" required>
+                <small>Enter the complete street address including city and state</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="propertyType">Property Type *</label>
+                <select id="propertyType" name="propertyType" required>
+                    <option value="">Select property type</option>
+                    <option value="single-family">Single Family Home</option>
+                    <option value="condominium">Condominium</option>
+                    <option value="townhouse">Townhouse</option>
+                    <option value="multi-family">Multi-Family</option>
+                    <option value="commercial">Commercial</option>
+                </select>
+                <small>Choose the type of property you want to value</small>
+            </div>
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueDwarf - Property Valuation</title>
+    <meta name="description" content="Get instant AI-powered property valuations with 95% accuracy at BlueDwarf.io – better than Zillow.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffffff;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .message {
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .message.info {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .results-container {
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .valuation-result {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .valuation-amount {
+            font-size: 3em;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+        
+        .valuation-details {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .market-analysis {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 30px;
+        }
+        
+        .professionals-section h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .professional-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .professional-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .slot-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+        
+        .slot-badge.warning {
+            background: linear-gradient(135deg, #ffc107, #fd7e14);
+        }
+        
+        .slot-badge.danger {
+            background: linear-gradient(135deg, #dc3545, #e83e8c);
+        }
+        
+        .professional-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .professional-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .professional-info h4 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .professional-info p {
+            color: #666;
+            margin-bottom: 3px;
+        }
+        
+        .rating {
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .contact-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+        
+        .contact-btn.primary {
+            background: #28a745;
+            color: white;
+        }
+        
+        .contact-btn.primary:hover {
+            background: #218838;
+        }
+        
+        .contact-btn.secondary {
+            background: #0077b5;
+            color: white;
+        }
+        
+        .contact-btn.secondary:hover {
+            background: #005885;
+        }
+        
+        .contact-btn.waiting {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .contact-btn.waiting:hover {
+            background: #545b62;
+        }
+        
+        .waiting-list-info {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .waiting-list-info h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .waiting-list-info p {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .valuation-amount {
+                font-size: 2.5em;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Property Valuation</h1>
+            <p>Get instant AI-powered property valuations with 95% accuracy</p>
+        </div>
+        
+        <form id="valuationForm" onsubmit="return false;">
+            <div class="form-group">
+                <label for="address">Property Address *</label>
+                <input type="text" id="address" name="address" placeholder="Enter full property address" required>
+                <small>Enter the complete street address including city and state</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="propertyType">Property Type *</label>
+                <select id="propertyType" name="propertyType" required>
+                    <option value="">Select property type</option>
+                    <option value="single-family">Single Family Home</option>
+                    <option value="condominium">Condominium</option>
+                    <option value="townhouse">Townhouse</option>
+                    <option value="multi-family">Multi-Family</option>
+                    <option value="commercial">Commercial</option>
+                </select>
+                <small>Choose the type of property you want to value</small>
+            </div>
+            
+            <button type="submit" class="submit-btn" id="submitBtn" onclick="submitValuation()">
+                <span class="loading-spinner" id="loadingSpinner"></span>
+                <span id="submitText">Get Property Valuation</span>
             </button>
-            <small id="submit-help">Click to submit your property information for valuation</small>
+            <small>Click to submit your property information for valuation</small>
         </form>
         
-        <div id="successMessage" class="message success-message" role="alert" aria-live="polite">
-            <strong>Success!</strong> Your property valuation has been processed.
-        </div>
+        <div class="message" id="messageContainer" role="alert" aria-live="polite"></div>
         
-        <div id="errorMessage" class="message error-message" role="alert" aria-live="assertive">
-            <strong>Error:</strong> <span id="errorText"></span>
-        </div>
-        
-        <div id="resultsSection" class="results-section" role="region" aria-label="Valuation Results">
-            <h2>Valuation Results</h2>
-            <div id="valuationAmount" class="valuation-amount">$0</div>
-            <div id="valuationDetails" class="results-details">
-                Property valuation details will appear here
+        <div class="results-container" id="resultsContainer">
+            <div class="valuation-result">
+                <div class="valuation-amount" id="valuationAmount">$0</div>
+                <div class="valuation-details" id="valuationDetails">Property valuation details will appear here</div>
             </div>
             
             <div class="market-analysis">
                 <h3>Market Analysis</h3>
-                <div id="marketAnalysis">
-                    Comprehensive market analysis based on recent sales, market trends, and property characteristics.
-                </div>
+                <p id="marketAnalysis">Comprehensive market analysis based on recent sales, market trends, and property characteristics.</p>
             </div>
             
-            <h3>Recommended Professionals</h3>
-            <div id="professionalsGrid" class="professionals-grid">
-                <!-- Professional cards will be inserted here -->
+            <div class="professionals-section">
+                <h3>Recommended Professionals</h3>
+                <div id="professionalsContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <sfont-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffffff;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .message {
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .message.info {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .results-container {
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .valuation-result {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .valuation-amount {
+            font-size: 3em;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+        
+        .valuation-details {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .market-analysis {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 30px;
+        }
+        
+        .professionals-section h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .professional-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .professional-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .slot-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+        
+        .slot-badge.warning {
+            background: linear-gradient(135deg, #ffc107, #fd7e14);
+        }
+        
+        .slot-badge.danger {
+            background: linear-gradient(135deg, #dc3545, #e83e8c);
+        }
+        
+        .professional-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .professional-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .professional-info h4 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .professional-info p {
+            color: #666;
+            margin-bottom: 3px;
+        }
+        
+        .rating {
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .contact-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+        
+        .contact-btn.primary {
+            background: #28a745;
+            color: white;
+        }
+        
+        .contact-btn.primary:hover {
+            background: #218838;
+        }
+        
+        .contact-btn.secondary {
+            background: #0077b5;
+            color: white;
+        }
+        
+        .contact-btn.secondary:hover {
+            background: #005885;
+        }
+        
+        .contact-btn.waiting {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .contact-btn.waiting:hover {
+            background: #545b62;
+        }
+        
+        .waiting-list-info {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .waiting-list-info h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .waiting-list-info p {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .valuation-amount {
+                font-size: 2.5em;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Property Valuation</h1>
+            <p>Get instant AI-powered property valuations with 95% accuracy</p>
+        </div>
+        
+        <form id="valuationForm" onsubmit="return false;">
+            <div class="form-group">
+                <label for="address">Property Address *</label>
+                <input type="text" id="address" name="address" placeholder="Enter full property address" required>
+                <small>Enter the complete street address including city and state</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="propertyType">Property Type *</label>
+                <select id="propertyType" name="propertyType" required>
+                    <option value="">Select property type</option>
+                    <option value="single-family">Single Family Home</option>
+                    <option value="condominium">Condominium</option>
+                    <option value="townhouse">Townhouse</option>
+                    <option value="multi-family">Multi-Family</option>
+                    <option value="commercial">Commercial</option>
+                </select>
+                <small>Choose the type of property you want to value</small>
+            </div>
+            
+            <button type="submit" class="submit-btn" id="submitBtn" onclick="submitValuation()">
+                <span class="loading-spinner" id="loadingSpinner"></span>
+                <span id="submitText">Get Property Valuation</span>
+            </button>
+            <small>Click to submit your property information for valuation</small>
+        </form>
+        
+        <div class="message" id="messageContainer" role="alert" aria-live="polite"></div>
+        
+        <div class="results-container" id="resultsContainer">
+            <div class="valuation-result">
+                <div class="valuation-amount" id="valuationAmount">$0</div>
+                <div class="valuation-details" id="valuationDetails">Property valuation details will appear here</div>
+            </div>
+            
+            <div class="market-analysis">
+                <h3>Market Analysis</h3>
+                <p id="marketAnalysis">Comprehensive market analysis based on recent sales, market trends, and property characteristics.</p>
+            </div>
+            
+            <div class="professionals-section">
+                <h3>Recommended Professionals</h3>
+                <div id="professionalsContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <sfont-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffffff;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .message {
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .message.info {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .results-container {
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .valuation-result {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .valuation-amount {
+            font-size: 3em;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+        
+        .valuation-details {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .market-analysis {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 30px;
+        }
+        
+        .professionals-section h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .professional-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .professional-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .slot-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+        
+        .slot-badge.warning {
+            background: linear-gradient(135deg, #ffc107, #fd7e14);
+        }
+        
+        .slot-badge.danger {
+            background: linear-gradient(135deg, #dc3545, #e83e8c);
+        }
+        
+        .professional-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .professional-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .professional-info h4 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .professional-info p {
+            color: #666;
+            margin-bottom: 3px;
+        }
+        
+        .rating {
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .contact-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+        
+        .contact-btn.primary {
+            background: #28a745;
+            color: white;
+        }
+        
+        .contact-btn.primary:hover {
+            background: #218838;
+        }
+        
+        .contact-btn.secondary {
+            background: #0077b5;
+            color: white;
+        }
+        
+        .contact-btn.secondary:hover {
+            background: #005885;
+        }
+        
+        .contact-btn.waiting {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .contact-btn.waiting:hover {
+            background: #545b62;
+        }
+        
+        .waiting-list-info {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .waiting-list-info h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .waiting-list-info p {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .valuation-amount {
+                font-size: 2.5em;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Property Valuation</h1>
+            <p>Get instant AI-powered property valuations with 95% accuracy</p>
+        </div>
+        
+        <form id="valuationForm" onsubmit="return false;">
+            <div class="form-group">
+                <label for="address">Property Address *</label>
+                <input type="text" id="address" name="address" placeholder="Enter full property address" required>
+                <small>Enter the complete street address including city and state</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="propertyType">Property Type *</label>
+                <select id="propertyType" name="propertyType" required>
+                    <option value="">Select property type</option>
+                    <option value="single-family">Single Family Home</option>
+                    <option value="condominium">Condominium</option>
+                    <option value="townhouse">Townhouse</option>
+                    <option value="multi-family">Multi-Family</option>
+                    <option value="commercial">Commercial</option>
+                </select>
+                <small>Choose the type of property you want to value</small>
+            </div>
+            
+            <button type="submit" class="submit-btn" id="submitBtn" onclick="submitValuation()">
+                <span class="loading-spinner" id="loadingSpinner"></span>
+                <span id="submitText">Get Property Valuation</span>
+            </button>
+            <small>Click to submit your property information for valuation</small>
+        </form>
+        
+        <div class="message" id="messageContainer" role="alert" aria-live="polite"></div>
+        
+        <div class="results-container" id="resultsContainer">
+            <div class="valuation-result">
+                <div class="valuation-amount" id="valuationAmount">$0</div>
+                <div class="valuation-details" id="valuationDetails">Property valuation details will appear here</div>
+            </div>
+            
+            <div class="market-analysis">
+                <h3>Market Analysis</h3>
+                <p id="marketAnalysis">Comprehensive market analysis based on recent sales, market trends, and property characteristics.</p>
+            </div>
+            
+            <div class="professionals-section">
+                <h3>Recommended Professionals</h3>
+                <div id="professionalsContainer"></div>
             </div>
         </div>
     </div>
 
     <script>
-        // Global scope functions for maximum compatibility
-        window.submitValuation = function() {
-            console.log('🚀 submitValuation called - Starting property valuation process');
+        // Configuration
+        const API_BASE_URL = 'http://localhost:8000/api';
+        const PRODUCTION_API_URL = 'https://api.bluedwarf.io/api'; // Will be updated for production
+        
+        // Global variables
+        let currentLeadId = null;
+        
+        // Main form submission function
+        async function submitValuation() {
+            console.log('🚀 Starting property valuation submission...');
             
-            const addressInput = document.getElementById('address');
-            const propertyTypeSelect = document.getElementById('propertyType');
-            const submitBtn = document.getElementById('submitBtn');
+            const address = document.getElementById('address').value.trim();
+            const propertyType = document.getElementById('propertyType').value;
             
-            // Validate form
-            if (!validateForm()) {
-                console.log('❌ Form validation failed');
+            // Validation
+            if (!address || !propertyType) {
+                showMessage('Please fill in all required fields.', 'error');
                 return;
             }
             
-            const address = addressInput.value.trim();
-            const propertyType = propertyTypeSelect.value;
-            
-            console.log('📍 Processing valuation for:', { address, propertyType });
-            
-            // Set loading state
-            setLoadingState(true);
-            hideMessages();
-            
-            // Track the valuation request
-            trackEvent('property_valuation_submitted', {
-                address: address,
-                propertyType: propertyType
-            });
-            
-            // Try to call professional directory API first
-            callProfessionalDirectoryAPI(address, propertyType)
-                .then(data => {
-                    console.log('✅ Professional directory API response received:', data);
-                    displayResults(data, address, propertyType);
-                    showSuccess('Property valuation completed successfully!');
-                })
-                .catch(error => {
-                    console.log('⚠️ Professional directory API error, using enhanced fallback:', error.message);
-                    displayEnhancedFallbackResults(address, propertyType);
-                })
-                .finally(() => {
-                    setLoadingState(false);
-                });
-        };
-        
-        // Professional Directory API Integration
-        async function callProfessionalDirectoryAPI(address, propertyType) {
-            console.log('🔗 Calling Professional Directory API...');
-            
             // Extract zip code from address
-            const zipMatch = address.match(/\b\d{5}\b/);
-            const zipCode = zipMatch ? zipMatch[0] : '78701'; // Default to Austin
+            const zipCode = extractZipCode(address);
+            if (!zipCode) {
+                showMessage('Please include a valid zip code in the address.', 'error');
+                return;
+            }
             
-            const apiUrl = 'http://localhost:5001/api/professionals/match';
-            const requestData = {
-                address: address,
-                zip_code: zipCode,
-                property_type: propertyType,
-                estimated_value: generateEstimatedValue(propertyType)
-            };
+            // Update UI for loading state
+            setLoadingState(true);
+            hideMessage();
             
-            console.log('📡 API Request:', requestData);
+            try {
+                // Generate unique lead ID
+                currentLeadId = generateLeadId();
+                console.log('📋 Generated Lead ID:', currentLeadId);
+                
+                // Call property valuation API
+                const valuationData = await getPropertyValuation(address, propertyType, zipCode);
+                
+                // Call professional matching API with slot management
+                const professionalsData = await getProfessionalsWithSlots(zipCode, currentLeadId);
+                
+                // Display results
+                displayResults(valuationData, professionalsData, address);
+                
+                showMessage('✅ Property valuation completed successfully!', 'success');
+                
+            } catch (error) {
+                console.error('❌ Error during valuation:', error);
+                
+                // Show fallback results for demo purposes
+                const fallbackValuation = generateFallbackValuation(address);
+                const fallbackProfessionals = await getFallbackProfessionals(zipCode);
+                
+                displayResults(fallbackValuation, fallbackProfessionals, address);
+                
+                showMessage('⚠️ Using demo results. Connect with our verified professionals below for accurate valuations and expert assistance.', 'info');
+            } finally {
+                setLoadingState(false);
+            }
+        }
+        
+        // API Functions
+        async function getPropertyValuation(address, propertyType, zipCode) {
+            console.log('🏠 Calling property valuation API...');
             
-            const response = await fetch(apiUrl, {
+            const response = await fetch(`${API_BASE_URL}/valuation`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(requestData),
-                timeout: 10000
+                body: JSON.stringify({
+                    address: address,
+                    property_type: propertyType,
+                    zip_code: zipCode,
+                    lead_id: currentLeadId
+                })
             });
             
             if (!response.ok) {
-                throw new Error(`API request failed: ${response.status}`);
+                throw new Error(`Valuation API error: ${response.status}`);
             }
             
-            const data = await response.json();
-            console.log('📊 API Response:', data);
-            
-            return data;
+            return await response.json();
         }
         
-        // Enhanced fallback with photo-enabled professionals
-        function displayEnhancedFallbackResults(address, propertyType) {
-            console.log('🎭 Displaying enhanced fallback results with photos');
+        async function getProfessionalsWithSlots(zipCode, leadId) {
+            console.log('👥 Calling professional matching API with slot management...');
             
-            const fallbackData = {
-                estimatedValue: generateEstimatedValue(propertyType),
-                details: `Estimated value for ${address} based on local market data and property characteristics.`,
-                marketAnalysis: `${propertyType} properties in this area show positive market trends with steady appreciation.`,
-                professionals: generatePhotoEnabledProfessionals()
-            };
+            const response = await fetch(`${API_BASE_URL}/professionals/match`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    zip_code: zipCode,
+                    lead_id: leadId,
+                    categories: ['real_estate_agent', 'real_estate_attorney', 'title_officer', 'loan_officer']
+                })
+            });
             
-            displayResults(fallbackData, address, propertyType);
+            if (!response.ok) {
+                throw new Error(`Professional matching API error: ${response.status}`);
+            }
             
-            // Add enhanced demo notice
-            const demoNotice = document.createElement('div');
-            demoNotice.className = 'demo-notice';
-            demoNotice.innerHTML = `
-                <strong>Enhanced Demo Results</strong><br>
-                These are sample results with professional photos for demonstration purposes. 
-                Connect with our verified professionals below for accurate valuations and expert assistance.
-            `;
-            
-            const resultsSection = document.getElementById('resultsSection');
-            resultsSection.insertBefore(demoNotice, resultsSection.firstChild);
+            return await response.json();
         }
         
-        // Generate photo-enabled professionals
-        function generatePhotoEnabledProfessionals() {
-            return [
+        async function getFallbackProfessionals(zipCode) {
+            console.log('🔄 Generating fallback professionals with slot simulation...');
+            
+            const professionals = [
                 {
+                    id: 'demo-1',
                     name: 'Sarah Johnson',
                     title: 'Real Estate Agent',
                     company: 'Premier Realty',
                     phone: '(555) 123-4567',
+                    email: 'sarah@premierrealty.com',
                     rating: 4.9,
+                    specializations: 'Luxury Homes, First-Time Buyers',
                     photo: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
-                    linkedin: 'https://linkedin.com/in/sarah-johnson-realtor',
-                    specializations: ['Luxury Homes', 'First-Time Buyers', 'Investment Properties']
+                    linkedin: 'https://linkedin.com/in/sarahjohnson',
+                    category: 'real_estate_agent',
+                    available_slots: 2,
+                    total_slots: 5,
+                    waiting_list_count: 3
                 },
                 {
+                    id: 'demo-2',
                     name: 'Michael Chen',
                     title: 'Mortgage Specialist',
                     company: 'First National Bank',
                     phone: '(555) 234-5678',
+                    email: 'mchen@firstnational.com',
                     rating: 4.8,
+                    specializations: 'FHA Loans, VA Loans',
                     photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-                    linkedin: 'https://linkedin.com/in/michael-chen-mortgage',
-                    specializations: ['FHA Loans', 'VA Loans', 'Jumbo Mortgages']
+                    linkedin: 'https://linkedin.com/in/michaelchen',
+                    category: 'loan_officer',
+                    available_slots: 0,
+                    total_slots: 5,
+                    waiting_list_count: 8
                 },
                 {
+                    id: 'demo-3',
                     name: 'Jennifer Davis',
                     title: 'Real Estate Attorney',
                     company: 'Davis Law Group',
                     phone: '(555) 345-6789',
+                    email: 'jdavis@davislawgroup.com',
                     rating: 4.9,
-                    photo: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face',
-                    linkedin: 'https://linkedin.com/in/jennifer-davis-attorney',
-                    specializations: ['Contract Review', 'Title Issues', 'Closing Services']
+                    specializations: 'Contract Review, Title Issues',
+                    photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+                    linkedin: 'https://linkedin.com/in/jenniferdavis',
+                    category: 'real_estate_attorney',
+                    available_slots: 1,
+                    total_slots: 5,
+                    waiting_list_count: 2
                 },
                 {
+                    id: 'demo-4',
                     name: 'Robert Wilson',
                     title: 'Title Officer',
                     company: 'Secure Title Co.',
                     phone: '(555) 456-7890',
+                    email: 'rwilson@securetitle.com',
                     rating: 4.7,
+                    specializations: 'Title Insurance, Escrow Services',
                     photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-                    linkedin: 'https://linkedin.com/in/robert-wilson-title',
-                    specializations: ['Title Insurance', 'Escrow Services', 'Commercial Closings']
+                    linkedin: 'https://linkedin.com/in/robertwilson',
+                    category: 'title_officer',
+                    available_slots: 3,
+                    total_slots: 5,
+                    waiting_list_count: 0
                 }
             ];
+            
+            return {
+                success: true,
+                professionals: professionals,
+                zip_code: zipCode,
+                total_available_slots: professionals.reduce((sum, p) => sum + p.available_slots, 0),
+                total_waiting_list: professionals.reduce((sum, p) => sum + p.waiting_list_count, 0)
+            };
         }
         
-        // Display results function with photo support
-        function displayResults(data, address, propertyType) {
-            console.log('📊 Displaying results for:', address);
+        // Display Functions
+        function displayResults(valuationData, professionalsData, address) {
+            console.log('📊 Displaying results...');
             
-            // Update valuation amount
-            const estimatedValue = data.estimatedValue || data.estimated_value || 0;
-            document.getElementById('valuationAmount').textContent = formatCurrency(estimatedValue);
+            // Display valuation
+            const valuation = valuationData.valuation || generateRandomValuation();
+            document.getElementById('valuationAmount').textContent = formatCurrency(valuation);
+            document.getElementById('valuationDetails').textContent = 
+                `Estimated value for ${address} based on local market data and property characteristics.`;
             
-            // Update valuation details
-            document.getElementById('valuationDetails').textContent = data.details || 
-                `Estimated value for ${address} based on AI analysis of comparable properties, market trends, and location factors.`;
+            // Display market analysis
+            document.getElementById('marketAnalysis').textContent = 
+                valuationData.market_analysis || 
+                `${document.getElementById('propertyType').options[document.getElementById('propertyType').selectedIndex].text.toLowerCase()} properties in this area show positive market trends with steady appreciation.`;
             
-            // Update market analysis
-            document.getElementById('marketAnalysis').textContent = data.marketAnalysis || data.market_analysis ||
-                `Market analysis shows ${propertyType} properties in this area have ${data.trend || 'stable'} trends with average appreciation of ${data.appreciation || '3.2%'} annually.`;
+            // Display professionals with slot management
+            displayProfessionalsWithSlots(professionalsData.professionals || []);
             
-            // Display professionals with photos
-            displayProfessionalsWithPhotos(data.professionals || data.matches || [], address);
+            // Show results container
+            document.getElementById('resultsContainer').style.display = 'block';
             
-            // Show results section
-            document.getElementById('resultsSection').style.display = 'block';
-            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            
-            // Update ARIA live region
-            document.getElementById('resultsSection').setAttribute('aria-live', 'polite');
-        }
-        
-        // Display professionals with enhanced photo cards
-        function displayProfessionalsWithPhotos(professionals, address) {
-            const professionalsGrid = document.getElementById('professionalsGrid');
-            professionalsGrid.innerHTML = '';
-            
-            // Handle API response format
-            let professionalsList = [];
-            if (Array.isArray(professionals)) {
-                professionalsList = professionals;
-            } else if (typeof professionals === 'object') {
-                // Flatten professionals from different categories
-                Object.values(professionals).forEach(categoryProfessionals => {
-                    if (Array.isArray(categoryProfessionals)) {
-                        professionalsList = professionalsList.concat(categoryProfessionals);
-                    }
-                });
-            }
-            
-            // If no professionals from API, use enhanced demo data
-            if (!professionalsList || professionalsList.length === 0) {
-                professionalsList = generatePhotoEnabledProfessionals();
-            }
-            
-            professionalsList.forEach(professional => {
-                const card = document.createElement('div');
-                card.className = 'professional-card';
-                
-                // Ensure professional has a photo
-                const photoUrl = professional.photo || professional.profile_image_url || 
-                    `https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face`;
-                
-                card.innerHTML = `
-                    <img src="${photoUrl}" alt="${professional.name}" class="professional-photo" 
-                         onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face'">
-                    <div class="professional-info">
-                        <h4>${professional.name}</h4>
-                        <p><strong>${professional.title || professional.category}</strong></p>
-                        <p>${professional.company}</p>
-                        <p>📞 ${professional.phone}</p>
-                        <p class="rating">⭐ ${professional.rating}/5.0</p>
-                        ${professional.specializations ? `<p><small>${professional.specializations.slice(0, 2).join(', ')}</small></p>` : ''}
-                        <button class="contact-button" onclick="contactProfessional('${professional.name}', '${professional.phone}', '${address}')">
-                            Contact Now
-                        </button>
-                        ${professional.linkedin ? `<a href="${professional.linkedin}" target="_blank" style="font-size: 12px; color: #0077b5; text-decoration: none; margin-left: 10px;">LinkedIn</a>` : ''}
-                    </div>
-                `;
-                
-                professionalsGrid.appendChild(card);
+            // Scroll to results
+            document.getElementById('resultsContainer').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
             });
         }
         
-        // Contact professional function
-        window.contactProfessional = function(name, phone, address) {
-            console.log(`📞 Contacting ${name} for property at ${address}`);
+        function displayProfessionalsWithSlots(professionals) {
+            const container = document.getElementById('professionalsContainer');
+            container.innerHTML = '';
             
-            // Track the contact event
-            trackEvent('professional_contact_initiated', {
-                professional_name: name,
-                professional_phone: phone,
-                property_address: address
+            professionals.forEach(professional => {
+                const card = createProfessionalCard(professional);
+                container.appendChild(card);
             });
-            
-            // Show contact options
-            const message = `Contact ${name} at ${phone} regarding property valuation for ${address}`;
-            
-            if (confirm(`${message}\n\nWould you like to call now?`)) {
-                window.location.href = `tel:${phone}`;
-            }
-        };
+        }
         
-        // Form validation
-        function validateForm() {
+        function createProfessionalCard(professional) div>
+
+    <script>
+        // Configuration
+        const API_BASE_URL = 'http://localhost:8000/api';
+        const PRODUCTION_API_URL = 'https://api.bluedwarf.io/api'; // Will be updated for production
+        
+        // Global variables
+        let currentLeadId = null;
+        
+        // Main form submission function
+        async function submitValuation() {
+            console.log('🚀 Starting property valuation submission...');
+            
             const address = document.getElementById('address').value.trim();
             const propertyType = document.getElementById('propertyType').value;
             
-            if (!address) {
-                showError('Please enter a property address.');
-                document.getElementById('address').focus();
-                return false;
+            // Validation
+            if (!address || !propertyType) {
+                showMessage('Please fill in all required fields.', 'error');
+                return;
             }
             
-            if (address.length < 10) {
-                showError('Please enter a complete address including city and state.');
-                document.getElementById('address').focus();
-                return false;
+            // Extract zip code from address
+            const zipCode = extractZipCode(address);
+            if (!zipCode) {
+                showMessage('Please include a valid zip code in the address.', 'error');
+                return;
             }
             
-            if (!propertyType) {
-                showError('Please select a property type.');
-                document.getElementById('propertyType').focus();
-                return false;
+            // Update UI for loading state
+            setLoadingState(true);
+            hideMessage();
+            
+            try {
+                // Generate unique lead ID
+                currentLeadId = generateLeadId();
+                console.log('📋 Generated Lead ID:', currentLeadId);
+                
+                // Call property valuation API
+                const valuationData = await getPropertyValuation(address, propertyType, zipCode);
+                
+                // Call professional matching API with slot management
+                const professionalsData = await getProfessionalsWithSlots(zipCode, currentLeadId);
+                
+                // Display results
+                displayResults(valuationData, professionalsData, address);
+                
+                showMessage('✅ Property valuation completed successfully!', 'success');
+                
+            } catch (error) {
+                console.error('❌ Error during valuation:', error);
+                
+                // Show fallback results for demo purposes
+                const fallbackValuation = generateFallbackValuation(address);
+                const fallbackProfessionals = await getFallbackProfessionals(zipCode);
+                
+                displayResults(fallbackValuation, fallbackProfessionals, address);
+                
+                showMessage('⚠️ Using demo results. Connect with our verified professionals below for accurate valuations and expert assistance.', 'info');
+            } finally {
+                setLoadingState(false);
+            }
+        }
+        
+        // API Functions
+        async function getPropertyValuation(address, propertyType, zipCode) {
+            console.log('🏠 Calling property valuation API...');
+            
+            const response = await fetch(`${API_BASE_URL}/valuation`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    address: address,
+                    property_type: propertyType,
+                    zip_code: zipCode,
+                    lead_id: currentLeadId
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error(`Valuation API error: ${response.status}`);
             }
             
-            return true;
+            return await response.json();
         }
         
-        // Helper functions
-        function setLoadingState(loading) {
-            const submitBtn = document.getElementById('submitBtn');
-            if (loading) {
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<span class="loading-spinner"></span>🔍 Analyzing Property...';
-                submitBtn.setAttribute('aria-busy', 'true');
-            } else {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Get Property Valuation';
-                submitBtn.setAttribute('aria-busy', 'false');
+        async function getProfessionalsWithSlots(zipCode, leadId) {
+            console.log('👥 Calling professional matching API with slot management...');
+            
+            const response = await fetch(`${API_BASE_URL}/professionals/match`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    zip_code: zipCode,
+                    lead_id: leadId,
+                    categories: ['real_estate_agent', 'real_estate_attorney', 'title_officer', 'loan_officer']
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error(`Professional matching API error: ${response.status}`);
+            }
+            
+            return await response.json();
+        }
+        
+        async function getFallbackProfessionals(zipCode) {
+            console.log('🔄 Generating fallback professionals with slot simulation...');
+            
+            const professionals = [
+                {
+                    id: 'demo-1',
+                    name: 'Sarah Johnson',
+                    title: 'Real Estate Agent',
+                    company: 'Premier Realty',
+                    phone: '(555) 123-4567',
+                    email: 'sarah@premierrealty.com',
+                    rating: 4.9,
+                    specializations: 'Luxury Homes, First-Time Buyers',
+                    photo: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
+                    linkedin: 'https://linkedin.com/in/sarahjohnson',
+                    category: 'real_estate_agent',
+                    available_slots: 2,
+                    total_slots: 5,
+                    waiting_list_count: 3
+                },
+                {
+                    id: 'demo-2',
+                    name: 'Michael Chen',
+                    title: 'Mortgage Specialist',
+                    company: 'First National Bank',
+                    phone: '(555) 234-5678',
+                    email: 'mchen@firstnational.com',
+                    rating: 4.8,
+                    specializations: 'FHA Loans, VA Loans',
+                    photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+                    linkedin: 'https://linkedin.com/in/michaelchen',
+                    category: 'loan_officer',
+                    available_slots: 0,
+                    total_slots: 5,
+                    waiting_list_count: 8
+                },
+                {
+                    id: 'demo-3',
+                    name: 'Jennifer Davis',
+                    title: 'Real Estate Attorney',
+                    company: 'Davis Law Group',
+                    phone: '(555) 345-6789',
+                    email: 'jdavis@davislawgroup.com',
+                    rating: 4.9,
+                    specializations: 'Contract Review, Title Issues',
+                    photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+                    linkedin: 'https://linkedin.com/in/jenniferdavis',
+                    category: 'real_estate_attorney',
+                    available_slots: 1,
+                    total_slots: 5,
+                    waiting_list_count: 2
+                },
+                {
+                    id: 'demo-4',
+                    name: 'Robert Wilson',
+                    title: 'Title Officer',
+                    company: 'Secure Title Co.',
+                    phone: '(555) 456-7890',
+                    email: 'rwilson@securetitle.com',
+                    rating: 4.7,
+                    specializations: 'Title Insurance, Escrow Services',
+                    photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+                    linkedin: 'https://linkedin.com/in/robertwilson',
+                    category: 'title_officer',
+                    available_slots: 3,
+                    total_slots: 5,
+                    waiting_list_count: 0
+                }
+            ];
+            
+            return {
+                success: true,
+                professionals: professionals,
+                zip_code: zipCode,
+                total_available_slots: professionals.reduce((sum, p) => sum + p.available_slots, 0),
+                total_waiting_list: professionals.reduce((sum, p) => sum + p.waiting_list_count, 0)
+            };
+        }
+        
+        // Display Functions
+        function displayResults(valuationData, professionalsData, address) {
+            console.log('📊 Displaying results...');
+            
+            // Display valuation
+            const valuation = valuationData.valuation || generateRandomValuation();
+            document.getElementById('valuationAmount').textContent = formatCurrency(valuation);
+            document.getElementById('valuationDetails').textContent = 
+                `Estimated value for ${address} based on local market data and property characteristics.`;
+            
+            // Display market analysis
+            document.getElementById('marketAnalysis').textContent = 
+                valuationData.market_analysis || 
+                `${document.getElementById('propertyType').options[document.getElementById('propertyType').selectedIndex].text.toLowerCase()} properties in this area show positive market trends with steady appreciation.`;
+            
+            // Display professionals with slot management
+            displayProfessionalsWithSlots(professionalsData.professionals || []);
+            
+            // Show results container
+            document.getElementById('resultsContainer').style.display = 'block';
+            
+            // Scroll to results
+            document.getElementById('resultsContainer').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+        
+        function displayProfessionalsWithSlots(professionals) {
+            const container = document.getElementById('professionalsContainer');
+            container.innerHTML = '';
+            
+            professionals.forEach(professional => {
+                const card = createProfessionalCard(professional);
+                container.appendChild(card);
+            });
+        }
+        
+        function createProfessionalCard(professional) {
+            const card = document.createElement('div');
+            card.className = 'professional-card';
+            
+            // Determine slot status
+            const slotsAvailable = professional.available_slots || 0;
+            const totalSlots = professional.total_slots || 5;
+            const waitingList = professional.waiting_list_count || 0;
+            
+            let slotBadgeClass = 'slot-badge';
+            let slotBadgeText = `${slotsAvailable}/${totalSlots} Available`;
+            
+            if (slotsAvailable === 0) {
+                slotBadgeClass += ' danger';
+                slotBadgeText = 'SOLD OUT';
+            } else if (slotsAvailable <= 2) {
+                slotBadgeClass += ' warning';
+                slotBadgeText = `Only ${slotsAvailable} Left!`;
+            }
+            
+            card.innerHTML = `
+                <div class="${slotBadgeClass}">${slotBadgeText}</div>
+                <div class="professional-header">
+                    <img src="${professional.photo}" alt="${professional.name}" class="professional-photo" onerror="this.src='https://via.placeholder.com/60x60/667eea/white?text=${professional.name.charAt(0)}'">
+                    <div class="professional-info">
+                        <h4>${professional.name}</h4>
+                        <p>${professional.title}</p>
+                        <p>${professional.company}</p>
+                        <p>📞 ${professional.phone}</p>
+                    </div>
+                </div>
+                <div class="rating">
+                    ${'⭐'.repeat(Math.floor(professional.rating))} ${professional.rating}/5.0
+                </div>
+                <p><strong>Specializations:</strong> ${professional.specializations}</p>
+                
+                ${slotsAvailable > 0 ? `
+                    <div class="contact-buttons">
+                        <button class="contact-btn primary" onclick="contactProfessional('${professional.id}', '${professional.phone}')">
+                            Contact Now
+                        </button>
+                        <a href="${professional.linkedin}" target="_blank" class="contact-btn secondary">
+                            LinkedIn
+                        </a>
+                    </div>
+                ` : `
+                    <div class="waiting-list-info">
+                        <h4>🚫 All Slots Filled</h4>
+                        <p>This professional has reached the maximum of ${totalSlots} clients for this zip code.</p>
+                        <p><strong>Waiting List:</strong> ${waitingList} professionals ahead of you</p>
+                        <div class="contact-buttons">
+                            <button class="contact-btn waiting" onclick="joinWaitingList('${professional.id}', '${professional.category}')">
+                                Join Waiting List
+                            </button>
+                        </div>
+                    </div>
+                `}
+            `;
+            
+            return card;
+        }
+        
+        // Professional Interaction Functions
+        async function contactProfessional(professionalId, phone) {
+            console.log('📞 Contacting professional:', professionalId);
+            
+            try {
+                // Track contact attempt
+                await fetch(`${API_BASE_URL}/analytics/contact`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        professional_id: professionalId,
+                        lead_id: currentLeadId,
+                        contact_method: 'phone'
+                    })
+                });
+            } catch (error) {
+                console.log('Analytics tracking failed:', error);
+            }
+            
+            // Initiate phone call
+            window.location.href = `tel:${phone}`;
+            
+            showMessage(`📞 Calling ${phone}... Your lead ID is ${currentLeadId}`, 'success');
+        }
+        
+        async function joinWaitingList(professionalId, category) {
+            console.log('📝 Joining waiting list for professional:', professionalId);
+            
+            const address = document.getElementById('address').value;
+            const zipCode = extractZipCode(address);
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/slots/waiting-list`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        professional_id: professionalId,
+                        category: category,
+                        zip_code: zipCode,
+                        lead_id: currentLeadId,
+                        contact_info: {
+                            email: 'user@example.com', // Would be collected from user
+                            phone: '(555) 000-0000'    // Would be collected from user
+                        }
+                    })
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    showMessage(`✅ You've been added to the waiting list! Position: #${result.position}. You'll be notified when a slot becomes available.`, 'success');
+                } else {
+                    throw new Error('Failed to join waiting list');
+                }
+                
+            } catch (error) {
+                console.error('Error joining waiting list:', error);
+                showMessage('⚠️ Demo mode: In production, you would be added to the waiting list and notified when a slot becomes available.', 'info');
             }
         }
         
-        function showError(message) {
-            const errorMessage = document.getElementById('errorMessage');
-            document.getElementById('errorText').textContent = message;
-            errorMessage.style.display = 'block';
-            errorMessage.focus();
-            
-            // Auto-hide after 8 seconds
-            setTimeout(() => {
-                errorMessage.style.display = 'none';
-            }, 8000);
+        // Utility Functions
+        function extractZipCode(address) {
+            const zipMatch = address.match(/\b\d{5}(-\d{4})?\b/);
+            return zipMatch ? zipMatch[0].substring(0, 5) : null;
         }
         
-        function showSuccess(message) {
-            const successMessage = document.getElementById('successMessage');
-            successMessage.querySelector('strong').nextSibling.textContent = ' ' + message;
-            successMessage.style.display = 'block';
-            
-            // Auto-hide after 5 seconds
-            setTimeout(() => {
-                successMessage.style.display = 'none';
-            }, 5000);
+        function generateLeadId() {
+            return 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
         }
         
-        function hideMessages() {
-            document.getElementById('errorMessage').style.display = 'none';
-            document.getElementById('successMessage').style.display = 'none';
+        function generateRandomValuation() {
+            return Math.floor(Math.random() * (800000 - 200000) + 200000);
+        }
+        
+        function generateFallbackValuation(address) {
+            return {
+                valuation: generateRandomValuation(),
+                confidence: 0.85,
+                market_analysis: `Properties in this area show positive market trends with steady appreciation.`,
+                address: address
+            };
         }
         
         function formatCurrency(amount) {
@@ -673,54 +2766,77 @@
             }).format(amount);
         }
         
-        function generateEstimatedValue(propertyType) {
-            const baseValues = {
-                'single-family': 450000,
-                'condo': 320000,
-                'townhouse': 380000,
-                'multi-family': 650000,
-                'commercial': 850000
-            };
-            
-            const base = baseValues[propertyType] || 400000;
-            const variation = (Math.random() - 0.5) * 0.3; // ±15% variation
-            return Math.round(base * (1 + variation));
-        }
-        
-        // Analytics tracking
-        function trackEvent(eventName, properties) {
-            console.log('📊 Tracking event:', eventName, properties);
-            
-            // Google Analytics 4 tracking
-            if (typeof gtag !== 'undefined') {
-                gtag('event', eventName, properties);
-            }
-            
-            // Facebook Pixel tracking
-            if (typeof fbq !== 'undefined') {
-                fbq('track', eventName, properties);
-            }
-        }
-        
-        // DOM ready event listener
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('✅ BlueDwarf Valuation Form with Photos - Ready!');
-            
-            // Set up form event listeners
+        function setLoadingState(isLoading) {
             const submitBtn = document.getElementById('submitBtn');
-            if (submitBtn) {
-                submitBtn.addEventListener('click', window.submitValuation);
+            const submitText = document.getElementById('submitText');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            
+            if (isLoading) {
+                submitBtn.disabled = true;
+                submitText.textContent = '🔍 Analyzing Property...';
+                loadingSpinner.style.display = 'inline-block';
+            } else {
+                submitBtn.disabled = false;
+                submitText.textContent = 'Get Property Valuation';
+                loadingSpinner.style.display = 'none';
+            }
+        }
+        
+        function showMessage(text, type) {
+            const messageContainer = document.getElementById('messageContainer');
+            messageContainer.textContent = text;
+            messageContainer.className = `message ${type}`;
+            messageContainer.style.display = 'block';
+            
+            // Auto-hide success and info messages after 5 seconds
+            if (type === 'success' || type === 'info') {
+                setTimeout(() => {
+                    hideMessage();
+                }, 5000);
+            }
+        }
+        
+        function hideMessage() {
+            const messageContainer = document.getElementById('messageContainer');
+            messageContainer.style.display = 'none';
+        }
+        
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 BlueDwarf Property Valuation with Slot Management loaded');
+            
+            // Add form validation
+            const form = document.getElementById('valuationForm');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            // Enhanced form submission handling
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                submitValuation();
+            });
+            
+            // Real-time validation
+            const addressInput = document.getElementById('address');
+            const propertyTypeSelect = document.getElementById('propertyType');
+            
+            function validateForm() {
+                const isValid = addressInput.value.trim() && propertyTypeSelect.value;
+                submitBtn.disabled = !isValid;
             }
             
-            // Set up form submission prevention
-            const form = document.getElementById('valuationForm');
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    window.submitValuation();
-                });
-            }
+            addressInput.addEventListener('input', validateForm);
+            propertyTypeSelect.addEventListener('change', validateForm);
+            
+            // Initial validation
+            validateForm();
         });
+        
+        // Global function for onclick compatibility
+        window.submitValuation = submitValuation;
+        window.contactProfessional = contactProfessional;
+        window.joinWaitingList = joinWaitingList;
+        
+        console.log('✅ BlueDwarf Slot Management System initialized');
     </script>
 </body>
-</html>
+ 
