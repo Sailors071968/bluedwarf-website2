@@ -5,20 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Subscriptions - BlueDwarf.io</title>
     <meta name="description" content="Join BlueDwarf.io as a real estate professional. Get qualified leads and grow your business with our AI-powered property valuation platform.">
-    <meta name="keywords" content="real estate professionals, property valuation, lead generation, real estate agents, mortgage lenders, title companies, real estate attorneys">
     
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Professional Subscriptions - BlueDwarf.io">
-    <meta property="og:description" content="Join BlueDwarf.io as a real estate professional. Get qualified leads and grow your business with our AI-powered property valuation platform.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://bluedwarf.io/pros.html">
-    <meta property="og:image" content="https://bluedwarf.io/images/professionals-og.jpg">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Professional Subscriptions - BlueDwarf.io">
-    <meta name="twitter:description" content="Join BlueDwarf.io as a real estate professional. Get qualified leads and grow your business.">
-    <meta name="twitter:image" content="https://bluedwarf.io/images/professionals-twitter.jpg">
+    <!-- Stripe -->
+    <script src="https://js.stripe.com/v3/"></script>
     
     <style>
         * {
@@ -61,88 +50,68 @@
         }
         
         .pricing-section {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        
-        .section-title {
-            text-align: center;
-            color: #2c3e50;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            color: #6c757d;
-            font-size: 1.2em;
-            margin-bottom: 40px;
-        }
-        
-        .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            margin: 40px 0;
         }
         
         .pricing-card {
-            background: #f8f9fa;
+            background: white;
             border-radius: 15px;
             padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             text-align: center;
+            transition: transform 0.3s ease;
             position: relative;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 3px solid transparent;
         }
         
         .pricing-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
         
         .pricing-card.featured {
-            border-color: #28a745;
+            border: 3px solid #ffd700;
             transform: scale(1.05);
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
         
         .pricing-card.featured::before {
-            content: "MOST POPULAR";
+            content: 'Most Popular';
             position: absolute;
             top: -15px;
             left: 50%;
             transform: translateX(-50%);
-            background: #28a745;
-            color: white;
+            background: #ffd700;
+            color: #333;
             padding: 8px 20px;
             border-radius: 20px;
-            font-size: 0.8em;
             font-weight: bold;
-            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+            font-size: 0.9em;
         }
         
         .plan-name {
-            font-size: 1.5em;
+            font-size: 1.8em;
             font-weight: bold;
-            color: #2c3e50;
             margin-bottom: 10px;
+            color: #333;
         }
         
         .plan-price {
             font-size: 3em;
             font-weight: bold;
-            color: #27ae60;
+            color: #667eea;
             margin-bottom: 5px;
         }
         
+        .plan-price::before {
+            content: '$';
+            font-size: 0.6em;
+            vertical-align: top;
+        }
+        
         .plan-period {
-            color: #6c757d;
-            margin-bottom: 30px;
-            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 20px;
         }
         
         .plan-features {
@@ -152,633 +121,277 @@
         }
         
         .plan-features li {
-            padding: 12px 0;
-            border-bottom: 1px solid #e9ecef;
-            color: #495057;
-            font-size: 1em;
-        }
-        
-        .plan-features li:last-child {
-            border-bottom: none;
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
         }
         
         .plan-features li::before {
-            content: "✓";
-            color: #28a745;
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
             font-weight: bold;
-            margin-right: 12px;
-            font-size: 1.2em;
         }
         
         .subscribe-btn {
-            background: linear-gradient(135deg, #28a745, #20c997);
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
             padding: 15px 30px;
-            border-radius: 50px;
+            border-radius: 25px;
             font-size: 1.1em;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
             width: 100%;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
         
         .subscribe-btn:hover {
-            background: linear-gradient(135deg, #20c997, #28a745);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
         
-        .subscribe-btn:active {
-            transform: translateY(0);
+        .subscribe-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
         }
         
-        .benefits-section {
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
             background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-left: 4px solid #4CAF50;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: none;
         }
         
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .benefit-item {
-            text-align: center;
-            padding: 20px;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-        
-        .benefit-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .benefit-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
-        }
-        
-        .benefit-title {
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        
-        .benefit-description {
-            color: #6c757d;
-            line-height: 1.6;
-        }
-        
-        .stats-section {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
-            text-align: center;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .stat-item {
-            padding: 20px;
-        }
-        
-        .stat-number {
-            font-size: 3em;
-            font-weight: bold;
-            color: #3498db;
-            margin-bottom: 10px;
-        }
-        
-        .stat-label {
-            font-size: 1.1em;
-            opacity: 0.9;
-        }
-        
-        .testimonials-section {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .testimonial-item {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 4px solid #3498db;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            color: #495057;
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-        
-        .testimonial-author {
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        
-        .testimonial-role {
-            color: #6c757d;
-            font-size: 0.9em;
-        }
-        
-        .cta-section {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        
-        .cta-title {
-            font-size: 2.5em;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-        
-        .cta-description {
-            font-size: 1.2em;
-            color: #6c757d;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .cta-btn {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-            color: white;
-            border: none;
-            padding: 20px 40px;
-            border-radius: 50px;
-            font-size: 1.3em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .cta-btn:hover {
-            background: linear-gradient(135deg, #c0392b, #e74c3c);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.4);
-            color: white;
-            text-decoration: none;
-        }
-        
-        .footer {
-            background: rgba(0,0,0,0.1);
-            color: white;
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 40px;
-            border-radius: 20px;
-        }
-        
-        .footer p {
-            margin-bottom: 10px;
-        }
-        
-        .footer a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        
-        .footer a:hover {
-            text-decoration: underline;
+        .notification.error {
+            border-left-color: #f44336;
         }
         
         @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
             .header h1 {
                 font-size: 2em;
-            }
-            
-            .header p {
-                font-size: 1.1em;
-            }
-            
-            .pricing-grid {
-                grid-template-columns: 1fr;
             }
             
             .pricing-card.featured {
                 transform: none;
             }
             
-            .plan-price {
-                font-size: 2.5em;
+            .container {
+                padding: 10px;
             }
-            
-            .cta-title {
-                font-size: 2em;
-            }
-            
-            .section-title {
-                font-size: 2em;
-            }
-            
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Animation classes */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🏠 Join BlueDwarf Professionals</h1>
-            <p>Get qualified leads and grow your real estate business with our AI-powered platform that delivers 95% accurate property valuations</p>
+            <h1>Join BlueDwarf Professional Network</h1>
+            <p>Get qualified leads, grow your business, and increase your revenue with our AI-powered property valuation platform.</p>
         </div>
         
-        <div class="pricing-section fade-in">
-            <h2 class="section-title">Choose Your Plan</h2>
-            <p class="section-subtitle">Select the perfect plan to grow your real estate business</p>
+        <div class="pricing-section">
+            <div class="pricing-card">
+                <div class="plan-name">Starter</div>
+                <div class="plan-price">19</div>
+                <div class="plan-period">per month</div>
+                <ul class="plan-features">
+                    <li>Up to 10 property valuations per month</li>
+                    <li>Basic market analytics</li>
+                    <li>Email support</li>
+                    <li>Mobile app access</li>
+                    <li>Lead generation tools</li>
+                </ul>
+                <button class="subscribe-btn" onclick="createSubscription('starter')">
+                    Start with Starter
+                </button>
+            </div>
             
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="plan-name">Starter</div>
-                    <div class="plan-price">$19</div>
-                    <div class="plan-period">per month</div>
-                    <ul class="plan-features">
-                        <li>Up to 50 property valuations</li>
-                        <li>Basic lead notifications</li>
-                        <li>Email support</li>
-                        <li>Standard listing placement</li>
-                        <li>Basic analytics dashboard</li>
-                        <li>Professional profile page</li>
-                        <li>Contact form integration</li>
-                    </ul>
-                    <button class="subscribe-btn" onclick="subscribeToPlan('starter')">Start Free Trial</button>
-                </div>
-                
-                <div class="pricing-card featured">
-                    <div class="plan-name">Professional</div>
-                    <div class="plan-price">$47</div>
-                    <div class="plan-period">per month</div>
-                    <ul class="plan-features">
-                        <li>Unlimited property valuations</li>
-                        <li>Priority lead notifications</li>
-                        <li>Priority email support</li>
-                        <li>Enhanced listing placement</li>
-                        <li>Advanced analytics dashboard</li>
-                        <li>Lead management tools</li>
-                        <li>Custom profile features</li>
-                        <li>Review management system</li>
-                        <li>Mobile app access</li>
-                    </ul>
-                    <button class="subscribe-btn" onclick="subscribeToPlan('professional')">Start Free Trial</button>
-                </div>
-                
-                <div class="pricing-card">
-                    <div class="plan-name">Enterprise</div>
-                    <div class="plan-price">$97</div>
-                    <div class="plan-period">per month</div>
-                    <ul class="plan-features">
-                        <li>Everything in Professional</li>
-                        <li>White-label access</li>
-                        <li>API integration</li>
-                        <li>Priority phone support</li>
-                        <li>Featured listing placement</li>
-                        <li>Custom branding options</li>
-                        <li>Dedicated account manager</li>
-                        <li>Advanced reporting suite</li>
-                        <li>Team collaboration tools</li>
-                        <li>Custom integrations</li>
-                    </ul>
-                    <button class="subscribe-btn" onclick="subscribeToPlan('enterprise')">Contact Sales</button>
-                </div>
+            <div class="pricing-card featured">
+                <div class="plan-name">Professional</div>
+                <div class="plan-price">47</div>
+                <div class="plan-period">per month</div>
+                <ul class="plan-features">
+                    <li>Unlimited property valuations</li>
+                    <li>Advanced market analytics</li>
+                    <li>Priority support</li>
+                    <li>Professional network access</li>
+                    <li>Advanced lead generation</li>
+                    <li>Custom reports</li>
+                    <li>CRM integration</li>
+                </ul>
+                <button class="subscribe-btn" onclick="createSubscription('professional')">
+                    Go Professional
+                </button>
+            </div>
+            
+            <div class="pricing-card">
+                <div class="plan-name">Enterprise</div>
+                <div class="plan-price">97</div>
+                <div class="plan-period">per month</div>
+                <ul class="plan-features">
+                    <li>Everything in Professional</li>
+                    <li>White-label platform access</li>
+                    <li>API integration</li>
+                    <li>Dedicated account manager</li>
+                    <li>Custom branding options</li>
+                    <li>Advanced lead scoring</li>
+                    <li>Priority customer support</li>
+                </ul>
+                <button class="subscribe-btn" onclick="createSubscription('enterprise')">
+                    Scale with Enterprise
+                </button>
             </div>
         </div>
         
-        <div class="benefits-section fade-in">
-            <h2 class="section-title">Why Choose BlueDwarf?</h2>
-            
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <div class="benefit-icon">🎯</div>
-                    <div class="benefit-title">Qualified Leads</div>
-                    <div class="benefit-description">Receive high-quality leads from users actively seeking real estate services in your area</div>
-                </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-icon">📊</div>
-                    <div class="benefit-title">95% Accuracy</div>
-                    <div class="benefit-description">Our AI delivers more accurate property valuations than Zillow, building trust with your clients</div>
-                </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-icon">🚀</div>
-                    <div class="benefit-title">Instant Notifications</div>
-                    <div class="benefit-description">Get notified immediately when potential clients request services in your area</div>
-                </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-icon">💼</div>
-                    <div class="benefit-title">Professional Profile</div>
-                    <div class="benefit-description">Showcase your expertise with a comprehensive professional profile and client reviews</div>
-                </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-icon">📱</div>
-                    <div class="benefit-title">Mobile Optimized</div>
-                    <div class="benefit-description">Access your leads and manage your business from anywhere with our mobile-optimized platform</div>
-                </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-icon">🔒</div>
-                    <div class="benefit-title">Secure & Compliant</div>
-                    <div class="benefit-description">Your data and client information are protected with enterprise-grade security measures</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="stats-section fade-in">
-            <h2 style="font-size: 2.5em; margin-bottom: 20px;">The Numbers Don't Lie</h2>
-            
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">40%</div>
-                    <div class="stat-label">Average Revenue Increase</div>
-                </div>
-                
-                <div class="stat-item">
-                    <div class="stat-number">3.2x</div>
-                    <div class="stat-label">More Qualified Leads</div>
-                </div>
-                
-                <div class="stat-item">
-                    <div class="stat-number">85%</div>
-                    <div class="stat-label">Lead Conversion Rate</div>
-                </div>
-                
-                <div class="stat-item">
-                    <div class="stat-number">95%</div>
-                    <div class="stat-label">Valuation Accuracy</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="testimonials-section fade-in">
-            <h2 class="section-title">What Our Professionals Say</h2>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-item">
-                    <div class="testimonial-text">"BlueDwarf has transformed my business. I'm getting 3x more qualified leads and my clients trust the accurate valuations. Best investment I've made!"</div>
-                    <div class="testimonial-author">Sarah Johnson</div>
-                    <div class="testimonial-role">Real Estate Agent, Dallas TX</div>
-                </div>
-                
-                <div class="testimonial-item">
-                    <div class="testimonial-text">"The lead quality is outstanding. Every lead I receive is genuinely interested and ready to move forward. My conversion rate has never been higher."</div>
-                    <div class="testimonial-author">Michael Chen</div>
-                    <div class="testimonial-role">Mortgage Lender, Los Angeles CA</div>
-                </div>
-                
-                <div class="testimonial-item">
-                    <div class="testimonial-text">"As a real estate attorney, I appreciate the professional quality of the platform. Clients come to me already informed and ready to proceed."</div>
-                    <div class="testimonial-author">Jennifer Martinez</div>
-                    <div class="testimonial-role">Real Estate Attorney, Miami FL</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="cta-section fade-in">
-            <h2 class="cta-title">Ready to Grow Your Business?</h2>
-            <p class="cta-description">Join thousands of real estate professionals who are already growing their business with BlueDwarf.io</p>
-            <a href="#" class="cta-btn" onclick="subscribeToPlan('professional')">Start Your Free Trial Today</a>
-        </div>
-        
-        <div class="footer">
-            <p>&copy; 2024 BlueDwarf.io - All Rights Reserved</p>
-            <p>
-                <a href="/">Home</a> | 
-                <a href="/privacy">Privacy Policy</a> | 
-                <a href="/terms">Terms of Service</a> | 
-                <a href="/contact">Contact Us</a>
-            </p>
-            <p>Questions? Email us at <a href="mailto:info@bluedwarf.io">info@bluedwarf.io</a></p>
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Processing your subscription...</p>
         </div>
     </div>
     
+    <div class="notification" id="notification">
+        <span id="notification-text"></span>
+    </div>
+
     <script>
-        function subscribeToPlan(planType) {
-            // Track subscription attempt
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'subscription_attempt', {
-                    plan_type: planType,
-                    page: 'pros',
-                    value: planType === 'starter' ? 19 : planType === 'professional' ? 47 : 97
-                });
+        // Initialize Stripe with your publishable key
+        const stripe = Stripe('pk_test_51Rj0u0QUJnnB4zt1qOBckCXCbm9ERTiyyzys0QvTfQlygHQqckWomTUi0pzNNQOYiVb2ReEpOnMaJovnu49HMXpH006HnZqJfm');
+
+        // Subscription plans
+        const plans = {
+            starter: { price: 19, name: 'Starter Plan' },
+            professional: { price: 47, name: 'Professional Plan' },
+            enterprise: { price: 97, name: 'Enterprise Plan' }
+        };
+
+        async function createSubscription(planType) {
+            const plan = plans[planType];
+            if (!plan) {
+                showNotification('Invalid plan selected', 'error');
+                return;
             }
-            
-            // Show subscription modal or redirect
-            showSubscriptionModal(planType);
-        }
-        
-        function showSubscriptionModal(planType) {
-            const planDetails = {
-                starter: { name: 'Starter', price: 19, features: 'Basic features for growing professionals' },
-                professional: { name: 'Professional', price: 47, features: 'Advanced features for established professionals' },
-                enterprise: { name: 'Enterprise', price: 97, features: 'Premium features for large teams' }
-            };
-            
-            const plan = planDetails[planType];
-            
-            const modal = document.createElement('div');
-            modal.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0,0,0,0.8);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                z-index: 1000;
-            `;
-            
-            modal.innerHTML = `
-                <div style="
-                    background: white;
-                    padding: 40px;
-                    border-radius: 20px;
-                    max-width: 500px;
-                    text-align: center;
-                    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-                ">
-                    <h2 style="color: #2c3e50; margin-bottom: 20px;">Subscribe to ${plan.name} Plan</h2>
-                    <p style="color: #6c757d; margin-bottom: 20px; font-size: 1.1em;">$${plan.price}/month</p>
-                    <p style="color: #495057; margin-bottom: 30px;">${plan.features}</p>
-                    
-                    <div style="margin-bottom: 30px;">
-                        <p style="color: #28a745; font-weight: bold; margin-bottom: 15px;">🎉 Special Launch Offer!</p>
-                        <p style="color: #6c757d;">Get your first month FREE when you sign up today.</p>
-                    </div>
-                    
-                    <div style="display: flex; gap: 15px; justify-content: center;">
-                        <button onclick="proceedToCheckout('${planType}')" style="
-                            background: linear-gradient(135deg, #28a745, #20c997);
-                            color: white;
-                            border: none;
-                            padding: 15px 30px;
-                            border-radius: 50px;
-                            font-weight: bold;
-                            cursor: pointer;
-                            font-size: 1em;
-                        ">Start Free Trial</button>
-                        
-                        <button onclick="closeModal()" style="
-                            background: #6c757d;
-                            color: white;
-                            border: none;
-                            padding: 15px 30px;
-                            border-radius: 50px;
-                            font-weight: bold;
-                            cursor: pointer;
-                            font-size: 1em;
-                        ">Maybe Later</button>
-                    </div>
-                    
-                    <p style="color: #6c757d; font-size: 0.9em; margin-top: 20px;">
-                        No commitment. Cancel anytime. Secure payment processing.
-                    </p>
-                </div>
-            `;
-            
-            document.body.appendChild(modal);
-            
-            // Close modal when clicking outside
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    closeModal();
-                }
-            });
-            
-            window.closeModal = function() {
-                document.body.removeChild(modal);
-            };
-            
-            window.proceedToCheckout = function(planType) {
-                // Track checkout initiation
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'begin_checkout', {
-                        plan_type: planType,
-                        value: planDetails[planType].price
-                    });
-                }
+
+            try {
+                // Show loading
+                showLoading(true);
                 
-                // For now, show coming soon message
-                alert(`Thank you for your interest in the ${planDetails[planType].name} plan! Our subscription system is launching soon. Please contact us at info@bluedwarf.io to get early access and secure your first month free.`);
-                closeModal();
+                // Disable all buttons
+                const buttons = document.querySelectorAll('.subscribe-btn');
+                buttons.forEach(btn => {
+                    btn.disabled = true;
+                    btn.textContent = 'Processing...';
+                });
+
+                // For demo purposes, simulate checkout process
+                // In production, this would call your backend to create a Stripe checkout session
+                await simulateCheckout(plan, planType);
+
+            } catch (error) {
+                console.error('Subscription error:', error);
+                showNotification('Failed to process subscription. Please try again.', 'error');
                 
-                // Future: Redirect to actual Stripe checkout
-                // window.location.href = `/checkout/${planType}`;
-            };
+                // Re-enable buttons
+                const buttons = document.querySelectorAll('.subscribe-btn');
+                buttons.forEach((btn, index) => {
+                    btn.disabled = false;
+                    const planNames = ['Start with Starter', 'Go Professional', 'Scale with Enterprise'];
+                    btn.textContent = planNames[index];
+                });
+            } finally {
+                showLoading(false);
+            }
         }
-        
-        // Add smooth scrolling and animations
-        document.addEventListener('DOMContentLoaded', function() {
-            // Intersection Observer for fade-in animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
+
+        async function simulateCheckout(plan, planType) {
+            // Simulate API call delay
+            await new Promise(resolve => setTimeout(resolve, 2000));
             
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, observerOptions);
+            // For demo purposes, show success message
+            // In production, this would redirect to Stripe Checkout
+            showNotification(`Successfully initiated ${plan.name} subscription for $${plan.price}/month!`, 'success');
             
-            // Observe all fade-in elements
-            document.querySelectorAll('.fade-in').forEach(el => {
-                observer.observe(el);
+            // Track the subscription attempt
+            console.log(`Subscription attempt: ${plan.name} - $${plan.price}/month`);
+            
+            // In production, you would redirect to Stripe Checkout like this:
+            /*
+            const response = await fetch('/create-checkout-session', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    planType: planType,
+                    priceId: `price_${planType}_monthly`
+                })
             });
             
-            // Add staggered animation to pricing cards
-            const pricingCards = document.querySelectorAll('.pricing-card');
-            pricingCards.forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.2}s`;
+            const { sessionId } = await response.json();
+            
+            const { error } = await stripe.redirectToCheckout({
+                sessionId: sessionId
             });
             
-            // Add hover effects to benefit items
-            const benefitItems = document.querySelectorAll('.benefit-item');
-            benefitItems.forEach(item => {
-                item.addEventListener('mouseenter', function() {
-                    this.style.background = 'linear-gradient(135deg, #f8f9fa, #e9ecef)';
-                });
-                
-                item.addEventListener('mouseleave', function() {
-                    this.style.background = 'transparent';
-                });
-            });
-        });
-        
-        // Track page views
-        if (typeof gtag !== 'undefined') {
-            gtag('config', 'GA_MEASUREMENT_ID', {
-                page_title: 'Professional Subscriptions',
-                page_location: window.location.href
-            });
+            if (error) {
+                throw new Error(error.message);
+            }
+            */
         }
+
+        function showLoading(show) {
+            const loading = document.getElementById('loading');
+            loading.style.display = show ? 'block' : 'none';
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const text = document.getElementById('notification-text');
+            
+            text.textContent = message;
+            notification.className = `notification ${type}`;
+            notification.style.display = 'block';
+            
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 5000);
+        }
+
+        // Re-enable buttons after demo
+        setTimeout(() => {
+            const buttons = document.querySelectorAll('.subscribe-btn');
+            buttons.forEach((btn, index) => {
+                btn.disabled = false;
+                const planNames = ['Start with Starter', 'Go Professional', 'Scale with Enterprise'];
+                btn.textContent = planNames[index];
+            });
+        }, 3000);
     </script>
 </body>
 </html>
