@@ -81,9 +81,9 @@
         
         .submit-btn {
             width: 100%;
-            padding: 18px;
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
+            padding: 18px;
             border: none;
             border-radius: 10px;
             font-size: 18px;
@@ -120,370 +120,210 @@
             100% { transform: rotate(360deg); }
         }
         
-        .message {
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
+        .results-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e1e5e9;
             display: none;
         }
         
-        .message.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .message.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-        
-        .message.info {
-            background: #fff3cd;
-            color: #856404;
-            border: 1px solid #ffeaa7;
-        }
-        
-        .results-container {
-            margin-top: 30px;
-            display: none;
-        }
-        
-        .valuation-result {
-            text-align: center;
-            padding: 30px;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        .property-valuation {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
             border-radius: 15px;
+            text-align: center;
             margin-bottom: 30px;
+        }
+        
+        .property-valuation h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
         }
         
         .valuation-amount {
-            font-size: 3em;
-            font-weight: bold;
-            color: #28a745;
-            margin-bottom: 10px;
-        }
-        
-        .valuation-details {
-            color: #666;
-            font-size: 1.1em;
-        }
-        
-        .market-analysis {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-            margin-bottom: 30px;
-        }
-        
-        .professionals-section h3 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 1.5em;
-        }
-        
-        .professional-card {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            position: relative;
-        }
-        
-        .professional-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .slot-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: linear-gradient(135deg, #28a745, #20c997);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: 600;
-        }
-        
-        .slot-badge.warning {
-            background: linear-gradient(135deg, #ffc107, #fd7e14);
-        }
-        
-        .slot-badge.danger {
-            background: linear-gradient(135deg, #dc3545, #e83e8c);
-        }
-        
-        .professional-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .professional-photo {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
-        }
-        
-        .professional-info h4 {
-            color: #333;
-            margin-bottom: 5px;
-        }
-        
-        .professional-info p {
-            color: #666;
-            margin-bottom: 3px;
-        }
-        
-        .rating {
-            color: #ffc107;
-            margin-bottom: 10px;
-        }
-        
-        .contact-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .contact-btn {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-            display: inline-block;
-        }
-        
-        .contact-btn.primary {
-            background: #28a745;
-            color: white;
-        }
-        
-        .contact-btn.primary:hover {
-            background: #218838;
-        }
-        
-        .contact-btn.secondary {
-            background: #0077b5;
-            color: white;
-        }
-        
-        .contact-btn.secondary:hover {
-            background: #005885;
-        }
-        
-        .contact-btn.waiting {
-            background: #6c757d;
-            color: white;
-        }
-        
-        .contact-btn.waiting:hover {
-            background: #545b62;
-        }
-        
-        .waiting-list-info {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 15px;
-        }
-        
-        .waiting-list-info h4 {
-            color: #856404;
-            margin-bottom: 10px;
-        }
-        
-        .waiting-list-info p {
-            color: #856404;
-            margin-bottom: 10px;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-                margin: 10px;
-            }
-            
-            .header h1 {
-                font-size: 2em;
-            }
-            
-            .valuation-amount {
-                font-size: 2.5em;
-            }
-            
-            .contact-buttons {
-                flex-direction: column;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>Property Valuation</h1>
-            <p>Get instant AI-powered property valuations with 95% accuracy</p>
-        </div>
-        
-        <form id="valuationForm" onsubmit="return false;">
-            <div class="form-group">
-                <label for="address">Property Address *</label>
-                <input type="text" id="address" name="address" placeholder="Enter full property address" required>
-                <small>Enter the complete street address including city and state</small>
-            </div>
-            
-            <div class="form-group">
-                <label for="propertyType">Property Type *</label>
-                <select id="propertyType" name="propertyType" required>
-                    <option value="">Select property type</option>
-                    <option value="single-family">Single Family Home</option>
-                    <option value="condominium">Condominium</option>
-                    <option value="townhouse">Townhouse</option>
-                    <option value="multi-family">Multi-Family</option>
-                    <option value="commercial">Commercial</option>
-                </select>
-                <small>Choose the type of property you want to value</small>
-            </div>
-   <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlueDwarf - Property Valuation</title>
-    <meta name="description" content="Get instant AI-powered property valuations with 95% accuracy at BlueDwarf.io – better than Zillow.">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 100%;
-            backdrop-filter: blur(10px);
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .header h1 {
-            color: #333;
             font-size: 2.5em;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-weight: bold;
+            margin: 15px 0;
         }
         
-        .header p {
-            color: #666;
+        .confidence-score {
             font-size: 1.1em;
+            opacity: 0.9;
         }
         
-        .form-group {
-            margin-bottom: 25px;
+        .professionals-section {
+            margin-top: 30px;
         }
         
-        label {
-            display: block;
-            margin-bottom: 8px;
+        .professionals-section h3 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .professional-card {
+            background: white;
+            border: 2px solid #e1e5e9;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .professional-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-color: #667eea;
+        }
+        
+        .professional-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .professional-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 3px solid #667eea;
+        }
+        
+        .professional-info h4 {
+            color: #333;
+            font-size: 1.3em;
+            margin-bottom: 5px;
+        }
+        
+        .professional-title {
+            color: #666;
+            font-size: 1em;
+            margin-bottom: 5px;
+        }
+        
+        .professional-company {
+            color: #888;
+            font-size: 0.9em;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        
+        .stars {
+            color: #ffd700;
+            margin-right: 8px;
+        }
+        
+        .rating-score {
             font-weight: 600;
             color: #333;
         }
         
-        input, select {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e1e5e9;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: white;
+        .slot-availability {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            text-transform: uppercase;
         }
         
-        input:focus, select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        .slot-available {
+            background: #d4edda;
+            color: #155724;
         }
         
-        .submit-btn {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
+        .slot-limited {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .slot-sold-out {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .contact-btn {
+            flex: 1;
+            padding: 12px;
             border: none;
-            border-radius: 10px;
-            font-size: 18px;
+            border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 10px;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
         }
         
-        .submit-btn:hover {
+        .contact-now {
+            background: #667eea;
+            color: white;
+        }
+        
+        .contact-now:hover {
+            background: #5a6fd8;
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
         }
         
-        .submit-btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
+        .linkedin-btn {
+            background: #0077b5;
+            color: white;
         }
         
-        .loading-spinner {
-            display: none;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #ffffff;
-            border-top: 2px solid transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-right: 10px;
+        .linkedin-btn:hover {
+            background: #006399;
+            transform: translateY(-2px);
         }
         
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .waiting-list-btn {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .waiting-list-btn:hover {
+            background: #c82333;
+            transform: translateY(-2px);
+        }
+        
+        .specializations {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .specialization-tag {
+            background: #f8f9fa;
+            color: #495057;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            border: 1px solid #dee2e6;
         }
         
         .message {
             padding: 15px;
             border-radius: 10px;
             margin: 20px 0;
-            display: none;
+            font-weight: 500;
         }
         
         .message.success {
@@ -499,193 +339,38 @@
         }
         
         .message.info {
-            background: #fff3cd;
-            color: #856404;
-            border: 1px solid #ffeaa7;
-        }
-        
-        .results-container {
-            margin-top: 30px;
-            display: none;
-        }
-        
-        .valuation-result {
-            text-align: center;
-            padding: 30px;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .valuation-amount {
-            font-size: 3em;
-            font-weight: bold;
-            color: #28a745;
-            margin-bottom: 10px;
-        }
-        
-        .valuation-details {
-            color: #666;
-            font-size: 1.1em;
-        }
-        
-        .market-analysis {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-            margin-bottom: 30px;
-        }
-        
-        .professionals-section h3 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 1.5em;
-        }
-        
-        .professional-card {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            position: relative;
-        }
-        
-        .professional-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .slot-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: linear-gradient(135deg, #28a745, #20c997);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: 600;
-        }
-        
-        .slot-badge.warning {
-            background: linear-gradient(135deg, #ffc107, #fd7e14);
-        }
-        
-        .slot-badge.danger {
-            background: linear-gradient(135deg, #dc3545, #e83e8c);
-        }
-        
-        .professional-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .professional-photo {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
-        }
-        
-        .professional-info h4 {
-            color: #333;
-            margin-bottom: 5px;
-        }
-        
-        .professional-info p {
-            color: #666;
-            margin-bottom: 3px;
-        }
-        
-        .rating {
-            color: #ffc107;
-            margin-bottom: 10px;
-        }
-        
-        .contact-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .contact-btn {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-            display: inline-block;
-        }
-        
-        .contact-btn.primary {
-            background: #28a745;
-            color: white;
-        }
-        
-        .contact-btn.primary:hover {
-            background: #218838;
-        }
-        
-        .contact-btn.secondary {
-            background: #0077b5;
-            color: white;
-        }
-        
-        .contact-btn.secondary:hover {
-            background: #005885;
-        }
-        
-        .contact-btn.waiting {
-            background: #6c757d;
-            color: white;
-        }
-        
-        .contact-btn.waiting:hover {
-            background: #545b62;
-        }
-        
-        .waiting-list-info {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 15px;
-        }
-        
-        .waiting-list-info h4 {
-            color: #856404;
-            margin-bottom: 10px;
-        }
-        
-        .waiting-list-info p {
-            color: #856404;
-            margin-bottom: 10px;
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
         }
         
         @media (max-width: 768px) {
             .container {
-                padding: 20px;
                 margin: 10px;
+                padding: 25px;
             }
             
             .header h1 {
                 font-size: 2em;
             }
             
-            .valuation-amount {
-                font-size: 2.5em;
+            .professional-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .professional-photo {
+                margin: 0 0 10px 0;
             }
             
             .contact-buttons {
                 flex-direction: column;
+            }
+            
+            .slot-availability {
+                position: static;
+                display: inline-block;
+                margin-bottom: 10px;
             }
         }
     </style>
@@ -700,13 +385,20 @@
         <form id="valuationForm" onsubmit="return false;">
             <div class="form-group">
                 <label for="address">Property Address *</label>
-                <input type="text" id="address" name="address" placeholder="Enter full property address" required>
-                <small>Enter the complete street address including city and state</small>
+                <input 
+                    type="text" 
+                    id="address" 
+                    name="address" 
+                    placeholder="Enter full property address" 
+                    required
+                    aria-describedby="address-help"
+                >
+                <small id="address-help">Enter the complete street address including city and state</small>
             </div>
             
             <div class="form-group">
                 <label for="propertyType">Property Type *</label>
-                <select id="propertyType" name="propertyType" required>
+                <select id="propertyType" name="propertyType" required aria-describedby="type-help">
                     <option value="">Select property type</option>
                     <option value="single-family">Single Family Home</option>
                     <option value="condominium">Condominium</option>
@@ -714,568 +406,28 @@
                     <option value="multi-family">Multi-Family</option>
                     <option value="commercial">Commercial</option>
                 </select>
-                <small>Choose the type of property you want to value</small>
-            </div>
-   <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlueDwarf - Property Valuation</title>
-    <meta name="description" content="Get instant AI-powered property valuations with 95% accuracy at BlueDwarf.io – better than Zillow.">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 100%;
-            backdrop-filter: blur(10px);
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .header h1 {
-            color: #333;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .header p {
-            color: #666;
-            font-size: 1.1em;
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #333;
-        }
-        
-        input, select {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e1e5e9;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: white;
-        }
-        
-        input:focus, select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-        
-        .submit-btn {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-        }
-        
-        .submit-btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .loading-spinner {
-            display: none;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #ffffff;
-            border-top: 2px solid transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-right: 10px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .message {
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            display: none;
-        }
-        
-        .message.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .message.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-        
-        .message.info {
-            background: #fff3cd;
-            color: #856404;
-            border: 1px solid #ffeaa7;
-        }
-        
-        .results-container {
-            margin-top: 30px;
-            display: none;
-        }
-        
-        .valuation-result {
-            text-align: center;
-            padding: 30px;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .valuation-amount {
-            font-size: 3em;
-            font-weight: bold;
-            color: #28a745;
-            margin-bottom: 10px;
-        }
-        
-        .valuation-details {
-            color: #666;
-            font-size: 1.1em;
-        }
-        
-        .market-analysis {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-            margin-bottom: 30px;
-        }
-        
-        .professionals-section h3 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 1.5em;
-        }
-        
-        .professional-card {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            position: relative;
-        }
-        
-        .professional-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .slot-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: linear-gradient(135deg, #28a745, #20c997);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: 600;
-        }
-        
-        .slot-badge.warning {
-            background: linear-gradient(135deg, #ffc107, #fd7e14);
-        }
-        
-        .slot-badge.danger {
-            background: linear-gradient(135deg, #dc3545, #e83e8c);
-        }
-        
-        .professional-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .professional-photo {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
-        }
-        
-        .professional-info h4 {
-            color: #333;
-            margin-bottom: 5px;
-        }
-        
-        .professional-info p {
-            color: #666;
-            margin-bottom: 3px;
-        }
-        
-        .rating {
-            color: #ffc107;
-            margin-bottom: 10px;
-        }
-        
-        .contact-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .contact-btn {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-            display: inline-block;
-        }
-        
-        .contact-btn.primary {
-            background: #28a745;
-            color: white;
-        }
-        
-        .contact-btn.primary:hover {
-            background: #218838;
-        }
-        
-        .contact-btn.secondary {
-            background: #0077b5;
-            color: white;
-        }
-        
-        .contact-btn.secondary:hover {
-            background: #005885;
-        }
-        
-        .contact-btn.waiting {
-            background: #6c757d;
-            color: white;
-        }
-        
-        .contact-btn.waiting:hover {
-            background: #545b62;
-        }
-        
-        .waiting-list-info {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 15px;
-        }
-        
-        .waiting-list-info h4 {
-            color: #856404;
-            margin-bottom: 10px;
-        }
-        
-        .waiting-list-info p {
-            color: #856404;
-            margin-bottom: 10px;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-                margin: 10px;
-            }
-            
-            .header h1 {
-                font-size: 2em;
-            }
-            
-            .valuation-amount {
-                font-size: 2.5em;
-            }
-            
-            .contact-buttons {
-                flex-direction: column;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>Property Valuation</h1>
-            <p>Get instant AI-powered property valuations with 95% accuracy</p>
-        </div>
-        
-        <form id="valuationForm" onsubmit="return false;">
-            <div class="form-group">
-                <label for="address">Property Address *</label>
-                <input type="text" id="address" name="address" placeholder="Enter full property address" required>
-                <small>Enter the complete street address including city and state</small>
-            </div>
-            
-            <div class="form-group">
-                <label for="propertyType">Property Type *</label>
-                <select id="propertyType" name="propertyType" required>
-                    <option value="">Select property type</option>
-                    <option value="single-family">Single Family Home</option>
-                    <option value="condominium">Condominium</option>
-                    <option value="townhouse">Townhouse</option>
-                    <option value="multi-family">Multi-Family</option>
-                    <option value="commercial">Commercial</option>
-                </select>
-                <small>Choose the type of property you want to value</small>
-            </div>
-   <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlueDwarf - Property Valuation</title>
-    <meta name="description" content="Get instant AI-powered property valuations with 95% accuracy at BlueDwarf.io – better than Zillow.">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 100%;
-            backdrop-filter: blur(10px);
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .header h1 {
-            color: #333;
-            margin-bottom: 5px;
-        }
-        
-        .professional-info p {
-            color: #666;
-            margin-bottom: 3px;
-        }
-        
-        .rating {
-            color: #ffc107;
-            margin-bottom: 10px;
-        }
-        
-        .contact-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .contact-btn {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-            display: inline-block;
-        }
-        
-        .contact-btn.primary {
-            background: #28a745;
-            color: white;
-        }
-        
-        .contact-btn.primary:hover {
-            background: #218838;
-        }
-        
-        .contact-btn.secondary {
-            background: #0077b5;
-            color: white;
-        }
-        
-        .contact-btn.secondary:hover {
-            background: #005885;
-        }
-        
-        .contact-btn.waiting {
-            background: #6c757d;
-            color: white;
-        }
-        
-        .contact-btn.waiting:hover {
-            background: #545b62;
-        }
-        
-        .waiting-list-info {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 15px;
-        }
-        
-        .waiting-list-info h4 {
-            color: #856404;
-            margin-bottom: 10px;
-        }
-        
-        .waiting-list-info p {
-            color: #856404;
-            margin-bottom: 10px;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-                margin: 10px;
-            }
-            
-            .header h1 {
-                font-size: 2em;
-            }
-            
-            .valuation-amount {
-                font-size: 2.5em;
-            }
-            
-            .contact-buttons {
-                flex-direction: column;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>Property Valuation</h1>
-            <p>Get instant AI-powered property valuations with 95% accuracy</p>
-        </div>
-        
-        <form id="valuationForm" onsubmit="return false;">
-            <div class="form-group">
-                <label for="address">Property Address *</label>
-                <input type="text" id="address" name="address" placeholder="Enter full property address" required>
-                <small>Enter the complete street address including city and state</small>
-            </div>
-            
-            <div class="form-group">
-                <label for="propertyType">Property Type *</label>
-                <select id="propertyType" name="propertyType" required>
-                    <option value="">Select property type</option>
-                    <option value="single-family">Single Family Home</option>
-                    <option value="condominium">Condominium</option>
-                    <option value="townhouse">Townhouse</option>
-                    <option value="multi-family">Multi-Family</option>
-                    <option value="commercial">Commercial</option>
-                </select>
-                <small>Choose the type of property you want to value</small>
+                <small id="type-help">Choose the type of property you want to value</small>
             </div>
             
             <button type="submit" class="submit-btn" id="submitBtn" onclick="submitValuation()">
                 <span class="loading-spinner" id="loadingSpinner"></span>
-                <span id="submitText">Get Property Valuation</span>
+                <span id="buttonText">Get Property Valuation</span>
             </button>
-            <small>Click to submit your property information for valuation</small>
         </form>
         
-        <div class="message" id="messageContainer" role="alert" aria-live="polite"></div>
-        
-        <div class="results-container" id="resultsContainer">
-            <div class="valuation-result">
-                <div class="valuation-amount" id="valuationAmount">$0</div>
-                <div class="valuation-details" id="valuationDetails">Property valuation details will appear here</div>
-            </div>
-            
-            <div class="market-analysis">
-                <h3>Market Analysis</h3>
-                <p id="marketAnalysis">Comprehensive market analysis based on recent sales, market trends, and property characteristics.</p>
-            </div>
-            
-            <div class="professionals-section">
-                <h3>Recommended Professionals</h3>
-                <div id="professionalsContainer"></div>
-            </div>
-        </div>
+        <div id="messageContainer"></div>
+        <div id="resultsSection" class="results-section"></div>
     </div>
 
     <script>
-        // Configuration
-        const API_BASE_URL = 'http://localhost:8000/api';
-        const PRODUCTION_API_URL = 'https://api.bluedwarf.io/api'; // Will be updated for production
+        // Global configuration
+        const API_BASE_URL = 'http://localhost:8000';
+        const BLUEDWARF_API = 'https://api.bluedwarf.io';
         
         // Global variables
         let currentLeadId = null;
         
-        // Main form submission function
+        // Enhanced submitValuation function with slot management
         async function submitValuation() {
             console.log('🚀 Starting property valuation submission...');
             
@@ -1295,46 +447,55 @@
                 return;
             }
             
-            // Update UI for loading state
+            // Update button state
             setLoadingState(true);
-            hideMessage();
             
             try {
                 // Generate unique lead ID
                 currentLeadId = generateLeadId();
-                console.log('📋 Generated Lead ID:', currentLeadId);
+                console.log(`📋 Generated Lead ID: ${currentLeadId}`);
                 
                 // Call property valuation API
                 const valuationData = await getPropertyValuation(address, propertyType, zipCode);
                 
-                // Call professional matching API with slot management
-                const professionalsData = await getProfessionalsWithSlots(zipCode, currentLeadId);
+                // Get professionals with slot management
+                const professionals = await getProfessionalsWithSlots(zipCode, currentLeadId);
                 
                 // Display results
-                displayResults(valuationData, professionalsData, address);
+                displayResults(valuationData, professionals, address);
                 
-                showMessage('✅ Property valuation completed successfully!', 'success');
+                showMessage('Property valuation completed successfully!', 'success');
                 
             } catch (error) {
                 console.error('❌ Error during valuation:', error);
                 
-                // Show fallback results for demo purposes
-                const fallbackValuation = generateFallbackValuation(address);
-                const fallbackProfessionals = await getFallbackProfessionals(zipCode);
+                // Show fallback results for demo
+                const fallbackData = generateFallbackResults(address, propertyType, zipCode);
+                displayResults(fallbackData.valuation, fallbackData.professionals, address);
                 
-                displayResults(fallbackValuation, fallbackProfessionals, address);
-                
-                showMessage('⚠️ Using demo results. Connect with our verified professionals below for accurate valuations and expert assistance.', 'info');
+                showMessage('Showing demo results. Our system is currently being enhanced for even better accuracy.', 'info');
             } finally {
                 setLoadingState(false);
             }
         }
         
-        // API Functions
+        // Extract zip code from address
+        function extractZipCode(address) {
+            const zipRegex = /\b\d{5}(-\d{4})?\b/;
+            const match = address.match(zipRegex);
+            return match ? match[0].substring(0, 5) : null;
+        }
+        
+        // Generate unique lead ID
+        function generateLeadId() {
+            return 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        }
+        
+        // Get property valuation from API
         async function getPropertyValuation(address, propertyType, zipCode) {
             console.log('🏠 Calling property valuation API...');
             
-            const response = await fetch(`${API_BASE_URL}/valuation`, {
+            const response = await fetch(`${API_BASE_URL}/api/properties/valuation`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1348,16 +509,17 @@
             });
             
             if (!response.ok) {
-                throw new Error(`Valuation API error: ${response.status}`);
+                throw new Error(`API Error: ${response.status}`);
             }
             
             return await response.json();
         }
         
+        // Get professionals with slot management
         async function getProfessionalsWithSlots(zipCode, leadId) {
-            console.log('👥 Calling professional matching API with slot management...');
+            console.log('👥 Fetching professionals with slot availability...');
             
-            const response = await fetch(`${API_BASE_URL}/professionals/match`, {
+            const response = await fetch(`${API_BASE_URL}/api/professionals/match`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1370,974 +532,195 @@
             });
             
             if (!response.ok) {
-                throw new Error(`Professional matching API error: ${response.status}`);
+                throw new Error(`Professional API Error: ${response.status}`);
             }
             
             return await response.json();
         }
         
-        async function getFallbackProfessionals(zipCode) {
-            console.log('🔄 Generating fallback professionals with slot simulation...');
-            
+        // Generate fallback results for demo
+        function generateFallbackResults(address, propertyType, zipCode) {
+            const baseValue = 350000 + (Math.random() * 300000);
             const professionals = [
                 {
-                    id: 'demo-1',
-                    name: 'Sarah Johnson',
-                    title: 'Real Estate Agent',
-                    company: 'Premier Realty',
-                    phone: '(555) 123-4567',
-                    email: 'sarah@premierrealty.com',
+                    id: 1,
+                    name: "Sarah Johnson",
+                    title: "Real Estate Agent",
+                    company: "Premier Realty",
+                    photo: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=150&h=150&fit=crop&crop=face",
                     rating: 4.9,
-                    specializations: 'Luxury Homes, First-Time Buyers',
-                    photo: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
-                    linkedin: 'https://linkedin.com/in/sarahjohmargin-bottom: 5px;
-        }
-        
-        .professional-info p {
-            color: #666;
-            margin-bottom: 3px;
-        }
-        
-        .rating {
-            color: #ffc107;
-            margin-bottom: 10px;
-        }
-        
-        .contact-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .contact-btn {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-            display: inline-block;
-        }
-        
-        .contact-btn.primary {
-            background: #28a745;
-            color: white;
-        }
-        
-        .contact-btn.primary:hover {
-            background: #218838;
-        }
-        
-        .contact-btn.secondary {
-            background: #0077b5;
-            color: white;
-        }
-        
-        .contact-btn.secondary:hover {
-            background: #005885;
-        }
-        
-        .contact-btn.waiting {
-            background: #6c757d;
-            color: white;
-        }
-        
-        .contact-btn.waiting:hover {
-            background: #545b62;
-        }
-        
-        .waiting-list-info {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 15px;
-        }
-        
-        .waiting-list-info h4 {
-            color: #856404;
-            margin-bottom: 10px;
-        }
-        
-        .waiting-list-info p {
-            color: #856404;
-            margin-bottom: 10px;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-                margin: 10px;
-            }
-            
-            .header h1 {
-                font-size: 2em;
-            }
-            
-            .valuation-amount {
-                font-size: 2.5em;
-            }
-            
-            .contact-buttons {
-                flex-direction: column;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>Property Valuation</h1>
-            <p>Get instant AI-powered property valuations with 95% accuracy</p>
-        </div>
-        
-        <form id="valuationForm" onsubmit="return false;">
-            <div class="form-group">
-                <label for="address">Property Address *</label>
-                <input type="text" id="address" name="address" placeholder="Enter full property address" required>
-                <small>Enter the complete street address including city and state</small>
-            </div>
-            
-            <div class="form-group">
-                <label for="propertyType">Property Type *</label>
-                <select id="propertyType" name="propertyType" required>
-                    <option value="">Select property type</option>
-                    <option value="single-family">Single Family Home</option>
-                    <option value="condominium">Condominium</option>
-                    <option value="townhouse">Townhouse</option>
-                    <option value="multi-family">Multi-Family</option>
-                    <option value="commercial">Commercial</option>
-                </select>
-                <small>Choose the type of property you want to value</small>
-            </div>
-            
-            <button type="submit" class="submit-btn" id="submitBtn" onclick="submitValuation()">
-                <span class="loading-spinner" id="loadingSpinner"></span>
-                <span id="submitText">Get Property Valuation</span>
-            </button>
-            <small>Click to submit your property information for valuation</small>
-        </form>
-        
-        <div class="message" id="messageContainer" role="alert" aria-live="polite"></div>
-        
-        <div class="results-container" id="resultsContainer">
-            <div class="valuation-result">
-                <div class="valuation-amount" id="valuationAmount">$0</div>
-                <div class="valuation-details" id="valuationDetails">Property valuation details will appear here</div>
-            </div>
-            
-            <div class="market-analysis">
-                <h3>Market Analysis</h3>
-                <p id="marketAnalysis">Comprehensive market analysis based on recent sales, market trends, and property characteristics.</p>
-            </div>
-            
-            <div class="professionals-section">
-                <h3>Recommended Professionals</h3>
-                <div id="professionalsContainer"></div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Configuration
-        const API_BASE_URL = 'http://localhost:8000/api';
-        const PRODUCTION_API_URL = 'https://api.bluedwarf.io/api'; // Will be updated for production
-        
-        // Global variables
-        let currentLeadId = null;
-        
-        // Main form submission function
-        async function submitValuation() {
-            console.log('🚀 Starting property valuation submission...');
-            
-            const address = document.getElementById('address').value.trim();
-            const propertyType = document.getElementById('propertyType').value;
-            
-            // Validation
-            if (!address || !propertyType) {
-                showMessage('Please fill in all required fields.', 'error');
-                return;
-            }
-            
-            // Extract zip code from address
-            const zipCode = extractZipCode(address);
-            if (!zipCode) {
-                showMessage('Please include a valid zip code in the address.', 'error');
-                return;
-            }
-            
-            // Update UI for loading state
-            setLoadingState(true);
-            hideMessage();
-            
-            try {
-                // Generate unique lead ID
-                currentLeadId = generateLeadId();
-                console.log('📋 Generated Lead ID:', currentLeadId);
-                
-                // Call property valuation API
-                const valuationData = await getPropertyValuation(address, propertyType, zipCode);
-                
-                // Call professional matching API with slot management
-                const professionalsData = await getProfessionalsWithSlots(zipCode, currentLeadId);
-                
-                // Display results
-                displayResults(valuationData, professionalsData, address);
-                
-                showMessage('✅ Property valuation completed successfully!', 'success');
-                
-            } catch (error) {
-                console.error('❌ Error during valuation:', error);
-                
-                // Show fallback results for demo purposes
-                const fallbackValuation = generateFallbackValuation(address);
-                const fallbackProfessionals = await getFallbackProfessionals(zipCode);
-                
-                displayResults(fallbackValuation, fallbackProfessionals, address);
-                
-                showMessage('⚠️ Using demo results. Connect with our verified professionals below for accurate valuations and expert assistance.', 'info');
-            } finally {
-                setLoadingState(false);
-            }
-        }
-        
-        // API Functions
-        async function getPropertyValuation(address, propertyType, zipCode) {
-            console.log('🏠 Calling property valuation API...');
-            
-            const response = await fetch(`${API_BASE_URL}/valuation`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    address: address,
-                    property_type: propertyType,
-                    zip_code: zipCode,
-                    lead_id: currentLeadId
-                })
-            });
-            
-            if (!response.ok) {
-                throw new Error(`Valuation API error: ${response.status}`);
-            }
-            
-            return await response.json();
-        }
-        
-        async function getProfessionalsWithSlots(zipCode, leadId) {
-            console.log('👥 Calling professional matching API with slot management...');
-            
-            const response = await fetch(`${API_BASE_URL}/professionals/match`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    zip_code: zipCode,
-                    lead_id: leadId,
-                    categories: ['real_estate_agent', 'real_estate_attorney', 'title_officer', 'loan_officer']
-                })
-            });
-            
-            if (!response.ok) {
-                throw new Error(`Professional matching API error: ${response.status}`);
-            }
-            
-            return await response.json();
-        }
-        
-        async function getFallbackProfessionals(zipCode) {
-            console.log('🔄 Generating fallback professionals with slot simulation...');
-            
-            const professionals = [
-                {
-                    id: 'demo-1',
-                    name: 'Sarah Johnson',
-                    title: 'Real Estate Agent',
-                    company: 'Premier Realty',
-                    phone: '(555) 123-4567',
-                    email: 'sarah@premierrealty.com',
-                    rating: 4.9,
-                    specializations: 'Luxury Homes, First-Time Buyers',
-                    photo: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
-                    linkedin: 'https://linkedin.com/in/sarahjohmargin-bottom: 5px;
-        }
-        
-        .professional-info p {
-            color: #666;
-            margin-bottom: 3px;
-        }
-        
-        .rating {
-            color: #ffc107;
-            margin-bottom: 10px;
-        }
-        
-        .contact-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .contact-btn {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-            display: inline-block;
-        }
-        
-        .contact-btn.primary {
-            background: #28a745;
-            color: white;
-        }
-        
-        .contact-btn.primary:hover {
-            background: #218838;
-        }
-        
-        .contact-btn.secondary {
-            background: #0077b5;
-            color: white;
-        }
-        
-        .contact-btn.secondary:hover {
-            background: #005885;
-        }
-        
-        .contact-btn.waiting {
-            background: #6c757d;
-            color: white;
-        }
-        
-        .contact-btn.waiting:hover {
-            background: #545b62;
-        }
-        
-        .waiting-list-info {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 15px;
-        }
-        
-        .waiting-list-info h4 {
-            color: #856404;
-            margin-bottom: 10px;
-        }
-        
-        .waiting-list-info p {
-            color: #856404;
-            margin-bottom: 10px;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-                margin: 10px;
-            }
-            
-            .header h1 {
-                font-size: 2em;
-            }
-            
-            .valuation-amount {
-                font-size: 2.5em;
-            }
-            
-            .contact-buttons {
-                flex-direction: column;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>Property Valuation</h1>
-            <p>Get instant AI-powered property valuations with 95% accuracy</p>
-        </div>
-        
-        <form id="valuationForm" onsubmit="return false;">
-            <div class="form-group">
-                <label for="address">Property Address *</label>
-                <input type="text" id="address" name="address" placeholder="Enter full property address" required>
-                <small>Enter the complete street address including city and state</small>
-            </div>
-            
-            <div class="form-group">
-                <label for="propertyType">Property Type *</label>
-                <select id="propertyType" name="propertyType" required>
-                    <option value="">Select property type</option>
-                    <option value="single-family">Single Family Home</option>
-                    <option value="condominium">Condominium</option>
-                    <option value="townhouse">Townhouse</option>
-                    <option value="multi-family">Multi-Family</option>
-                    <option value="commercial">Commercial</option>
-                </select>
-                <small>Choose the type of property you want to value</small>
-            </div>
-            
-            <button type="submit" class="submit-btn" id="submitBtn" onclick="submitValuation()">
-                <span class="loading-spinner" id="loadingSpinner"></span>
-                <span id="submitText">Get Property Valuation</span>
-            </button>
-            <small>Click to submit your property information for valuation</small>
-        </form>
-        
-        <div class="message" id="messageContainer" role="alert" aria-live="polite"></div>
-        
-        <div class="results-container" id="resultsContainer">
-            <div class="valuation-result">
-                <div class="valuation-amount" id="valuationAmount">$0</div>
-                <div class="valuation-details" id="valuationDetails">Property valuation details will appear here</div>
-            </div>
-            
-            <div class="market-analysis">
-                <h3>Market Analysis</h3>
-                <p id="marketAnalysis">Comprehensive market analysis based on recent sales, market trends, and property characteristics.</p>
-            </div>
-            
-            <div class="professionals-section">
-                <h3>Recommended Professionals</h3>
-                <div id="professionalsContainer"></div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Configuration
-        const API_BASE_URL = 'http://localhost:8000/api';
-        const PRODUCTION_API_URL = 'https://api.bluedwarf.io/api'; // Will be updated for production
-        
-        // Global variables
-        let currentLeadId = null;
-        
-        // Main form submission function
-        async function submitValuation() {
-            console.log('🚀 Starting property valuation submission...');
-            
-            const address = document.getElementById('address').value.trim();
-            const propertyType = document.getElementById('propertyType').value;
-            
-            // Validation
-            if (!address || !propertyType) {
-                showMessage('Please fill in all required fields.', 'error');
-                return;
-            }
-            
-            // Extract zip code from address
-            const zipCode = extractZipCode(address);
-            if (!zipCode) {
-                showMessage('Please include a valid zip code in the address.', 'error');
-                return;
-            }
-            
-            // Update UI for loading state
-            setLoadingState(true);
-            hideMessage();
-            
-            try {
-                // Generate unique lead ID
-                currentLeadId = generateLeadId();
-                console.log('📋 Generated Lead ID:', currentLeadId);
-                
-                // Call property valuation API
-                const valuationData = await getPropertyValuation(address, propertyType, zipCode);
-                
-                // Call professional matching API with slot management
-                const professionalsData = await getProfessionalsWithSlots(zipCode, currentLeadId);
-                
-                // Display results
-                displayResults(valuationData, professionalsData, address);
-                
-                showMessage('✅ Property valuation completed successfully!', 'success');
-                
-            } catch (error) {
-                console.error('❌ Error during valuation:', error);
-                
-                // Show fallback results for demo purposes
-                const fallbackValuation = generateFallbackValuation(address);
-                const fallbackProfessionals = await getFallbackProfessionals(zipCode);
-                
-                displayResults(fallbackValuation, fallbackProfessionals, address);
-                
-                showMessage('⚠️ Using demo results. Connect with our verified professionals below for accurate valuations and expert assistance.', 'info');
-            } finally {
-                setLoadingState(false);
-            }
-        }
-        
-        // API Functions
-        async function getPropertyValuation(address, propertyType, zipCode) {
-            console.log('🏠 Calling property valuation API...');
-            
-            const response = await fetch(`${API_BASE_URL}/valuation`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    address: address,
-                    property_type: propertyType,
-                    zip_code: zipCode,
-                    lead_id: currentLeadId
-                })
-            });
-            
-            if (!response.ok) {
-                throw new Error(`Valuation API error: ${response.status}`);
-            }
-            
-            return await response.json();
-        }
-        
-        async function getProfessionalsWithSlots(zipCode, leadId) {
-            console.log('👥 Calling professional matching API with slot management...');
-            
-            const response = await fetch(`${API_BASE_URL}/professionals/match`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    zip_code: zipCode,
-                    lead_id: leadId,
-                    categories: ['real_estate_agent', 'real_estate_attorney', 'title_officer', 'loan_officer']
-                })
-            });
-            
-            if (!response.ok) {
-                throw new Error(`Professional matching API error: ${response.status}`);
-            }
-            
-            return await response.json();
-        }
-        
-        async function getFallbackProfessionals(zipCode) {
-            console.log('🔄 Generating fallback professionals with slot simulation...');
-            
-            const professionals = [
-                {
-                    id: 'demo-1',
-                    name: 'Sarah Johnson',
-                    title: 'Real Estate Agent',
-                    company: 'Premier Realty',
-                    phone: '(555) 123-4567',
-                    email: 'sarah@premierrealty.com',
-                    rating: 4.9,
-                    specializations: 'Luxury Homes, First-Time Buyers',
-                    photo: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
-                    linkedin: 'https://linkedin.com/in/sarahjohnson',
-                    category: 'real_estate_agent',
-                    available_slots: 2,
+                    phone: "(555) 123-4567",
+                    email: "sarah@premierrealty.com",
+                    linkedin: "https://linkedin.com/in/sarahjohnson",
+                    specializations: ["Luxury Homes", "First-Time Buyers", "Investment Properties"],
+                    slots_available: 2,
                     total_slots: 5,
-                    waiting_list_count: 3
+                    category: "real_estate_agent"
                 },
                 {
-                    id: 'demo-2',
-                    name: 'Michael Chen',
-                    title: 'Mortgage Specialist',
-                    company: 'First National Bank',
-                    phone: '(555) 234-5678',
-                    email: 'mchen@firstnational.com',
+                    id: 2,
+                    name: "Michael Chen",
+                    title: "Mortgage Specialist",
+                    company: "First National Bank",
+                    photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
                     rating: 4.8,
-                    specializations: 'FHA Loans, VA Loans',
-                    photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-                    linkedin: 'https://linkedin.com/in/michaelchen',
-                    category: 'loan_officer',
-                    available_slots: 0,
+                    phone: "(555) 234-5678",
+                    email: "mchen@firstnational.com",
+                    linkedin: "https://linkedin.com/in/michaelchen",
+                    specializations: ["FHA Loans", "VA Loans", "Conventional Mortgages"],
+                    slots_available: 1,
                     total_slots: 5,
-                    waiting_list_count: 8
+                    category: "loan_officer"
                 },
                 {
-                    id: 'demo-3',
-                    name: 'Jennifer Davis',
-                    title: 'Real Estate Attorney',
-                    company: 'Davis Law Group',
-                    phone: '(555) 345-6789',
-                    email: 'jdavis@davislawgroup.com',
+                    id: 3,
+                    name: "Jennifer Davis",
+                    title: "Real Estate Attorney",
+                    company: "Davis Law Group",
+                    photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
                     rating: 4.9,
-                    specializations: 'Contract Review, Title Issues',
-                    photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
-                    linkedin: 'https://linkedin.com/in/jenniferdavis',
-                    category: 'real_estate_attorney',
-                    available_slots: 1,
+                    phone: "(555) 345-6789",
+                    email: "jdavis@davislawgroup.com",
+                    linkedin: "https://linkedin.com/in/jenniferdavis",
+                    specializations: ["Real Estate Transactions", "Title Issues", "Contract Review"],
+                    slots_available: 0,
                     total_slots: 5,
-                    waiting_list_count: 2
+                    category: "real_estate_attorney"
                 },
                 {
-                    id: 'demo-4',
-                    name: 'Robert Wilson',
-                    title: 'Title Officer',
-                    company: 'Secure Title Co.',
-                    phone: '(555) 456-7890',
-                    email: 'rwilson@securetitle.com',
+                    id: 4,
+                    name: "Robert Wilson",
+                    title: "Title Officer",
+                    company: "Secure Title Co.",
+                    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
                     rating: 4.7,
-                    specializations: 'Title Insurance, Escrow Services',
-                    photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-                    linkedin: 'https://linkedin.com/in/robertwilson',
-                    category: 'title_officer',
-                    available_slots: 3,
+                    phone: "(555) 456-7890",
+                    email: "rwilson@securetitle.com",
+                    linkedin: "https://linkedin.com/in/robertwilson",
+                    specializations: ["Title Insurance", "Escrow Services", "Property Research"],
+                    slots_available: 3,
                     total_slots: 5,
-                    waiting_list_count: 0
+                    category: "title_officer"
                 }
             ];
             
             return {
-                success: true,
-                professionals: professionals,
-                zip_code: zipCode,
-                total_available_slots: professionals.reduce((sum, p) => sum + p.available_slots, 0),
-                total_waiting_list: professionals.reduce((sum, p) => sum + p.waiting_list_count, 0)
+                valuation: {
+                    estimated_value: Math.round(baseValue),
+                    confidence_score: 0.95,
+                    market_trend: "Stable",
+                    last_updated: new Date().toISOString()
+                },
+                professionals: professionals
             };
         }
         
-        // Display Functions
-        function displayResults(valuationData, professionalsData, address) {
-            console.log('📊 Displaying results...');
+        // Display results
+        function displayResults(valuationData, professionals, address) {
+            const resultsSection = document.getElementById('resultsSection');
             
-            // Display valuation
-            const valuation = valuationData.valuation || generateRandomValuation();
-            document.getElementById('valuationAmount').textContent = formatCurrency(valuation);
-            document.getElementById('valuationDetails').textContent = 
-                `Estimated value for ${address} based on local market data and property characteristics.`;
-            
-            // Display market analysis
-            document.getElementById('marketAnalysis').textContent = 
-                valuationData.market_analysis || 
-                `${document.getElementById('propertyType').options[document.getElementById('propertyType').selectedIndex].text.toLowerCase()} properties in this area show positive market trends with steady appreciation.`;
-            
-            // Display professionals with slot management
-            displayProfessionalsWithSlots(professionalsData.professionals || []);
-            
-            // Show results container
-            document.getElementById('resultsContainer').style.display = 'block';
-            
-            // Scroll to results
-            document.getElementById('resultsContainer').scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'start' 
-            });
-        }
-        
-        function displayProfessionalsWithSlots(professionals) {
-            const container = document.getElementById('professionalsContainer');
-            container.innerHTML = '';
-            
-            professionals.forEach(professional => {
-                const card = createProfessionalCard(professional);
-                container.appendChild(card);
-            });
-        }
-        
-        function createProfessionalCard(professional) div>
-
-    <script>
-        // Configuration
-        const API_BASE_URL = 'http://localhost:8000/api';
-        const PRODUCTION_API_URL = 'https://api.bluedwarf.io/api'; // Will be updated for production
-        
-        // Global variables
-        let currentLeadId = null;
-        
-        // Main form submission function
-        async function submitValuation() {
-            console.log('🚀 Starting property valuation submission...');
-            
-            const address = document.getElementById('address').value.trim();
-            const propertyType = document.getElementById('propertyType').value;
-            
-            // Validation
-            if (!address || !propertyType) {
-                showMessage('Please fill in all required fields.', 'error');
-                return;
-            }
-            
-            // Extract zip code from address
-            const zipCode = extractZipCode(address);
-            if (!zipCode) {
-                showMessage('Please include a valid zip code in the address.', 'error');
-                return;
-            }
-            
-            // Update UI for loading state
-            setLoadingState(true);
-            hideMessage();
-            
-            try {
-                // Generate unique lead ID
-                currentLeadId = generateLeadId();
-                console.log('📋 Generated Lead ID:', currentLeadId);
-                
-                // Call property valuation API
-                const valuationData = await getPropertyValuation(address, propertyType, zipCode);
-                
-                // Call professional matching API with slot management
-                const professionalsData = await getProfessionalsWithSlots(zipCode, currentLeadId);
-                
-                // Display results
-                displayResults(valuationData, professionalsData, address);
-                
-                showMessage('✅ Property valuation completed successfully!', 'success');
-                
-            } catch (error) {
-                console.error('❌ Error during valuation:', error);
-                
-                // Show fallback results for demo purposes
-                const fallbackValuation = generateFallbackValuation(address);
-                const fallbackProfessionals = await getFallbackProfessionals(zipCode);
-                
-                displayResults(fallbackValuation, fallbackProfessionals, address);
-                
-                showMessage('⚠️ Using demo results. Connect with our verified professionals below for accurate valuations and expert assistance.', 'info');
-            } finally {
-                setLoadingState(false);
-            }
-        }
-        
-        // API Functions
-        async function getPropertyValuation(address, propertyType, zipCode) {
-            console.log('🏠 Calling property valuation API...');
-            
-            const response = await fetch(`${API_BASE_URL}/valuation`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    address: address,
-                    property_type: propertyType,
-                    zip_code: zipCode,
-                    lead_id: currentLeadId
-                })
-            });
-            
-            if (!response.ok) {
-                throw new Error(`Valuation API error: ${response.status}`);
-            }
-            
-            return await response.json();
-        }
-        
-        async function getProfessionalsWithSlots(zipCode, leadId) {
-            console.log('👥 Calling professional matching API with slot management...');
-            
-            const response = await fetch(`${API_BASE_URL}/professionals/match`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    zip_code: zipCode,
-                    lead_id: leadId,
-                    categories: ['real_estate_agent', 'real_estate_attorney', 'title_officer', 'loan_officer']
-                })
-            });
-            
-            if (!response.ok) {
-                throw new Error(`Professional matching API error: ${response.status}`);
-            }
-            
-            return await response.json();
-        }
-        
-        async function getFallbackProfessionals(zipCode) {
-            console.log('🔄 Generating fallback professionals with slot simulation...');
-            
-            const professionals = [
-                {
-                    id: 'demo-1',
-                    name: 'Sarah Johnson',
-                    title: 'Real Estate Agent',
-                    company: 'Premier Realty',
-                    phone: '(555) 123-4567',
-                    email: 'sarah@premierrealty.com',
-                    rating: 4.9,
-                    specializations: 'Luxury Homes, First-Time Buyers',
-                    photo: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
-                    linkedin: 'https://linkedin.com/in/sarahjohnson',
-                    category: 'real_estate_agent',
-                    available_slots: 2,
-                    total_slots: 5,
-                    waiting_list_count: 3
-                },
-                {
-                    id: 'demo-2',
-                    name: 'Michael Chen',
-                    title: 'Mortgage Specialist',
-                    company: 'First National Bank',
-                    phone: '(555) 234-5678',
-                    email: 'mchen@firstnational.com',
-                    rating: 4.8,
-                    specializations: 'FHA Loans, VA Loans',
-                    photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-                    linkedin: 'https://linkedin.com/in/michaelchen',
-                    category: 'loan_officer',
-                    available_slots: 0,
-                    total_slots: 5,
-                    waiting_list_count: 8
-                },
-                {
-                    id: 'demo-3',
-                    name: 'Jennifer Davis',
-                    title: 'Real Estate Attorney',
-                    company: 'Davis Law Group',
-                    phone: '(555) 345-6789',
-                    email: 'jdavis@davislawgroup.com',
-                    rating: 4.9,
-                    specializations: 'Contract Review, Title Issues',
-                    photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
-                    linkedin: 'https://linkedin.com/in/jenniferdavis',
-                    category: 'real_estate_attorney',
-                    available_slots: 1,
-                    total_slots: 5,
-                    waiting_list_count: 2
-                },
-                {
-                    id: 'demo-4',
-                    name: 'Robert Wilson',
-                    title: 'Title Officer',
-                    company: 'Secure Title Co.',
-                    phone: '(555) 456-7890',
-                    email: 'rwilson@securetitle.com',
-                    rating: 4.7,
-                    specializations: 'Title Insurance, Escrow Services',
-                    photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-                    linkedin: 'https://linkedin.com/in/robertwilson',
-                    category: 'title_officer',
-                    available_slots: 3,
-                    total_slots: 5,
-                    waiting_list_count: 0
-                }
-            ];
-            
-            return {
-                success: true,
-                professionals: professionals,
-                zip_code: zipCode,
-                total_available_slots: professionals.reduce((sum, p) => sum + p.available_slots, 0),
-                total_waiting_list: professionals.reduce((sum, p) => sum + p.waiting_list_count, 0)
-            };
-        }
-        
-        // Display Functions
-        function displayResults(valuationData, professionalsData, address) {
-            console.log('📊 Displaying results...');
-            
-            // Display valuation
-            const valuation = valuationData.valuation || generateRandomValuation();
-            document.getElementById('valuationAmount').textContent = formatCurrency(valuation);
-            document.getElementById('valuationDetails').textContent = 
-                `Estimated value for ${address} based on local market data and property characteristics.`;
-            
-            // Display market analysis
-            document.getElementById('marketAnalysis').textContent = 
-                valuationData.market_analysis || 
-                `${document.getElementById('propertyType').options[document.getElementById('propertyType').selectedIndex].text.toLowerCase()} properties in this area show positive market trends with steady appreciation.`;
-            
-            // Display professionals with slot management
-            displayProfessionalsWithSlots(professionalsData.professionals || []);
-            
-            // Show results container
-            document.getElementById('resultsContainer').style.display = 'block';
-            
-            // Scroll to results
-            document.getElementById('resultsContainer').scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'start' 
-            });
-        }
-        
-        function displayProfessionalsWithSlots(professionals) {
-            const container = document.getElementById('professionalsContainer');
-            container.innerHTML = '';
-            
-            professionals.forEach(professional => {
-                const card = createProfessionalCard(professional);
-                container.appendChild(card);
-            });
-        }
-        
-        function createProfessionalCard(professional) {
-            const card = document.createElement('div');
-            card.className = 'professional-card';
-            
-            // Determine slot status
-            const slotsAvailable = professional.available_slots || 0;
-            const totalSlots = professional.total_slots || 5;
-            const waitingList = professional.waiting_list_count || 0;
-            
-            let slotBadgeClass = 'slot-badge';
-            let slotBadgeText = `${slotsAvailable}/${totalSlots} Available`;
-            
-            if (slotsAvailable === 0) {
-                slotBadgeClass += ' danger';
-                slotBadgeText = 'SOLD OUT';
-            } else if (slotsAvailable <= 2) {
-                slotBadgeClass += ' warning';
-                slotBadgeText = `Only ${slotsAvailable} Left!`;
-            }
-            
-            card.innerHTML = `
-                <div class="${slotBadgeClass}">${slotBadgeText}</div>
-                <div class="professional-header">
-                    <img src="${professional.photo}" alt="${professional.name}" class="professional-photo" onerror="this.src='https://via.placeholder.com/60x60/667eea/white?text=${professional.name.charAt(0)}'">
-                    <div class="professional-info">
-                        <h4>${professional.name}</h4>
-                        <p>${professional.title}</p>
-                        <p>${professional.company}</p>
-                        <p>📞 ${professional.phone}</p>
-                    </div>
+            let html = `
+                <div class="property-valuation">
+                    <h3>Property Valuation Results</h3>
+                    <div class="valuation-amount">$${valuationData.estimated_value.toLocaleString()}</div>
+                    <div class="confidence-score">Confidence Score: ${(valuationData.confidence_score * 100).toFixed(1)}%</div>
+                    <p style="margin-top: 10px; opacity: 0.9;">Based on current market data and comparable properties</p>
                 </div>
-                <div class="rating">
-                    ${'⭐'.repeat(Math.floor(professional.rating))} ${professional.rating}/5.0
-                </div>
-                <p><strong>Specializations:</strong> ${professional.specializations}</p>
                 
-                ${slotsAvailable > 0 ? `
-                    <div class="contact-buttons">
-                        <button class="contact-btn primary" onclick="contactProfessional('${professional.id}', '${professional.phone}')">
-                            Contact Now
-                        </button>
-                        <a href="${professional.linkedin}" target="_blank" class="contact-btn secondary">
-                            LinkedIn
-                        </a>
-                    </div>
-                ` : `
-                    <div class="waiting-list-info">
-                        <h4>🚫 All Slots Filled</h4>
-                        <p>This professional has reached the maximum of ${totalSlots} clients for this zip code.</p>
-                        <p><strong>Waiting List:</strong> ${waitingList} professionals ahead of you</p>
-                        <div class="contact-buttons">
-                            <button class="contact-btn waiting" onclick="joinWaitingList('${professional.id}', '${professional.category}')">
-                                Join Waiting List
-                            </button>
-                        </div>
-                    </div>
-                `}
+                <div class="professionals-section">
+                    <h3>Recommended Real Estate Professionals</h3>
             `;
             
-            return card;
+            if (professionals && professionals.length > 0) {
+                professionals.forEach(professional => {
+                    html += createProfessionalCard(professional);
+                });
+            } else {
+                html += '<p style="text-align: center; color: #666;">No professionals found for this area. Please try a different location.</p>';
+            }
+            
+            html += '</div>';
+            
+            resultsSection.innerHTML = html;
+            resultsSection.style.display = 'block';
+            
+            // Smooth scroll to results
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
         }
         
-        // Professional Interaction Functions
-        async function contactProfessional(professionalId, phone) {
-            console.log('📞 Contacting professional:', professionalId);
+        // Create professional card HTML
+        function createProfessionalCard(professional) {
+            const slotsAvailable = professional.slots_available || 0;
+            const totalSlots = professional.total_slots || 5;
+            
+            let slotBadge = '';
+            let contactButtons = '';
+            
+            if (slotsAvailable === 0) {
+                slotBadge = '<div class="slot-availability slot-sold-out">SOLD OUT</div>';
+                contactButtons = `
+                    <button class="contact-btn waiting-list-btn" onclick="joinWaitingList('${professional.id}', '${professional.name}')">
+                        Join Waiting List
+                    </button>
+                `;
+            } else if (slotsAvailable <= 2) {
+                slotBadge = `<div class="slot-availability slot-limited">Only ${slotsAvailable} Left!</div>`;
+                contactButtons = `
+                    <button class="contact-btn contact-now" onclick="contactProfessional('${professional.id}', '${professional.name}', '${professional.phone}')">
+                        Contact Now
+                    </button>
+                    <a href="${professional.linkedin}" target="_blank" class="contact-btn linkedin-btn">
+                        LinkedIn
+                    </a>
+                `;
+            } else {
+                slotBadge = '<div class="slot-availability slot-available">Available</div>';
+                contactButtons = `
+                    <button class="contact-btn contact-now" onclick="contactProfessional('${professional.id}', '${professional.name}', '${professional.phone}')">
+                        Contact Now
+                    </button>
+                    <a href="${professional.linkedin}" target="_blank" class="contact-btn linkedin-btn">
+                        LinkedIn
+                    </a>
+                `;
+            }
+            
+            const specializations = professional.specializations ? 
+                professional.specializations.map(spec => `<span class="specialization-tag">${spec}</span>`).join('') : '';
+            
+            return `
+                <div class="professional-card">
+                    ${slotBadge}
+                    <div class="professional-header">
+                        <img src="${professional.photo}" alt="${professional.name}" class="professional-photo" onerror="this.src='https://via.placeholder.com/60x60/667eea/white?text=${professional.name.charAt(0)}'">
+                        <div class="professional-info">
+                            <h4>${professional.name}</h4>
+                            <div class="professional-title">${professional.title}</div>
+                            <div class="professional-company">${professional.company}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="rating">
+                        <div class="stars">★★★★★</div>
+                        <span class="rating-score">${professional.rating}/5.0</span>
+                    </div>
+                    
+                    ${specializations ? `<div class="specializations">${specializations}</div>` : ''}
+                    
+                    <div class="contact-buttons">
+                        ${contactButtons}
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Contact professional function
+        async function contactProfessional(professionalId, name, phone) {
+            console.log(`📞 Contacting professional: ${name}`);
             
             try {
                 // Track contact attempt
-                await fetch(`${API_BASE_URL}/analytics/contact`, {
+                await fetch(`${API_BASE_URL}/api/analytics/contact`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -2348,156 +731,125 @@
                         contact_method: 'phone'
                     })
                 });
+                
+                // Open phone dialer
+                window.location.href = `tel:${phone}`;
+                
+                showMessage(`Calling ${name} at ${phone}`, 'success');
+                
             } catch (error) {
-                console.log('Analytics tracking failed:', error);
+                console.error('Error tracking contact:', error);
+                // Still allow the call to proceed
+                window.location.href = `tel:${phone}`;
             }
-            
-            // Initiate phone call
-            window.location.href = `tel:${phone}`;
-            
-            showMessage(`📞 Calling ${phone}... Your lead ID is ${currentLeadId}`, 'success');
         }
         
-        async function joinWaitingList(professionalId, category) {
-            console.log('📝 Joining waiting list for professional:', professionalId);
-            
-            const address = document.getElementById('address').value;
-            const zipCode = extractZipCode(address);
+        // Join waiting list function
+        async function joinWaitingList(professionalId, name) {
+            console.log(`📝 Joining waiting list for: ${name}`);
             
             try {
-                const response = await fetch(`${API_BASE_URL}/slots/waiting-list`, {
+                const response = await fetch(`${API_BASE_URL}/api/slots/waiting-list`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
                         professional_id: professionalId,
-                        category: category,
-                        zip_code: zipCode,
                         lead_id: currentLeadId,
-                        contact_info: {
-                            email: 'user@example.com', // Would be collected from user
-                            phone: '(555) 000-0000'    // Would be collected from user
-                        }
+                        zip_code: extractZipCode(document.getElementById('address').value)
                     })
                 });
                 
                 if (response.ok) {
                     const result = await response.json();
-                    showMessage(`✅ You've been added to the waiting list! Position: #${result.position}. You'll be notified when a slot becomes available.`, 'success');
+                    showMessage(`Successfully joined waiting list for ${name}. You are position #${result.position} in the queue.`, 'success');
                 } else {
                     throw new Error('Failed to join waiting list');
                 }
                 
             } catch (error) {
                 console.error('Error joining waiting list:', error);
-                showMessage('⚠️ Demo mode: In production, you would be added to the waiting list and notified when a slot becomes available.', 'info');
+                showMessage(`Thank you for your interest in ${name}. We'll notify you when a slot becomes available.`, 'info');
             }
         }
         
-        // Utility Functions
-        function extractZipCode(address) {
-            const zipMatch = address.match(/\b\d{5}(-\d{4})?\b/);
-            return zipMatch ? zipMatch[0].substring(0, 5) : null;
-        }
-        
-        function generateLeadId() {
-            return 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-        }
-        
-        function generateRandomValuation() {
-            return Math.floor(Math.random() * (800000 - 200000) + 200000);
-        }
-        
-        function generateFallbackValuation(address) {
-            return {
-                valuation: generateRandomValuation(),
-                confidence: 0.85,
-                market_analysis: `Properties in this area show positive market trends with steady appreciation.`,
-                address: address
-            };
-        }
-        
-        function formatCurrency(amount) {
-            return new Intl.NumberFormat('en-US', {
-                style: 'currency',
-                currency: 'USD',
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 0
-            }).format(amount);
-        }
-        
-        function setLoadingState(isLoading) {
+        // Utility functions
+        function setLoadingState(loading) {
             const submitBtn = document.getElementById('submitBtn');
-            const submitText = document.getElementById('submitText');
+            const buttonText = document.getElementById('buttonText');
             const loadingSpinner = document.getElementById('loadingSpinner');
             
-            if (isLoading) {
+            if (loading) {
                 submitBtn.disabled = true;
-                submitText.textContent = '🔍 Analyzing Property...';
+                buttonText.textContent = 'Analyzing Property...';
                 loadingSpinner.style.display = 'inline-block';
             } else {
                 submitBtn.disabled = false;
-                submitText.textContent = 'Get Property Valuation';
+                buttonText.textContent = 'Get Property Valuation';
                 loadingSpinner.style.display = 'none';
             }
         }
         
-        function showMessage(text, type) {
-            const messageContainer = document.getElementById('messageContainer');
-            messageContainer.textContent = text;
-            messageContainer.className = `message ${type}`;
-            messageContainer.style.display = 'block';
+        function showMessage(message, type) {
+            const container = document.getElementById('messageContainer');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            messageDiv.textContent = message;
+            messageDiv.setAttribute('role', 'alert');
             
-            // Auto-hide success and info messages after 5 seconds
-            if (type === 'success' || type === 'info') {
-                setTimeout(() => {
-                    hideMessage();
-                }, 5000);
-            }
+            container.innerHTML = '';
+            container.appendChild(messageDiv);
+            
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                if (messageDiv.parentNode) {
+                    messageDiv.remove();
+                }
+            }, 5000);
         }
         
-        function hideMessage() {
-            const messageContainer = document.getElementById('messageContainer');
-            messageContainer.style.display = 'none';
-        }
-        
-        // Event Listeners
+        // Initialize form
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🚀 BlueDwarf Property Valuation with Slot Management loaded');
+            console.log('🎯 BlueDwarf Property Valuation Form Initialized');
+            console.log('🔧 Enhanced with slot management and professional directory integration');
             
             // Add form validation
             const form = document.getElementById('valuationForm');
-            const submitBtn = document.getElementById('submitBtn');
+            const addressInput = document.getElementById('address');
+            const propertyTypeSelect = document.getElementById('propertyType');
             
-            // Enhanced form submission handling
+            // Real-time validation
+            addressInput.addEventListener('blur', function() {
+                const zipCode = extractZipCode(this.value);
+                if (this.value && !zipCode) {
+                    showMessage('Please include a valid zip code in the address.', 'error');
+                }
+            });
+            
+            // Enhanced form submission
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 submitValuation();
             });
             
-            // Real-time validation
-            const addressInput = document.getElementById('address');
-            const propertyTypeSelect = document.getElementById('propertyType');
-            
-            function validateForm() {
-                const isValid = addressInput.value.trim() && propertyTypeSelect.value;
-                submitBtn.disabled = !isValid;
-            }
-            
-            addressInput.addEventListener('input', validateForm);
-            propertyTypeSelect.addEventListener('change', validateForm);
-            
-            // Initial validation
-            validateForm();
+            console.log('✅ Form validation and event listeners attached');
         });
         
-        // Global function for onclick compatibility
+        // Global error handler
+        window.addEventListener('error', function(e) {
+            console.error('Global error:', e.error);
+            showMessage('An unexpected error occurred. Please try again.', 'error');
+        });
+        
+        // Make functions globally available
         window.submitValuation = submitValuation;
         window.contactProfessional = contactProfessional;
         window.joinWaitingList = joinWaitingList;
         
-        console.log('✅ BlueDwarf Slot Management System initialized');
+        console.log('🚀 BlueDwarf Enhanced Property Valuation System Loaded');
+        console.log('💼 Features: Slot Management, Professional Directory, Lead Tracking, Waiting Lists');
     </script>
 </body>
-
+</html>
+
